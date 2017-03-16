@@ -4,7 +4,7 @@
   "description": "This is the intercative resume project for Udacity Frontend Nanodegree",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,25 @@
   "bugs": {
     "url": "https://github.com/Phaze1D/Interactive-Resume/issues"
   },
-  "homepage": "https://github.com/Phaze1D/Interactive-Resume#readme"
+  "homepage": "https://github.com/Phaze1D/Interactive-Resume#readme",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "css-loader": "^0.27.3",
+    "file-loader": "^0.10.1",
+    "node-sass": "^4.5.0",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.14.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
+  }
 }

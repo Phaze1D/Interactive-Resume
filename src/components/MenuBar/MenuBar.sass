@@ -1,0 +1,123 @@
+=gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%)
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent)
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent)
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent)
+  background-repeat: repeat-x
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0)
+
+
+
+.mac-menu-bar
+  display: flex
+  align-items: center
+  width: 100%
+  height: 22px
+  padding: 3px 12px
+  background-color: rgb(28,40,59)
+
+.menu-item
+  position: relative
+  height: 100%
+  font-weight: 300
+  font-size: 0.85em
+  text-decoration: none
+  color: white
+  cursor: default
+  padding: 0 10px
+  background-color: transparent
+  border: none
+  outline: none
+
+  &.main
+    font-weight: 600
+
+#apple-logo
+  height: 100%
+
+.terminal-bar
+  +gradient-vertical(#ebebeb, #d3d3d3)
+  width: 100%
+  height: 22px
+  display: flex
+
+.button-list
+  display: flex
+  align-items: center
+  height: 100%
+  list-style: none
+  padding: 0 4px
+  margin: 0
+
+  li
+    position: relative
+    height: 14px
+    width: 14px
+    margin: 0 4px
+
+  button
+    display: block
+    border: none
+    border-radius: 50%
+    border: 1px solid rgba(0, 0, 0, 0.1)
+    height: 14px
+    width: 14px
+    outline: none
+
+  div
+    border-radius: 50%
+    opacity: 0.9
+    position: absolute
+    height: 100%
+    width: 100%
+    top: 0px
+    left: 0px
+    background-repeat: no-repeat
+    background-position: 4px center
+    &:active
+      background-color: rgba(0,0,0,0.3)
+
+
+  &:hover
+    #close
+      div
+        background-size: 6px
+        background-image: url('../../../images/close.png')
+
+    #min
+      div
+        background-size: 8px
+        background-position: center center
+        background-image: url('../../../images/min.png')
+
+    #expand
+      div
+        background-size: 6px
+        background-image: url('../../../images/expand.png')
+
+
+.location-info
+  margin: 0 auto
+  display: flex
+  align-items: center
+
+  h5
+    font-size: 0.8em
+    color: rgb(79,79,79)
+    font-weight: 400
+    margin: 0
+
+.terminal-icon
+  height: auto
+  max-width: 18px
+  margin: 0 5px
+
+
+
+#close
+  background-color: rgb(252, 98, 93)
+
+#min
+  background-color: rgb(254, 192, 65)
+
+#expand
+  background-color: rgb(53, 203, 75)
