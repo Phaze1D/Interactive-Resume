@@ -15,7 +15,7 @@ export default class MenuBar extends React.Component{
         <nav className='mac-menu-bar'>
           <button className='menu-item icon'>
             <img id='apple-logo' src={require('../../../images/apple_logo.svg')} alt='Apple Logo'/>
-            <AppleMenu/>
+            
           </button>
 
           <button className='menu-item main'>
