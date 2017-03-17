@@ -160,6 +160,7 @@ const uiData = {
       title: 'Help',
       hasSearch: true,
       subMenu: [
+        {title: 'Search'},
         {title: 'Terminal Help', span: ''},
         {line: true},
         {title: 'Open man Page for Selection', span: '⌃⌘?', disabled: true},

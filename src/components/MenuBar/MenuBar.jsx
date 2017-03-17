@@ -54,42 +54,16 @@ export default class MenuBar extends React.Component{
 
 
   /**
-  * Creates a single sub navbar menu item
-  * @param {object} sub
-  * @param {integer} subIndex
-  * @return if sub.line is true then a hr element else li element
-  */
-  renderSubItem(sub, subIndex){
-    if(sub.line){
-      return <hr key={subIndex}/>
-    }else{
-      return (
-        <li key={subIndex} className={sub.disabled ? 'disabled' : ''}>
-          {sub.title}
-          <span>{sub.span}</span>
-          {sub.pre && <pre>{sub.pre}</pre>}
-        </li>
-      )
-    }
-  }
-
-
-  /**
   * Creates a single navbar item
   * @param {object} item
   * @param {integer} index
   * @return Single NavBarItem
   */
   renderNavBarItem(item, index){
-
-    // Creating the sub item list
-    const subList = item.subMenu.map(this.renderSubItem.bind(this))
-
     return(
       <NavBarItem
         key={index}
         item={item}
-        subList={subList}
         onClick={this.handleItemClick.bind(this, index)}
         onMouseEnter={this.handleMouseEnter.bind(this, index)}
         isHover={this.state.menuIndex == index}
@@ -147,6 +121,15 @@ const NavBarItem = (props) => {
 
   let dropClasses = classnames({'search': hasSearch})
 
+  // Creating the sub item list
+  const subList = subMenu.map((sub, index) =>
+    <SubNavItem
+      key={index}
+      sub={sub}
+      index={index}
+      isSearch={hasSearch && index == 0}/>
+  )
+
   return(
     <button
       className={itemClasses}
@@ -164,16 +147,44 @@ const NavBarItem = (props) => {
         isHover={props.isHover}
         isClicked={props.isClicked}>
 
-        {hasSearch &&
-          <li>
-            Search
-            <input type='text'/>
-          </li>
-        }
-
-        {props.subList}
+        {subList}
 
       </DropDown>
     </button>
   )
+}
+
+
+/** React Component that represents a single sub nav bar item */
+const SubNavItem = (props) => {
+  const {
+    sub,
+    index,
+    isSearch
+  } = props
+
+  if(sub.line){
+
+    return <hr key={index}/>
+
+  }else if(isSearch){
+
+    return(
+      <li>
+        {sub.title}
+        <input type='text'/>
+      </li>
+    )
+
+  }else{
+
+    return (
+      <li key={index} className={sub.disabled ? 'disabled' : ''}>
+        {sub.title}
+        <span>{sub.span}</span>
+        {sub.pre && <pre>{sub.pre}</pre>}
+      </li>
+    )
+
+  }
 }
