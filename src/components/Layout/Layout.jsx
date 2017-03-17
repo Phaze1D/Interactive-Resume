@@ -13,6 +13,7 @@ export default class Layout extends React.Component{
     return(
       <div>
         <MenuBar/>
+        {this.props.children}
       </div>
     )
   }
