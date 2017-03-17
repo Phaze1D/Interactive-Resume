@@ -1,51 +1,102 @@
 import React from 'react'
 import DropDown from '../DropDown'
+import classnames from 'classnames'
 
 
 
 export default class MenuBar extends React.Component{
   constructor(props){
     super(props)
+    this.state = {menuIndex: -1, isClicked: false}
+
+    this.handleOverlayClick = this.handleOverlayClick.bind(this)
+  }
+
+  handleOverlayClick(event){
+    this.setState({isClicked: false})
+  }
+
+  handleItemClick(index, event){
+    this.setState({isClicked: true, menuIndex: index})
+  }
+
+  handleMouseEnter(index, event){
+    if(this.state.isClicked){
+      this.setState({menuIndex: index})
+    }
   }
 
   render(){
+    let hoverArray = ['','','','','','','']
+    if(this.state.menuIndex >= 0 && this.state.isClicked){
+      hoverArray[this.state.menuIndex] = 'hover'
+    }
 
     return(
       <header>
         <nav className='mac-menu-bar'>
-          <button className='menu-item icon'>
+          {this.state.isClicked && <div className='overlay' onClick={this.handleOverlayClick}></div>}
+          <button
+            className={'menu-item icon '+ hoverArray[0]}
+            onClick={this.handleItemClick.bind(this, 0)}
+            onMouseEnter={this.handleMouseEnter.bind(this, 0)}>
+
             <img id='apple-logo' src={require('../../../images/apple_logo.svg')} alt='Apple Logo'/>
-            <AppleMenu/>
+            <AppleMenu isHover={this.state.menuIndex == 0} isClicked={this.state.isClicked}/>
           </button>
 
-          <button className='menu-item main'>
+          <button
+            className={'menu-item main ' + hoverArray[1]}
+            onClick={this.handleItemClick.bind(this, 1)}
+            onMouseEnter={this.handleMouseEnter.bind(this, 1)}>
+
             Terminal
-            <TerminalMenu/>
+            <TerminalMenu isHover={this.state.menuIndex == 1} isClicked={this.state.isClicked}/>
           </button>
 
-          <button className='menu-item'>
+          <button
+            className={'menu-item ' + hoverArray[2]}
+            onClick={this.handleItemClick.bind(this, 2)}
+            onMouseEnter={this.handleMouseEnter.bind(this, 2)}>
+
             Shell
-            <ShellMenu/>
+            <ShellMenu isHover={this.state.menuIndex == 2} isClicked={this.state.isClicked}/>
           </button>
 
-          <button className='menu-item'>
+          <button
+            className={'menu-item ' + hoverArray[3]}
+            onClick={this.handleItemClick.bind(this, 3)}
+            onMouseEnter={this.handleMouseEnter.bind(this, 3)}>
+
             Edit
-            <EditMenu/>
+            <EditMenu isHover={this.state.menuIndex == 3} isClicked={this.state.isClicked}/>
           </button>
 
-          <button className='menu-item'>
+          <button
+            className={'menu-item ' + hoverArray[4]}
+            onClick={this.handleItemClick.bind(this, 4)}
+            onMouseEnter={this.handleMouseEnter.bind(this, 4)}>
+
             View
-            <ViewMenu/>
+            <ViewMenu isHover={this.state.menuIndex == 4} isClicked={this.state.isClicked}/>
           </button>
 
-          <button className='menu-item'>
+          <button
+            className={'menu-item ' + hoverArray[5]}
+            onClick={this.handleItemClick.bind(this, 5)}
+            onMouseEnter={this.handleMouseEnter.bind(this, 5)}>
+
             Window
-            <WindowMenu/>
+            <WindowMenu isHover={this.state.menuIndex == 5} isClicked={this.state.isClicked}/>
           </button>
 
-          <button className='menu-item'>
+          <button
+            className={'menu-item ' + hoverArray[6]}
+            onClick={this.handleItemClick.bind(this, 6)}
+            onMouseEnter={this.handleMouseEnter.bind(this, 6)}>
+
             Help
-            <HelpMenu/>
+            <HelpMenu isHover={this.state.menuIndex == 6} isClicked={this.state.isClicked}/>
           </button>
         </nav>
 
@@ -70,7 +121,7 @@ export default class MenuBar extends React.Component{
 const AppleMenu = (props) => {
 
   return(
-    <DropDown>
+    <DropDown isHover={props.isHover} isClicked={props.isClicked}>
       <li>About This Mac</li>
       <hr></hr>
       <li>System Preferences...</li>
@@ -95,7 +146,7 @@ const AppleMenu = (props) => {
 const TerminalMenu = (props) => {
 
   return(
-    <DropDown>
+    <DropDown isHover={props.isHover} isClicked={props.isClicked}>
       <li>About Terminal</li>
       <hr></hr>
       <li>Preferences... <span>⌘,</span></li>
@@ -115,7 +166,7 @@ const TerminalMenu = (props) => {
 const ShellMenu = (props) => {
 
   return(
-    <DropDown>
+    <DropDown isHover={props.isHover} isClicked={props.isClicked}>
       <li>New Window <span>▶</span></li>
       <li>New Tab <span>▶</span></li>
       <li>New Command... <span>⇧⌘N</span></li>
@@ -147,7 +198,7 @@ const ShellMenu = (props) => {
 const EditMenu = (props) => {
 
   return(
-    <DropDown>
+    <DropDown isHover={props.isHover} isClicked={props.isClicked}>
       <li>Undo <span>⌘Z</span></li>
       <li>Redo <span>⇧⌘Z</span></li>
       <hr/>
@@ -186,7 +237,7 @@ const EditMenu = (props) => {
 const ViewMenu = (props) => {
 
   return(
-    <DropDown>
+    <DropDown isHover={props.isHover} isClicked={props.isClicked}>
       <li>Show Tab Bar <span>⇧⌘T</span></li>
       <li>Hide Marks</li>
       <hr/>
@@ -219,7 +270,7 @@ const ViewMenu = (props) => {
 const WindowMenu = (props) => {
   let quote = "\`"
   return(
-    <DropDown>
+    <DropDown isHover={props.isHover} isClicked={props.isClicked}>
       <li className='disabled'>Minimize <span>⌘M</span></li>
       <li>Zoom</li>
       <li>Cycle Through Windows <span>⌘{quote}</span></li>
@@ -243,7 +294,7 @@ const WindowMenu = (props) => {
 const HelpMenu = (props) => {
 
   return(
-    <DropDown menuClass='search'>
+    <DropDown menuClass='search' isHover={props.isHover} isClicked={props.isClicked}>
       <li className='search-input-item'>
         Search
         <input type='text'/>

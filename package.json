@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/Phaze1D/Interactive-Resume#readme",
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
     "react-dom": "^15.4.2"
   },
   "devDependencies": {

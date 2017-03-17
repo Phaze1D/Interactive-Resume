@@ -6,6 +6,14 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0)
 
 
+.overlay
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  background-color: transparent
+
 
 .mac-menu-bar
   display: flex
@@ -34,17 +42,16 @@
   &.icon
     padding: 3px 8px
 
-  // &:hover
-  //   background-color: rgb(27, 117, 225)
+  &.hover
+    background-color: rgb(27, 117, 225)
 
-#apple-logo
-  height: 100%
 
 .terminal-bar
   +gradient-vertical(#ebebeb, #d3d3d3)
   width: 100%
   height: 22px
   display: flex
+
 
 .button-list
   display: flex
@@ -128,3 +135,6 @@
 
 #expand
   background-color: rgb(53, 203, 75)
+
+#apple-logo
+  height: 100%
