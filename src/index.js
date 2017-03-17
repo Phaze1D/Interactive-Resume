@@ -1,15 +1,26 @@
 import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from "redux"
+import { uiReducer } from  './reducers/ui_reducer';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
 
+const store = createStore(
+  combineReducers({
+    uiData: uiReducer
+  })
+)
+
 const rootEl = document.getElementById('root');
 const render = Component =>
   ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
+    <Provider store={store}>
+      <AppContainer>
+        <Component />
+      </AppContainer>
+    </Provider>,
     rootEl
   );
 
