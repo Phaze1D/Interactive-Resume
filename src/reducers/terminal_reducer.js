@@ -1,10 +1,7 @@
 
+import { terminalData, commands } from '../data/terminal_data'
 
-const INITIAL_DATA = {
-  history: []
-}
-
-export const terminalReducer = (state = INITIAL_DATA, action) => {
+export const terminalReducer = (state = terminalData, action) => {
   if(action.type === 'COMMAND_ENTERED'){
     return{
       ...state,

@@ -23,7 +23,7 @@ export default class Terminal extends React.Component{
 
     if(event.type === 'keydown' && event.keyCode == 13){
       event.preventDefault()
-      this.props.dispatch(commandEntered(''))
+      this.props.dispatch(commandEntered(event.target.value))
       event.target.value = ''
       event.target.selectionStart = 0
     }else{
