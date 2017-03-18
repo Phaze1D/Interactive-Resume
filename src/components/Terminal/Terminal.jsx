@@ -1,4 +1,5 @@
 import React from 'react'
+import autosize from 'autosize'
 
 
 export default class Terminal extends React.Component{
@@ -7,14 +8,22 @@ export default class Terminal extends React.Component{
     this.handleSelection = this.handleSelection.bind(this)
   }
 
+  componentDidMount() {
+    autosize(document.getElementById('main-textarea'))
+  }
+
   handleSelection(event){
     document.getElementById('caret').style.transform = `translate(${100 * event.target.selectionStart}%, 0)`
+  }
+
+  handleMainClick(event){
+    document.getElementById('main-textarea').focus()
   }
 
   render(){
 
     return(
-      <main>
+      <main onClick={this.handleMainClick}>
           <InputItem
             onChange={this.handleSelection}
             onKeyUp={this.handleSelection}
