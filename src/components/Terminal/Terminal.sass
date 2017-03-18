@@ -1,0 +1,61 @@
+main
+  min-width: 100%
+  min-height: calc(100vh - 44px)
+
+
+.input-item
+  color: white
+  font-family: Menlo-Regular
+  font-size: 0.7em
+  padding: 7px 8px
+
+  p
+    margin: 1em 0 1px
+
+
+.input-area
+  position: relative
+  display: flex
+  align-items: center
+
+  textarea
+    width: 100%
+    padding: 0 8px
+    font-family: Menlo-Regular
+    background-color: transparent
+    border: none
+    resize: none
+    outline: none
+    font-size: 1em
+    color: transparent
+    text-shadow: 0 0 0 rgb(131, 148, 150)
+
+
+.caret
+  position: absolute
+  bottom: 0
+  left: 14.5px
+  height: 13px
+  color: transparent
+  transform: translate(0, 0)
+  background-color: rgb(131, 148, 150)
+  animation: blinker 1s steps(2, start) infinite
+
+
+@keyframes blinker
+  to
+     visibility: hidden
+
+
+
+.yellow
+  color: rgb(213, 169, 64)
+
+.orange
+  color: rgb(253, 133, 61)
+
+.green
+  color: rgb(138, 175, 64)
+
+.purple
+  color: rgb(144, 143, 224)
