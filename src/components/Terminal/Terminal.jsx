@@ -1,7 +1,14 @@
 import React from 'react'
 import autosize from 'autosize'
+import { connect } from 'react-redux'
+import { commandEntered } from '../../actions/terminal_actions'
 
 
+@connect((store) => {
+  return {
+    terminalData: store.terminalData
+  }
+})
 export default class Terminal extends React.Component{
   constructor(props){
     super(props)
@@ -13,7 +20,16 @@ export default class Terminal extends React.Component{
   }
 
   handleSelection(event){
-    document.getElementById('caret').style.transform = `translate(${100 * event.target.selectionStart}%, 0)`
+
+    if(event.type === 'keydown' && event.keyCode == 13){
+      event.preventDefault()
+      this.props.dispatch(commandEntered(''))
+      event.target.value = ''
+      event.target.selectionStart = 0
+    }else{
+      document.getElementById('caret').style.transform = `translate(${100 * event.target.selectionStart}%, 0)`
+    }
+
   }
 
   handleMainClick(event){
@@ -22,13 +38,28 @@ export default class Terminal extends React.Component{
 
   render(){
 
+    const {
+      history
+    } = this.props.terminalData
+
+    const historyList = history.map( (item, index) =>
+      <EnteredItem
+        key={index}
+        command={item.command}
+        result={item.result}/>
+    )
+
+    historyList.push(
+
+    )
+
     return(
       <main onClick={this.handleMainClick}>
-          <EnteredItem/>
-          <InputItem
-            onChange={this.handleSelection}
-            onKeyUp={this.handleSelection}
-            onKeyDown={this.handleSelection}/>
+        {historyList}
+        <InputItem
+          onChange={this.handleSelection}
+          onKeyUp={this.handleSelection}
+          onKeyDown={this.handleSelection}/>
       </main>
     )
   }
@@ -73,8 +104,13 @@ const EnteredItem = (props) => {
       </p>
 
       <div className='input-area'>
-        <span className='close left'>[</span> $ <p>{props.command}</p> <span className='close right'>]</span>
+        <span className='close left'>[</span>
+          $<p>{props.command}</p>
+        <span className='close right'>]</span>
       </div>
+      <pre>
+        {props.result}
+      </pre>
     </div>
   )
 }
