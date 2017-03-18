@@ -108,6 +108,7 @@ const EnteredItem = (props) => {
           $<p>{props.command}</p>
         <span className='close right'>]</span>
       </div>
+
       <pre>
         {props.result}
       </pre>
