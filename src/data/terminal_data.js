@@ -14,9 +14,8 @@ export const terminalData = {
      |__/     \\__/ \\_______/|__/ \\_______/ \\______/ |__/ |__/ |__/ \\_______/
 
 
-Thanks for visiting my Interactive Resume. My name is David Villarreal and am a Software Engineer
+Thanks for visiting my Interactive Resume. My name is David Villarreal and I'm a Software Engineer
 If you'll like to get to know more about me enter these commands in the terminal
-
 
 COMMANDS:
 
@@ -39,6 +38,13 @@ COMMANDS:
   [map]                       - View Google Map of my previous locations
 
   [print]                     - Print out a PDF version of my resume
+
+
+
+PS:
+
+  This is an exact replica of my terminal. If you are using Mac OS and you have
+  the Chrome browser expanded you can press COMMAND SHIFT F to get a more immersive experience
       `
     }
   ]
