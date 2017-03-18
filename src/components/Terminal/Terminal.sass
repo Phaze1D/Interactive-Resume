@@ -20,7 +20,7 @@ main
   align-items: flex-start
 
   textarea
-    width: 100%
+    flex-grow: 1
     padding: 0 8px
     font-family: Menlo-Regular
     background-color: transparent
@@ -31,6 +31,8 @@ main
     color: transparent
     text-shadow: 0 0 0 rgb(131, 148, 150)
 
+  p
+    flex-grow: 1
 
 .caret
   position: absolute
@@ -43,9 +45,15 @@ main
   animation: blinker 1s steps(2, start) infinite
 
 
-@keyframes blinker
-  to
-     visibility: hidden
+.close
+  font-weight: 100
+  color: rgba(90,144,159,1)
+
+  &.left
+    margin-left: -8px
+
+  &.right
+    margin-right: -8px
 
 
 
@@ -60,3 +68,8 @@ main
 
 .purple
   color: rgb(144, 143, 224)
+
+
+@keyframes blinker
+  to
+     visibility: hidden
