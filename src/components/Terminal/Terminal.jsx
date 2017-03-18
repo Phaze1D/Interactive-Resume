@@ -24,6 +24,7 @@ export default class Terminal extends React.Component{
 
     return(
       <main onClick={this.handleMainClick}>
+          <EnteredItem/>
           <InputItem
             onChange={this.handleSelection}
             onKeyUp={this.handleSelection}
@@ -60,5 +61,20 @@ const InputItem = (props) => {
   )
 }
 
-// <textarea></textarea>
-  // <div className='caret'></div>
+const EnteredItem = (props) => {
+
+  return (
+    <div className='input-item'>
+      <p>
+        <span className='orange'> david </span> at
+        <span className='yellow'> The Beast </span> in
+        <span className='green'> ~/Projects/Udacity/InteractiveResume </span> on
+        <span className='purple'> master </span>
+      </p>
+
+      <div className='input-area'>
+        <span className='close left'>[</span> $ <p>{props.command}</p> <span className='close right'>]</span>
+      </div>
+    </div>
+  )
+}
