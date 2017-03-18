@@ -39,13 +39,14 @@ const InputItem = (props) => {
     <div className='input-item'>
       <p>
         <span className='orange'> david </span> at
-        <span className='yellow'> Joker </span> in
+        <span className='yellow'> The Beast </span> in
         <span className='green'> ~/Projects/Udacity/InteractiveResume </span> on
         <span className='purple'> master </span>
       </p>
 
       <div className='input-area'>
         $<textarea
+          spellCheck="false"
           id='main-textarea'
           rows='1'
           onChange={props.onChange}
