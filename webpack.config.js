@@ -18,7 +18,7 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
-      'frontend'
+      'src'
     ],
     extensions: ['.js', '.jsx', '.scss', '.sass']
   },
@@ -43,10 +43,15 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|svg|mp3)$/,
+        test: /\.(png|jpg|svg)$/,
         include: [path.resolve(__dirname, './images')],
-        loader: 'url-loader?limit=4096'
+        loader: 'url-loader'
       },
+      {
+        test: /\.(ttf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        include: [path.resolve(__dirname, './fonts')],
+        loader: 'file-loader'
+      }
     ],
   },
 

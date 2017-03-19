@@ -1,6 +1,7 @@
 
 import { terminalData, commands } from '../data/terminal_data'
 
+
 export const terminalReducer = (state = terminalData, action) => {
   if(action.type === 'COMMAND_ENTERED'){
     return{

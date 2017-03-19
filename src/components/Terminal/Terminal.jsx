@@ -9,6 +9,8 @@ import { commandEntered } from '../../actions/terminal_actions'
     terminalData: store.terminalData
   }
 })
+
+/** React Component representing the entire terminal */
 export default class Terminal extends React.Component{
   constructor(props){
     super(props)
@@ -21,6 +23,12 @@ export default class Terminal extends React.Component{
   }
 
 
+  /**
+  * Handler for OnChange KeyUp and KeyDown
+  * Moves the textarea caret if the key that was pressed is not ENTER
+  * If the ENTER key is pressed dispatch commandEntered action
+  * @param {object} event - KeyUp || KeyDown || Change event
+  */
   handleSelection(event){
     if(event.type === 'keydown' && event.keyCode == 13){
       event.preventDefault()
@@ -33,11 +41,21 @@ export default class Terminal extends React.Component{
   }
 
 
+  /**
+  * Handler for when the textare loses focus
+  * adds focus out class to the caret
+  * @param {object} event - onBlur event
+  */
   handleBlur(event){
     document.getElementById('caret').classList.add('focus-out')
   }
 
 
+  /**
+  * Handler for when the main area is click
+  * sets focus to the textarea and removes focus-out class from caret
+  * @param {object} event
+  */
   handleMainClick(event){
     document.getElementById('caret').classList.remove('focus-out')
     document.getElementById('main-textarea').focus()
@@ -56,10 +74,6 @@ export default class Terminal extends React.Component{
         result={item.result}/>
     )
 
-    historyList.push(
-
-    )
-
     return(
       <main onClick={this.handleMainClick}>
         {historyList}
@@ -73,7 +87,7 @@ export default class Terminal extends React.Component{
   }
 }
 
-
+/** React Component representing the input area of the terminal */
 const InputItem = (props) => {
   return (
     <div className='input-item'>
@@ -101,7 +115,7 @@ const InputItem = (props) => {
   )
 }
 
-
+/** React Component representing the previously entered commands */
 const EnteredItem = (props) => {
 
   return (
