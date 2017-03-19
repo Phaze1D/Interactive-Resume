@@ -15,29 +15,36 @@ export default class Terminal extends React.Component{
     this.handleSelection = this.handleSelection.bind(this)
   }
 
+
   componentDidMount() {
     autosize(document.getElementById('main-textarea'))
   }
 
-  handleSelection(event){
 
+  handleSelection(event){
     if(event.type === 'keydown' && event.keyCode == 13){
       event.preventDefault()
       this.props.dispatch(commandEntered(event.target.value))
       event.target.value = ''
       event.target.selectionStart = 0
     }else{
-      document.getElementById('caret').style.transform = `translate(${100 * event.target.selectionStart}%, 0)`
+      document.getElementById('caret').style.transform = `translate(${100 * (event.target.selectionStart+1)}%, 0)`
     }
-
   }
 
+
+  handleBlur(event){
+    document.getElementById('caret').classList.add('focus-out')
+  }
+
+
   handleMainClick(event){
+    document.getElementById('caret').classList.remove('focus-out')
     document.getElementById('main-textarea').focus()
   }
 
-  render(){
 
+  render(){
     const {
       history
     } = this.props.terminalData
@@ -59,7 +66,8 @@ export default class Terminal extends React.Component{
         <InputItem
           onChange={this.handleSelection}
           onKeyUp={this.handleSelection}
-          onKeyDown={this.handleSelection}/>
+          onKeyDown={this.handleSelection}
+          onBlur={this.handleBlur}/>
       </main>
     )
   }
@@ -83,14 +91,16 @@ const InputItem = (props) => {
           rows='1'
           onChange={props.onChange}
           onKeyUp={props.onKeyUp}
-          onKeyDown={props.onKeyDown}>
+          onKeyDown={props.onKeyDown}
+          onBlur={props.onBlur}>
         </textarea>
 
-        <span id='caret' className='caret'>A</span>
+        <span id='caret' className='caret focus-out'>A</span>
       </div>
     </div>
   )
 }
+
 
 const EnteredItem = (props) => {
 

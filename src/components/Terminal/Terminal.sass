@@ -2,18 +2,22 @@ main
   max-width: 100%
   min-height: calc(100vh - 44px)
   padding-top: 54px
+  cursor: text
 
 
 .input-item
   color: white
   font-family: Menlo-Regular
   font-size: 0.7em
-  padding: 4px 8px
+  padding: 4px 2px 4px 8px
 
   p
+    word-break: break-all
     margin: 2px 0 2px
 
   pre
+    white-space: pre-wrap
+    word-break: break-all
     font-family: Menlo-Regular
     margin: 0
     color: rgb(131, 148, 150)
@@ -28,6 +32,7 @@ main
   textarea
     flex-grow: 1
     padding: 0 8px
+    margin: 0
     font-family: Menlo-Regular
     background-color: transparent
     border: none
@@ -38,6 +43,7 @@ main
     text-shadow: 0 0 0 rgb(131, 148, 150)
 
   p
+    word-break: break-all
     flex-grow: 1
     padding: 0 8px
     margin: 0
@@ -47,12 +53,18 @@ main
 .caret
   position: absolute
   bottom: 0
-  left: 14.5px
+  left: 8px
   height: 13px
   color: transparent
-  transform: translate(0, 0)
+  transform: translate(100%, 0)
   background-color: rgb(131, 148, 150)
   animation: blinker 1s steps(2, start) infinite
+
+  &.focus-out
+    width: 6.73px
+    border: 1px solid rgb(131, 148, 150)
+    background-color: transparent
+    animation: none
 
 
 .close

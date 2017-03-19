@@ -40,6 +40,12 @@ COMMANDS:
   [print]                     - Print out a PDF version of my resume
 
 
+EXAMPLE:
+
+  To display all my Javascript projects type
+
+  projects --search Javascript
+
 
 PS:
 
