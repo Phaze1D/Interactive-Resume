@@ -18,8 +18,10 @@ export const terminalReducer = (state = INITIAL_DATA, action) => {
 
     let mainC = action.payload.command.trim().split(/\s+/)
     let result = ''
+    let options = []
     if(mainC[0].length > 0){
-      result = resumeData[mainC] ? resumeData[mainC[0]].display() : `-bash: ${mainC[0]}: command not found`
+      options = mainC.slice(1)
+      result = resumeData[mainC[0]] ? resumeData[mainC[0]].display(options) : `-bash: ${mainC[0]}: command not found`
     }
 
     if(mainC[0] === 'intro'){

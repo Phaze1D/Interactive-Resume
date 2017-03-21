@@ -22,10 +22,16 @@ export default class Terminal extends React.Component{
     autosize(document.getElementById('main-textarea'))
   }
 
+
   componentDidUpdate(prevProps, prevState) {
     let prediv = document.getElementsByClassName('input-item')[this.props.terminalData.history.length -1]
+
     if(!prevProps.terminalData.isFirst){
-      window.scrollTo(0, prediv.offsetTop - 64)
+      if(prediv.clientHeight > window.innerHeight || window.scrollY + prediv.clientHeight > prediv.offsetTop - 64){
+        window.scrollTo(0, prediv.offsetTop - 64)
+      }else{
+        window.scrollTo(0, window.scrollY + prediv.clientHeight)
+      }
     }
   }
 
@@ -83,12 +89,14 @@ export default class Terminal extends React.Component{
 
     return(
       <main onClick={this.handleMainClick}>
-        {historyList}
-        <InputItem
-          onChange={this.handleSelection}
-          onKeyUp={this.handleSelection}
-          onKeyDown={this.handleSelection}
-          onBlur={this.handleBlur}/>
+        <div className='content'>
+          {historyList}
+          <InputItem
+            onChange={this.handleSelection}
+            onKeyUp={this.handleSelection}
+            onKeyDown={this.handleSelection}
+            onBlur={this.handleBlur}/>
+        </div>
       </main>
     )
   }

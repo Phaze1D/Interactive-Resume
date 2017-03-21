@@ -1,6 +1,7 @@
 import React from 'react'
+import { projectSearch } from './search'
 
-export const BioDisplay = function() {
+export const BioDisplay = function(options) {
   return (
     <section>
       <h4 className='table-header'>BIO:</h4>
@@ -89,7 +90,7 @@ export const BioDisplay = function() {
 }
 
 
-export const SkillDisplay = function() {
+export const SkillDisplay = function(options) {
   this.technology.sort((a,b) => {return b.mastery - a.mastery})
 
   let skillList = this.technology.map( (skill, index) =>
@@ -113,83 +114,108 @@ export const SkillDisplay = function() {
 
 
 export const EducationDisplay = function(options) {
-  let schoolsList = this.schools.map( (school, index) =>
-    <table className='display-table' key={index}>
-      <tbody>
-        <tr>
-          <td className='title'>name:</td>
-          <td>{school.name}</td>
-        </tr>
+  if(options.length > 0 && !(options[0] === '--schools' || options[0] === '--online')){
+    return (
+      <pre>
+        {`Unknown option: ${options[0]} \nusage: education [--schools] [--online]`}
+      </pre>
+    )
+  }
 
-        <tr>
-          <td className='title'>location:</td>
-          <td>
-            {school.location.city}, {school.location.state}, {school.location.country}
-          </td>
-        </tr>
+  let showSchools = (options.length == 0 || options[0] === '--schools')
+  let schoolsList = ''
+  if(showSchools){
+    schoolsList = this.schools.map( (school, index) =>
+        <SchoolItem key={index} {...school}/>
+    )
+  }
 
-        <tr>
-          <td className='title'>degree:</td>
-          <td>{school.degree}</td>
-        </tr>
 
-        <tr>
-          <td className='title'>major:</td>
-          <td>{school.majors}</td>
-        </tr>
-
-        <tr>
-          <td className='title'>dates:</td>
-          <td>{school.dates.from} - {school.dates.to}</td>
-        </tr>
-
-        <tr>
-          <td className='title'>website:</td>
-          <td><a href={school.url}>{school.url}</a></td>
-        </tr>
-      </tbody>
-    </table>
-  )
-
-  let onlineList = this.onlineCourses.map( (course, index) =>
-    <table className='display-table' key={index}>
-      <tbody>
-        <tr>
-          <td className='title'>title:</td>
-          <td>{course.title}</td>
-        </tr>
-
-        <tr>
-          <td className='title'>school:</td>
-          <td>{course.school}</td>
-        </tr>
-
-        <tr>
-          <td className='title'>dates:</td>
-          <td>{course.dates.from} - {course.dates.to}</td>
-        </tr>
-
-        <tr>
-          <td className='title'>website:</td>
-          <td><a href={course.url}>{course.url}</a></td>
-        </tr>
-      </tbody>
-    </table>
-  )
+  let showOnline = (options.length == 0 || options[0] === '--online')
+  let onlineList = ''
+  if(showOnline){
+    onlineList = this.onlineCourses.map( (course, index) =>
+        <CourseItem key={index} {...course}/>
+    )
+  }
 
   return(
     <section>
-      <h4 className='table-header'>SCHOOLS:</h4>
+      {showSchools && <h4 className='table-header'>SCHOOLS:</h4>}
       {schoolsList}
 
-      <h4 className='table-header'>ONLINE COURSES:</h4>
+      {showOnline && <h4 className='table-header'>ONLINE COURSES:</h4>}
       {onlineList}
     </section>
   )
 }
 
+const SchoolItem = (props) => (
+  <table className='display-table'>
+    <tbody>
+      <tr>
+        <td className='title'>name:</td>
+        <td>{props.name}</td>
+      </tr>
 
-export const WorkDisplay = function () {
+      <tr>
+        <td className='title'>location:</td>
+        <td>
+          {props.location.city}, {props.location.state}, {props.location.country}
+        </td>
+      </tr>
+
+      <tr>
+        <td className='title'>degree:</td>
+        <td>{props.degree}</td>
+      </tr>
+
+      <tr>
+        <td className='title'>major:</td>
+        <td>{props.majors}</td>
+      </tr>
+
+      <tr>
+        <td className='title'>dates:</td>
+        <td>{props.dates.from} - {props.dates.to}</td>
+      </tr>
+
+      <tr>
+        <td className='title'>website:</td>
+        <td><a href={props.url}>{props.url}</a></td>
+      </tr>
+    </tbody>
+  </table>
+)
+
+const CourseItem = (props) => (
+  <table className='display-table'>
+    <tbody>
+      <tr>
+        <td className='title'>title:</td>
+        <td>{props.title}</td>
+      </tr>
+
+      <tr>
+        <td className='title'>school:</td>
+        <td>{props.school}</td>
+      </tr>
+
+      <tr>
+        <td className='title'>dates:</td>
+        <td>{props.dates.from} - {props.dates.to}</td>
+      </tr>
+
+      <tr>
+        <td className='title'>website:</td>
+        <td><a href={props.url}>{props.url}</a></td>
+      </tr>
+    </tbody>
+  </table>
+)
+
+
+export const WorkDisplay = function (options) {
   let jobList = this.jobs.map( (job, index) =>
     <table className='display-table' key={index}>
       <tbody>
@@ -237,8 +263,25 @@ export const WorkDisplay = function () {
 }
 
 
-export const ProjectsDisplay = function () {
-  let projectList = this.projects.map( (project, index) =>
+export const ProjectsDisplay = function (options) {
+  if(options.length > 0 && !(options[0] === '--search') ){
+    return (
+      <pre>
+        {`Unknown option: ${options[0]} \nusage: projects [--search]`}
+      </pre>
+    )
+  }
+
+  let results = []
+  if(options.length > 0 && options[0] === '--search'){
+    results = projectSearch(this.projects, options[1])
+  }
+
+  if(options.length == 0){
+    results = this.projects
+  }
+
+  let projectList = results.map( (project, index) =>
     <table className='display-table' key={index}>
       <tbody>
         <tr>
@@ -276,7 +319,7 @@ export const ProjectsDisplay = function () {
   return(
     <section>
       <h4 className='table-header'>PROJECTS:</h4>
-      {projectList}
+      {projectList.length > 0 ? projectList : `No projects with ${options[1]} where found`}
     </section>
   )
 }
@@ -290,7 +333,7 @@ const TagsDisplay = (tag, index) => {
 
 
 
-export const IntroDisplay = (props) => (
+export const IntroDisplay = () => (
   <section>
     <pre>
       {`
@@ -343,7 +386,7 @@ export const IntroDisplay = (props) => (
           <td>- Displays all my projects that I have created</td>
         </tr>
         <tr>
-          <td style={{whiteSpace: 'nowrap'}}>[projects --search {`<args>`}]</td>
+          <td style={{whiteSpace: 'nowrap'}}>[projects --search {`<query>`}]</td>
           <td>- Search projects by technical skill used</td>
         </tr>
         <tr>
