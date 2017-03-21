@@ -5,7 +5,8 @@ import {
   EducationDisplay,
   WorkDisplay,
   ProjectsDisplay,
-  IntroDisplay
+  IntroDisplay,
+  PrintDisplay
 } from './display_functions.jsx'
 
 export const resumeData = {
@@ -288,6 +289,10 @@ export const resumeData = {
 
   intro: {
     display: IntroDisplay
+  },
+
+  print: {
+    display: PrintDisplay
   }
 
 }

@@ -43,13 +43,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|svg)$/,
+        test: /\.(png|jpg|svg|pdf)$/,
         include: [path.resolve(__dirname, './images')],
         loader: 'url-loader'
       },
       {
-        test: /\.(ttf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        include: [path.resolve(__dirname, './fonts')],
+        test: /\.(ttf|pdf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader'
       }
     ],

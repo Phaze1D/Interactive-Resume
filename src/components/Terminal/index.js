@@ -1,5 +1,5 @@
 import './Terminal.sass'
-import './Display.sass'
+import '../Displays/Displays.sass'
 import Terminal from './Terminal'
 
 

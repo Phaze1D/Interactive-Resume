@@ -331,6 +331,12 @@ const TagsDisplay = (tag, index) => {
   )
 }
 
+export const PrintDisplay = function (options) {
+  var pdfFrame = window.frames["pdf"];
+  pdfFrame.focus();
+  pdfFrame.print();
+  return (<div></div>)
+}
 
 
 export const IntroDisplay = () => (
@@ -389,19 +395,15 @@ export const IntroDisplay = () => (
           <td style={{whiteSpace: 'nowrap'}}>[projects --search {`<query>`}]</td>
           <td>- Search projects by technical skill used</td>
         </tr>
+
         <tr>
-          <td>[map]</td>
-          <td>- View Google Map of my previous locations</td>
+          <td>[intro]</td>
+          <td> - Reset the terminal and display these instructions</td>
         </tr>
 
         <tr>
           <td>[print]</td>
           <td>- Print out a PDF version of my resume</td>
-        </tr>
-
-        <tr>
-          <td>[intro]</td>
-          <td> - Reset the terminal and display these instructions</td>
         </tr>
       </tbody>
     </table>
@@ -425,3 +427,9 @@ export const IntroDisplay = () => (
     </p>
   </section>
 )
+
+
+// <tr>
+//   <td>[map]</td>
+//   <td>- View Google Map of my previous locations</td>
+// </tr>

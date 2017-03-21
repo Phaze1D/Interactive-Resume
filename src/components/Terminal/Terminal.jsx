@@ -89,12 +89,17 @@ export default class Terminal extends React.Component{
 
     return(
       <main onClick={this.handleMainClick}>
+        <iframe
+          id='pdf'
+          name='pdf' src={require('../../../Resume1.pdf')}/>
+
         <div className='content'>
           {historyList}
           <InputItem
             onChange={this.handleSelection}
             onKeyUp={this.handleSelection}
             onKeyDown={this.handleSelection}
+            onClick={this.handleSelection}
             onBlur={this.handleBlur}/>
         </div>
       </main>
@@ -122,6 +127,7 @@ const InputItem = (props) => {
           onChange={props.onChange}
           onKeyUp={props.onKeyUp}
           onKeyDown={props.onKeyDown}
+          onClick={props.onClick}
           onBlur={props.onBlur}>
         </textarea>
 
