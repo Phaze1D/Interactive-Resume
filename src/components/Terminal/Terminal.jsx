@@ -22,6 +22,13 @@ export default class Terminal extends React.Component{
     autosize(document.getElementById('main-textarea'))
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps.terminalData.isFirst);
+    if(!prevProps.terminalData.isFirst){
+      window.scrollTo(0, document.getElementsByTagName('main')[0].clientHeight)
+    }
+  }
+
 
   /**
   * Handler for OnChange KeyUp and KeyDown
@@ -87,13 +94,14 @@ export default class Terminal extends React.Component{
   }
 }
 
+
 /** React Component representing the input area of the terminal */
 const InputItem = (props) => {
   return (
     <div className='input-item'>
       <p>
         <span className='orange'> david </span> at
-        <span className='yellow'> The Beast </span> in
+        <span className='yellow'> Joker </span> in
         <span className='green'> ~/Projects/Udacity/InteractiveResume </span> on
         <span className='purple'> master </span>
       </p>
@@ -115,6 +123,7 @@ const InputItem = (props) => {
   )
 }
 
+
 /** React Component representing the previously entered commands */
 const EnteredItem = (props) => {
 
@@ -122,7 +131,7 @@ const EnteredItem = (props) => {
     <div className='input-item'>
       <p>
         <span className='orange'> david </span> at
-        <span className='yellow'> The Beast </span> in
+        <span className='yellow'> Joker </span> in
         <span className='green'> ~/Projects/Udacity/InteractiveResume </span> on
         <span className='purple'> master </span>
       </p>
@@ -133,9 +142,10 @@ const EnteredItem = (props) => {
         <span className='close right'>]</span>
       </div>
 
-      <pre>
+      <div className='result-area'>
         {props.result}
-      </pre>
+      </div>
+
     </div>
   )
 }

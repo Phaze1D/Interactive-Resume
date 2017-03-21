@@ -1,5 +1,14 @@
 
-const resumeData = {
+import {
+  BioDisplay,
+  SkillDisplay,
+  EducationDisplay,
+  WorkDisplay,
+  ProjectsDisplay,
+  IntroDisplay
+} from './display_functions.jsx'
+
+export const resumeData = {
   bio: {
     name: 'David Villarreal',
     role: 'Software Engineer',
@@ -14,39 +23,43 @@ const resumeData = {
     },
 
     welcomeMessage: `I have always been inspired by people who create art because I have never been able to do it,
-                     until I found out how to code. I feel like coding satisfies my logical and mathematical brain
-                     that I was born with, and at the same time it gives me a way to create amazing beautiful art
-                     in the form of code`,
-
-    skills: [
-      { name: 'Java', mastery: 80 },
-      { name: 'Javascript', mastery: 90 },
-      { name: 'Ruby', mastery: 80 },
-      { name: 'HTML', mastery: 90 },
-      { name: 'CSS', mastery: 85 },
-      { name: 'Bash Scripting', mastery: 60 },
-      { name: 'Ruby On Rails', mastery: 85 },
-      { name: 'Python', mastery: 70 },
-      { name: 'ReactJS', mastery: 90 },
-      { name: 'PHP', mastery: 75 },
-      { name: 'Laravel', mastery: 75 },
-      { name: 'Web Development', mastery: 95 },
-      { name: 'Mobile Development', mastery: 70 },
-      { name: 'Objective C', mastery: 75 },
-      { name: 'C++', mastery: 70 },
-      { name: 'C', mastery: 65 },
-      { name: 'SQL', mastery: 80 },
-      { name: 'NoSQL', mastery: 80 },
-      { name: 'MySQL', mastery: 80 },
-      { name: 'MongoDB', mastery: 80 },
-      { name: 'Security Fundamentals', mastery: 75 },
-      { name: 'Data Structures', mastery: 85 },
-      { name: 'Algorithms', mastery: 85 },
-      { name: 'Machine Learning', mastery: 75 }
-    ],
+   until I found out how to code. I feel like coding satisfies my logical and mathematical brain
+   that I was born with, and at the same time it gives me a way to create amazing beautiful art
+   in the form of code`,
 
     biopic: '',
-    display: {}
+    display: BioDisplay
+  },
+
+
+  skills: {
+    technology: [
+      { name: 'Java', mastery: 80 },
+      { name: 'Javascript', mastery: 95 },
+      { name: 'HTML', mastery: 90 },
+      { name: 'CSS', mastery: 90 },
+      { name: 'Bash Scripting', mastery: 50 },
+      { name: 'Ruby On Rails', mastery: 85 },
+      { name: 'Python', mastery: 65 },
+      { name: 'ReactJS', mastery: 90 },
+      { name: 'PHP', mastery: 68 },
+      { name: 'Laravel', mastery: 65 },
+      { name: 'Web Development', mastery: 90 },
+      { name: 'Mobile Development', mastery: 67 },
+      { name: 'Objective C', mastery: 70 },
+      { name: 'C++', mastery: 64 },
+      { name: 'C', mastery: 60 },
+      { name: 'SQL', mastery: 72 },
+      { name: 'NoSQL', mastery: 76 },
+      { name: 'MySQL', mastery: 78 },
+      { name: 'MongoDB', mastery: 79 },
+      { name: 'Security Fundamentals', mastery: 65 },
+      { name: 'Data Structures', mastery: 80 },
+      { name: 'Algorithms', mastery: 80 },
+      { name: 'Machine Learning', mastery: 60 }
+    ],
+
+    display: SkillDisplay
   },
 
 
@@ -55,7 +68,7 @@ const resumeData = {
     schools: [
       {
         name: 'Santa Monica College',
-        location: {city: 'Santa Monica', state: 'California', country: 'United States of America'},
+        location: {city: 'Santa Monica', state: 'CA', country: 'USA'},
         degree: 'Dropout',
         majors: 'Computer Science',
         dates: {from: 'Nov 29, 2011', to: 'July 02, 2014'},
@@ -67,42 +80,42 @@ const resumeData = {
       {
         title: 'Introduction to Algorithms',
         school: 'MIT',
-        dates: {from: 'July 28, 2013', 'August 25, 2013'},
+        dates: {from: 'July 28, 2013', to: 'August 25, 2013'},
         url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/'
       },
       {
         title: 'Mathematics for Computer Science',
         school: 'MIT',
-        dates: {from: 'August 01, 2012', 'September 25, 2012'},
+        dates: {from: 'August 01, 2012', to: 'September 25, 2012'},
         url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/'
       },
       {
         title: 'Artificial Intelligence',
         school: 'MIT',
-        dates: {from: 'November 01, 2016', 'Jan 15, 2017'},
+        dates: {from: 'November 01, 2016', to: 'Jan 15, 2017'},
         url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/'
       },
       {
         title: 'Introduction to Machine Learning',
         school: 'Udacity',
-        dates: {from: 'Jan 15, 2017', to: 'Feb 01, 2017'}
+        dates: {from: 'Jan 15, 2017', to: 'Feb 01, 2017'},
         url: 'https://www.udacity.com/course/intro-to-machine-learning--ud120'
       },
       {
         title: 'Full Stack Web Developer Nanodegree',
         school: 'Udacity',
-        dates: {from: 'Feb 15, 2017', to: 'On Progress'},
+        dates: {from: 'Feb 15, 2017', to: 'In Progress'},
         url: 'https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004'
       },
       {
         title: 'Front-End Web Developer Nanodegree',
         school: 'Udacity',
-        dates: {from: 'Feb 15, 2017', to: 'On Progress'},
+        dates: {from: 'Feb 15, 2017', to: 'In Progress'},
         url: 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
       }
     ],
 
-    display: {}
+    display: EducationDisplay
   },
 
 
@@ -113,15 +126,16 @@ const resumeData = {
         employer: 'Vida Flor',
         title: 'Fullstack Engineer',
         location: {city: 'Zapopan', state: 'Jalisco', country: 'Mexico'},
-        dates: {from: 'Nov 2014', to: 'Apr 2016'},
+        dates: {from: 'Nov 2014', to: 'Dec 2016'},
+        url: 'https://bellezaorganica.com.mx/',
         description: `Vida Flor is an organic beauty company that first hire me to help them build a ecommerce website.
-                      After finishing the website they ask me if I could stay full time. I manage there database and
-                      I used Machine Learning to create models about future sells and product inventory, and I used
-                      Micorsoft Access to create reports about sells and product inventory.`
+                  After finishing the website they ask me if I could stay full time. I manage their database and
+                  created a Point of Sales system to help them with organize all there sells and inventory. I also used
+                  Micorsoft Access to create reports about sells and product inventory.`
       }
     ],
 
-    display: {},
+    display: WorkDisplay // Can be found in display_functions.js file
   },
 
 
@@ -130,11 +144,11 @@ const resumeData = {
     projects: [
       {
         title: "Devrag",
-        dates: {from: "May 08, 2015", to: "Mar 12, 2016"}
+        dates: {from: "May 08, 2015", to: "Mar 12, 2016"},
         description: `Devrag was going to be a website that allowed all types of software developers to find the
-        tools that they needed more easily. It would have accomplished this by allowing creators to tag there tools
-        with a specific technology that it was for and then developers would search by tag (Kind of like what
-        Github just created).`,
+                  tools that they needed more easily. It would have accomplished this by allowing creators to tag there tools
+                  with a specific technology that it was for and then developers would search by tag (Kind of like what
+                  Github just created).`,
         tags: [
           "Ruby on Rails",
           "HTML",
@@ -149,10 +163,10 @@ const resumeData = {
       },
       {
         title: "Belleza Organica",
-        dates: {from: "Aug 28, 2015", to: "Nov 29, 2016"}
+        dates: {from: "Aug 28, 2015", to: "Nov 29, 2016"},
         description:`This is a e-commerce website that I built for a client using a PHP framework call Laravel. It also has a
-        custom built backoffice where the client can easily manage the site and view reports and graphs. I use alot of
-        AWS products like Elasticbean Stalk, Route53, Workmail and a couple more to manage all the backend.` ,
+                  custom built backoffice where the client can easily manage the site and view reports and graphs. I use alot of
+                  AWS products like Elasticbean Stalk, Route53, Workmail and a couple more to manage all the backend.` ,
         tags: [
           "Laravel",
           "HTML",
@@ -167,10 +181,10 @@ const resumeData = {
       },
       {
         title: "Farmage Backend",
-        dates: {from: "Apr 7, 2016", to: "Oct 19, 2016"}
+        dates: {from: "Apr 7, 2016", to: "Oct 19, 2016"},
         description: `This is a MeteorJS Concept App for all types of agriculture business call Farmage. It is met to organize all of the
-        data that a agriculture business has into a much more manageable structure. All of the backend works but the frontend
-        is just a simple black and white mockup.`,
+                  data that a agriculture business has into a much more manageable structure. All of the backend works but the frontend
+                  is just a simple black and white mockup.`,
         tags: [
           "MeteorJS",
           "JADE",
@@ -184,10 +198,10 @@ const resumeData = {
       },
       {
         title: "Farmage Frontend",
-        dates: {from: "Oct 25, 2016", to: "Not Finished"}
+        dates: {from: "Oct 25, 2016", to: "Not Finished"},
         description: `This is the frontend for Farmage Web App. I follow the Material Design Guidelines
-        to the best of my abilties. Splitting the app into 2 different projects made it much more maintainable and cleaner. I am hoping to
-        create the mobile version of the app with React Native`,
+                  to the best of my abilties. Splitting the app into 2 different projects made it much more maintainable and cleaner. I am hoping to
+                  create the mobile version of the app with React Native`,
         tags: [
           "ReactJS",
           "HTML",
@@ -200,9 +214,9 @@ const resumeData = {
       },
       {
         title: "Movie Review Project",
-        dates: {from: "Feb 15, 2017", to: "Feb 17, 2017"}
+        dates: {from: "Feb 15, 2017", to: "Feb 17, 2017"},
         description: `A Udacity Project from there Fullstack Nanodegree Course. This is a simple python web app that renders a html template of
-        a couple of my favorite movies and shows you their youtube trailers when you click on them. `,
+                  a couple of my favorite movies and shows you their youtube trailers when you click on them. `,
         tags: [
           "Python",
           "HTML"
@@ -212,9 +226,9 @@ const resumeData = {
       },
       {
         title: "Portfolio",
-        dates: {from: "Feb 19, 2017", to: "Feb 22, 2017"}
+        dates: {from: "Feb 19, 2017", to: "Feb 22, 2017"},
         description: `My Portfolio Website which is also part of the Udacity Nanodegree Fullstack and Frontend Courses. I made this with pure
-        Javascript and Handlebars to keep my HTML DRY. Surprisingly, I can up with the design even though I do not consider myself a UI Designer`,
+                  Javascript and Handlebars to keep my HTML DRY. Surprisingly, I can up with the design even though I do not consider myself a UI Designer`,
         tags: [
           "Javascript",
           "HTML",
@@ -227,10 +241,10 @@ const resumeData = {
       },
       {
         title: "Rising Fall Android",
-        dates: {from: "Aug 26, 2014", to: "Jan 3, 2015"}
+        dates: {from: "Aug 26, 2014", to: "Jan 3, 2015"},
         description: `This was the first Android game that I published. It is a simple 2D game where you have to rearrange balls of the same
-        color together and eliminate them before the hit the top. It's kind of like a mix between Candy Crush and Tetris. I used a game engine
-        called LibGDX which is written in Java and I used some of the Android SDK for app purchases.`,
+                  color together and eliminate them before the hit the top. It's kind of like a mix between Candy Crush and Tetris. I used a game engine
+                  called LibGDX which is written in Java and I used some of the Android SDK for app purchases.`,
         tags: [
           "Java",
           "Android",
@@ -241,10 +255,10 @@ const resumeData = {
       },
       {
         title: "Rising Fall IOS",
-        dates: {from: "Aug 21, 2014", to: "Jan 3, 2015"}
+        dates: {from: "Aug 21, 2014", to: "Jan 3, 2015"},
         description: `This is the IOS version of Rising Fall built with Apple's Native 2D game called SpriteKit, written in Objective C. This was
-        the first IOS game that I published on the App Store. I came up with the idea when I was in college and I decided to start the Project
-        during my summer break. `,
+                  the first IOS game that I published on the App Store. I came up with the idea when I was in college and I decided to start the Project
+                  during my summer break. `,
         tags: [
           "Objective C",
           "IOS",
@@ -255,10 +269,10 @@ const resumeData = {
       },
       {
         title: "Eschew Cocos2d-X",
-        dates: {from: "Mar 3, 2015", to: "Mar 30, 2015"}
+        dates: {from: "Mar 3, 2015", to: "Mar 30, 2015"},
         description: `This was a small litte game I made to learn some C++. I used a game engine called Cocos2d-X which is written in C++. The
-        game is just a simple game where the user has to avoid the color boxs by moving the circle around. It gets harder and harder the longer
-        you play it.`,
+                  game is just a simple game where the user has to avoid the color boxs by moving the circle around. It gets harder and harder the longer
+                  you play it.`,
         tags: [
           "C++",
           "Cocos2d-X",
@@ -269,9 +283,11 @@ const resumeData = {
         images: [ 'public/es169-large.jpg', 'public/es169-land.jpg', 'public/es169-medium.jpg' ]
       }
     ],
+    display: ProjectsDisplay // Can be found in display_functions.js file
+  },
 
-    display: {}
+  intro: {
+    display: IntroDisplay
   }
-}
 
-module.exports.resumeData = resumeData
+}
