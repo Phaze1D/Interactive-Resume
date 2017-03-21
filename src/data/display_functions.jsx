@@ -2,58 +2,89 @@ import React from 'react'
 
 export const BioDisplay = function() {
   return (
-    <div>
-      <section className='info-section'>
-        <h4>BIO:</h4>
-        <pre>{`   `}NAME: {this.name}</pre>
-        <pre>{`   `}ROLE: {this.role}</pre>
-        <pre>{`   `}{this.welcomeMessage}</pre>
-      </section>
+    <section>
+      <h4 className='table-header'>BIO:</h4>
+      <table className='display-table'>
+        <tbody>
+          <tr>
+            <td className='title'>Name:</td>
+            <td>{this.name}</td>
+          </tr>
+          <tr>
+            <td className='title'>Role:</td>
+            <td>{this.role}</td>
+          </tr>
+          <tr>
+            <td className='title'>About:</td>
+            <td>{this.welcomeMessage}</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <section className='info-section'>
-        <h4>CONTACT INFORMATION: </h4>
 
-        <pre>
-          {`   `}
-          <i className="fa fa-phone" aria-hidden="true"></i>{` `}
-          MOBILE: {`         `}{this.contacts.mobile}
-        </pre>
+      <h4 className='table-header'>Contact Information:</h4>
+      <table className='display-table'>
+        <tbody>
+          <tr>
+            <td className='title'>
+              <i className="fa fa-phone" aria-hidden="true"></i>
+              Mobile:
+            </td>
+            <td>{this.contacts.mobile}</td>
+          </tr>
 
-        <pre>
-          {`   `}
-          <i className="fa fa-envelope-o" aria-hidden="true"></i>{` `}
-          EMAIL: {`          `}{this.contacts.email}
-        </pre>
+          <tr>
+            <td className='title'>
+              <i className="fa fa-envelope-o" aria-hidden="true"></i>
+              email:
+            </td>
+            <td>{this.contacts.email}</td>
+          </tr>
 
-        <pre>
-          {`   `}
-          <i className="fa fa-github" aria-hidden="true"></i>{` `}
-          GITHUB: {`         `}
-          <a target="_blank" href={this.contacts.github}>{this.contacts.github}</a>
-        </pre>
+          <tr>
+            <td className='title'>
+              <i className="fa fa-github" aria-hidden="true"></i>
+              github:
+            </td>
+            <td><a target="_blank" href={this.contacts.github}>{this.contacts.github}</a></td>
+          </tr>
 
-        <pre>
-          {`   `}
-          <i className="fa fa-stack-overflow" aria-hidden="true"></i>{` `}
-          STACKOVERFLOW:{`   `}
-          <a target="_blank" href={this.contacts.stackoverflow}>{this.contacts.stackoverflow}</a>
-        </pre>
+          <tr>
+            <td className='title'>
+              <i className="fa fa-stack-overflow" aria-hidden="true"></i>
+              stackoverflow:
+            </td>
+            <td><a target="_blank" href={this.contacts.stackoverflow}>{this.contacts.stackoverflow}</a></td>
+          </tr>
 
-        <pre>
-          {`   `}
-          <i className="fa fa-linkedin-square" aria-hidden="true"></i>
-          {` `}LINKEDIN:{`        `}
-          <a target="_blank" href={this.contacts.linkedin}>{this.contacts.linkedin}</a>
-        </pre>
-      </section>
+          <tr>
+            <td className='title'>
+              <i className="fa fa-linkedin-square" aria-hidden="true"></i>
+              linkedin:
+            </td>
+            <td><a target="_blank" href={this.contacts.linkedin}>{this.contacts.linkedin}</a></td>
+          </tr>
+        </tbody>
+      </table>
 
-      <section className='info-section'>
-        <h4>CURRENT LOACTION: </h4>
-        <pre>{`   `}CITY:{`           ${this.contacts.location.city}`}</pre>
-        <pre>{`   `}STATE:{`          ${this.contacts.location.state}`}</pre>
-        <pre>{`   `}COUNTRY:{`        ${this.contacts.location.country}`}</pre>
-      </section>
-    </div>
+      <h4 className='table-header'>Current Location:</h4>
+      <table className='display-table'>
+        <tbody>
+          <tr>
+            <td className='title'>city:</td>
+            <td>{this.contacts.location.city}</td>
+          </tr>
+          <tr>
+            <td className='title'>state:</td>
+            <td>{this.contacts.location.state}</td>
+          </tr>
+          <tr>
+            <td className='title'>country:</td>
+            <td>{this.contacts.location.country}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   )
 }
 
@@ -62,125 +93,191 @@ export const SkillDisplay = function() {
   this.technology.sort((a,b) => {return b.mastery - a.mastery})
 
   let skillList = this.technology.map( (skill, index) =>
-    <pre key={index}>
-      {`   `}
-      {skill.name}:
-      {` `.repeat(24 - skill.name.length)}
-      | { '█'.repeat(Math.round(skill.mastery/2)) }{'░'.repeat(50 - Math.round(skill.mastery/2)) } | {skill.mastery}%
-    </pre>
+    <tr key={index}>
+      <td className='title'>{skill.name}:</td>
+      <td> | { '█'.repeat(Math.round(skill.mastery/2)) }{'░'.repeat(50 - Math.round(skill.mastery/2)) } | {skill.mastery}% </td>
+    </tr>
   )
 
   return(
-    <div>
-      <section className='info-section'>
-        <h4>TECHNICAL SKILLS:</h4>
-        {skillList}
-      </section>
-    </div>
+    <section>
+      <h4 className='table-header'>TECHNICAL SKILLS:</h4>
+      <table className='display-table'>
+        <tbody>
+          {skillList}
+        </tbody>
+      </table>
+    </section>
   )
 }
 
 
 export const EducationDisplay = function(options) {
   let schoolsList = this.schools.map( (school, index) =>
-    <article key={index}>
-      <pre>{`    NAME:`} {` `.repeat(10 - 6)} {school.name} </pre>
+    <table className='display-table' key={index}>
+      <tbody>
+        <tr>
+          <td className='title'>name:</td>
+          <td>{school.name}</td>
+        </tr>
 
-      <pre>{`    LOACTION:`} {` `.repeat(10 - 9)}
-        {school.location.city},
-        {school.location.state},
-        {school.location.country}
-      </pre>
+        <tr>
+          <td className='title'>location:</td>
+          <td>
+            {school.location.city}, {school.location.state}, {school.location.country}
+          </td>
+        </tr>
 
-      <pre>{`    DEGREE:`} {` `.repeat(10 - 8)} {school.degree}</pre>
-      <pre>{`    MAJOR:`} {` `.repeat(10 - 7)} {school.majors}</pre>
-      <pre>{`    DATES:`} {` `.repeat(10 - 7)} {school.dates.from} - {school.dates.to}</pre>
-      <pre>{`    WEBSITE:`}{` `.repeat(10 - 8)} <a href={school.url}>{school.url}</a></pre>
-    </article>
+        <tr>
+          <td className='title'>degree:</td>
+          <td>{school.degree}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>major:</td>
+          <td>{school.majors}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>dates:</td>
+          <td>{school.dates.from} - {school.dates.to}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>website:</td>
+          <td><a href={school.url}>{school.url}</a></td>
+        </tr>
+      </tbody>
+    </table>
   )
 
   let onlineList = this.onlineCourses.map( (course, index) =>
-    <article key={index}>
-      <pre>{`    TITLE:`}{` `.repeat(10 - 6)}{course.title}</pre>
-      <pre>{`    SCHOOL:`}{` `.repeat(10 - 7)}{course.school}</pre>
-      <pre>{`    DATES:`}{` `.repeat(10 - 6)}{course.dates.from} - {course.dates.to}</pre>
-      <pre>{`    WEBSITE:`}{` `.repeat(10 - 8)}<a href={course.url}>{course.title}</a></pre>
-    </article>
+    <table className='display-table' key={index}>
+      <tbody>
+        <tr>
+          <td className='title'>title:</td>
+          <td>{course.title}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>school:</td>
+          <td>{course.school}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>dates:</td>
+          <td>{course.dates.from} - {course.dates.to}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>website:</td>
+          <td><a href={course.url}>{course.url}</a></td>
+        </tr>
+      </tbody>
+    </table>
   )
 
   return(
-    <div>
-      <section className='info-section'>
-        <h4>SCHOOLS:</h4>
-        {schoolsList}
-      </section>
+    <section>
+      <h4 className='table-header'>SCHOOLS:</h4>
+      {schoolsList}
 
-      <section className='info-section'>
-        <h4>ONLINE COURSES:</h4>
-        {onlineList}
-      </section>
-    </div>
+      <h4 className='table-header'>ONLINE COURSES:</h4>
+      {onlineList}
+    </section>
   )
 }
 
 
 export const WorkDisplay = function () {
   let jobList = this.jobs.map( (job, index) =>
-    <article key={index}>
-      <pre>{`    EMPLOYER:`}{` `.repeat(14 - 9)}{job.employer}</pre>
-      <pre>{`    TITLE:`}{` `.repeat(14 - 6)}{job.title}</pre>
-      <pre>
-          {`    LOACTION:`}{` `.repeat(14 - 9)}
-          {job.location.city},
-          {job.location.state},
-          {job.location.country}
-      </pre>
-      <pre>{`    DATES:`}{` `.repeat(14 - 6)}{job.dates.from} - {job.dates.to}</pre>
-      <pre>
-        {`    DESCRIPTION:`}{` `.repeat(14 - 12)}
-        {job.description}
-      </pre>
-      <pre>{`    WEBSITE:`}{` `.repeat(14 - 8)}<a href={job.url}>{job.url}</a></pre>
-    </article>
+    <table className='display-table' key={index}>
+      <tbody>
+        <tr>
+          <td className='title'>employer:</td>
+          <td>{job.employer}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>title:</td>
+          <td>{job.title}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>location:</td>
+          <td>
+            {job.location.city}, {job.location.state}, {job.location.country}
+          </td>
+        </tr>
+
+        <tr>
+          <td className='title'>dates:</td>
+          <td>{job.dates.from} - {job.dates.to}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>description:</td>
+          <td>{job.description}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>Website:</td>
+          <td><a href={job.url}>{job.url}</a></td>
+        </tr>
+      </tbody>
+    </table>
   )
 
   return(
-    <div>
-      <section className='info-section'>
-        <h4>WORK</h4>
-        {jobList}
-      </section>
-    </div>
+    <section>
+      <h4 className='table-header'>Work:</h4>
+      {jobList}
+    </section>
   )
 }
 
 
 export const ProjectsDisplay = function () {
   let projectList = this.projects.map( (project, index) =>
-    <article key={index}>
-      <pre>{`    TITLE:`}{` `.repeat(14 - 6)}{project.title}</pre>
-      <pre>{`    DATES:`}{` `.repeat(14 - 6)}{project.dates.from} - {project.dates.to}</pre>
-      <pre>
-        {`    DESCRIPTION:`}{` `.repeat(14 - 12)}
-        {project.description}
-      </pre>
-      <pre>{`    URL:`}{` `.repeat(14 - 4)}<a href={project.url}>{project.url}</a></pre>
-      <pre>
-        {`    TAGS:`}{` `.repeat(14 - 5)}
-        <div className='tags'>
-          {project.tags.map( TagsDisplay )}
-        </div>
-      </pre>
-    </article>
+    <table className='display-table' key={index}>
+      <tbody>
+        <tr>
+          <td className='title'>title:</td>
+          <td>{project.title}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>dates:</td>
+          <td>{project.dates.from} - {project.dates.to}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>description:</td>
+          <td>{project.description}</td>
+        </tr>
+
+        <tr>
+          <td className='title'>url:</td>
+          <td><a href={project.url}>{project.url}</a></td>
+        </tr>
+
+        <tr>
+          <td className='title'>tags:</td>
+          <td>
+            <div className='tags'>
+              {project.tags.map( TagsDisplay )}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   )
 
   return(
-    <div>
-      <section className='info-section'>
-        <h4>PROJECTS:</h4>
-        {projectList}
-      </section>
-    </div>
+    <section>
+      <h4 className='table-header'>PROJECTS:</h4>
+      {projectList}
+    </section>
   )
 }
 
@@ -194,59 +291,94 @@ const TagsDisplay = (tag, index) => {
 
 
 export const IntroDisplay = (props) => (
-  <pre>
-    {
-      `
-       /$$      /$$           /$$
-      | $$  /$ | $$          | $$
-      | $$ /$$$| $$  /$$$$$$ | $$  /$$$$$$$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$
-      | $$/$$ $$ $$ /$$__  $$| $$ /$$_____/ /$$__  $$| $$_  $$_  $$ /$$__  $$
-      | $$$$_  $$$$| $$$$$$$$| $$| $$      | $$  \\ $$| $$ \\ $$ \\ $$| $$$$$$$$
-      | $$$/ \\  $$$| $$_____/| $$| $$      | $$  | $$| $$ | $$ | $$| $$_____/
-      | $$/   \\  $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$
-      |__/     \\__/ \\_______/|__/ \\_______/ \\______/ |__/ |__/ |__/ \\_______/
+  <section>
+    <pre>
+      {`
+         /$$      /$$           /$$
+        | $$  /$ | $$          | $$
+        | $$ /$$$| $$  /$$$$$$ | $$  /$$$$$$$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$
+        | $$/$$ $$ $$ /$$__  $$| $$ /$$_____/ /$$__  $$| $$_  $$_  $$ /$$__  $$
+        | $$$$_  $$$$| $$$$$$$$| $$| $$      | $$  \\ $$| $$ \\ $$ \\ $$| $$$$$$$$
+        | $$$/ \\  $$$| $$_____/| $$| $$      | $$  | $$| $$ | $$ | $$| $$_____/
+        | $$/   \\  $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$
+        |__/     \\__/ \\_______/|__/ \\_______/ \\______/ |__/ |__/ |__/ \\_______/
 
+      `}
+    </pre>
 
-Thanks for visiting my Interactive Resume. My name is David Villarreal and I'm a Software Engineer
-If you'll like to get to know more about me enter these commands in the terminal
+    <p>
+      Thanks for visiting my Interactive Resume. My name is David Villarreal and I'm a Software Engineer
+      If you'll like to get to know more about me enter these commands in the terminal
+    </p>
 
-COMMANDS:
+    <h4 className='table-header'>COMMANDS:</h4>
+    <table className='display-table'>
+      <tbody>
+        <tr>
+          <td>[bio]</td>
+          <td>- Displays my bio information e.g contact info</td>
+        </tr>
+        <tr>
+          <td>[skills]</td>
+          <td>- Displays my technical skills with a mastery level</td>
+        </tr>
+        <tr>
+          <td>[education]</td>
+          <td>- Displays all the education I have received</td>
+        </tr>
+        <tr>
+          <td style={{whiteSpace: 'nowrap'}}>[education --schools]</td>
+          <td>- Displays the schools that I have attend</td>
+        </tr>
+        <tr>
+          <td style={{whiteSpace: 'nowrap'}}>[education --online]</td>
+          <td>- Displays just the online courses I have taken</td>
+        </tr>
+        <tr>
+          <td>[work]</td>
+          <td>- Displays my work experience</td>
+        </tr>
+        <tr>
+          <td>[projects]</td>
+          <td>- Displays all my projects that I have created</td>
+        </tr>
+        <tr>
+          <td style={{whiteSpace: 'nowrap'}}>[projects --search {`<args>`}]</td>
+          <td>- Search projects by technical skill used</td>
+        </tr>
+        <tr>
+          <td>[map]</td>
+          <td>- View Google Map of my previous locations</td>
+        </tr>
 
-  [bio]                       - Displays my bio information e.g contact info
+        <tr>
+          <td>[print]</td>
+          <td>- Print out a PDF version of my resume</td>
+        </tr>
 
-  [skills]                    - Displays my technical skills with a mastery level
+        <tr>
+          <td>[intro]</td>
+          <td> - Reset the terminal and display these instructions</td>
+        </tr>
+      </tbody>
+    </table>
 
-  [education]                 - Displays all the education I have received
+    <h4 className='table-header'>EXAMPLE:</h4>
+    <table className='display-table'>
+      <tbody>
+        <tr>
+          <td>To display all my Javascript projects type</td>
+        </tr>
+        <tr>
+          <td>projects --search Javascript</td>
+        </tr>
+      </tbody>
+    </table>
 
-  [education --schools]       - Displays the schools that I have attend
-
-  [education --online]        - Displays just the online courses I have taken
-
-  [work]                      - Displays my work experience
-
-  [projects]                  - Displays all my projects that I have created
-
-  [projects --search <args>]  - Search projects by technical skill used
-
-  [map]                       - View Google Map of my previous locations
-
-  [print]                     - Print out a PDF version of my resume
-
-  [intro]                     - Reset the terminal and display these instructions
-
-
-EXAMPLE:
-
-  To display all my Javascript projects type
-
-  projects --search Javascript
-
-
-PS:
-
-  This is an exact replica of my terminal. If you are using Mac OS and you have
-  the Chrome browser expanded you can press COMMAND SHIFT F to get a more immersive experience
-      `
-    }
-  </pre>
+    <h4 className='table-header'>PS:</h4>
+    <p>
+      This is an exact replica of my terminal. If you are using Mac OS and you have
+      the Chrome browser expanded you can press COMMAND SHIFT F to get a more immersive experience
+    </p>
+  </section>
 )

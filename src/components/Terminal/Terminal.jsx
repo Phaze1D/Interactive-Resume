@@ -98,7 +98,7 @@ export default class Terminal extends React.Component{
 /** React Component representing the input area of the terminal */
 const InputItem = (props) => {
   return (
-    <div className='input-item'>
+    <div className='input-item with-input'>
       <p>
         <span className='orange'> david </span> at
         <span className='yellow'> Joker </span> in
