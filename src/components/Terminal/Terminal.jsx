@@ -23,9 +23,9 @@ export default class Terminal extends React.Component{
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps.terminalData.isFirst);
+    let prediv = document.getElementsByClassName('input-item')[this.props.terminalData.history.length -1]
     if(!prevProps.terminalData.isFirst){
-      window.scrollTo(0, document.getElementsByTagName('main')[0].clientHeight)
+      window.scrollTo(0, prediv.offsetTop - 64)
     }
   }
 
