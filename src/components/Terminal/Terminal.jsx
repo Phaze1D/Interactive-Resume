@@ -14,7 +14,10 @@ import { commandEntered } from '../../actions/terminal_actions'
 export default class Terminal extends React.Component{
   constructor(props){
     super(props)
+    this.commandM = 1
     this.handleSelection = this.handleSelection.bind(this)
+    this.handleEntered = this.handleEntered.bind(this)
+    this.handleCommandMovement = this.handleCommandMovement.bind(this)
   }
 
 
@@ -24,6 +27,8 @@ export default class Terminal extends React.Component{
 
 
   componentDidUpdate(prevProps, prevState) {
+    this.commandM = this.props.terminalData.history.length
+
     let prediv = document.getElementsByClassName('input-item')[this.props.terminalData.history.length -1]
 
     if(!prevProps.terminalData.isFirst){
@@ -44,13 +49,37 @@ export default class Terminal extends React.Component{
   */
   handleSelection(event){
     if(event.type === 'keydown' && event.keyCode == 13){
-      event.preventDefault()
-      this.props.dispatch(commandEntered(event.target.value))
-      event.target.value = ''
-      event.target.selectionStart = 0
-    }else{
-      document.getElementById('caret').style.transform = `translate(${100 * (event.target.selectionStart+1)}%, 0)`
+      this.handleEntered(event)
+    }else if(event.type === 'keydown' && (event.keyCode == 38 || event.keyCode == 40) ){
+      this.handleCommandMovement(event)
     }
+
+    document.getElementById('caret').style.transform = `translate(${100 * (event.target.selectionStart+1)}%, 0)`
+
+  }
+
+  handleEntered(event){
+    event.preventDefault()
+    this.props.dispatch(commandEntered(event.target.value))
+    event.target.value = ''
+    event.target.selectionStart = 0
+  }
+
+  handleCommandMovement(event){
+    if(event.keyCode == 38 && this.commandM > 0){
+      this.commandM--
+      event.target.value = this.props.terminalData.history[this.commandM].command
+    }
+
+    if(event.keyCode == 40 && this.commandM < this.props.terminalData.history.length){
+      this.commandM++
+      if(this.commandM == this.props.terminalData.history.length){
+        event.target.value = ''
+      }else{
+        event.target.value = this.props.terminalData.history[this.commandM].command
+      }
+    }
+
   }
 
 
@@ -91,7 +120,9 @@ export default class Terminal extends React.Component{
       <main onClick={this.handleMainClick}>
         <iframe
           id='pdf'
-          name='pdf' src={require('../../../Resume1.pdf')}/>
+          name='pdf'
+          type='pdf'
+          src={require('../../../Resume1.pdf')}/>
 
         <div className='content'>
           {historyList}
