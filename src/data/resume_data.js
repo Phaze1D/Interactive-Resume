@@ -1,13 +1,13 @@
 
 import {
   BioDisplay,
-  SkillDisplay,
+  SkillsDisplay,
   EducationDisplay,
   WorkDisplay,
   ProjectsDisplay,
   IntroDisplay,
   PrintDisplay
-} from 'data/display_functions.jsx'
+} from 'components/Displays'
 
 export const resumeData = {
   bio: {
@@ -60,7 +60,7 @@ export const resumeData = {
       { name: 'Machine Learning', mastery: 60 }
     ],
 
-    display: SkillDisplay
+    display: SkillsDisplay
   },
 
 
