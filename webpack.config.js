@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
+
 module.exports = {
   entry: [
     'react-hot-loader/patch',
@@ -12,13 +13,14 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/static/'
+    publicPath: 'http://localhost:3000/static/'
   },
 
   resolve: {
     modules: [
       'node_modules',
-      'src'
+      'src',
+      'public'
     ],
     extensions: ['.js', '.jsx', '.scss', '.sass']
   },
@@ -35,17 +37,17 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        test: /\.(png|jpg|svg|pdf)$/,
+        include: [path.resolve(__dirname, './public/images')],
+        loader: 'url-loader'
+      },
+      {
         test: /\.sass$/,
         loaders: [
           'style-loader',
           'css-loader',
           { loader: 'sass-loader', query: { outputStyle: 'expanded' } }
         ]
-      },
-      {
-        test: /\.(png|jpg|svg|pdf)$/,
-        include: [path.resolve(__dirname, './images')],
-        loader: 'url-loader'
       },
       {
         test: /\.(ttf|pdf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,

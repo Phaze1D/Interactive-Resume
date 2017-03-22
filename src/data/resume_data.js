@@ -7,7 +7,7 @@ import {
   ProjectsDisplay,
   IntroDisplay,
   PrintDisplay
-} from './display_functions.jsx'
+} from 'data/display_functions.jsx'
 
 export const resumeData = {
   bio: {

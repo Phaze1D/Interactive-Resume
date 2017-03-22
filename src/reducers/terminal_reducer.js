@@ -1,5 +1,5 @@
 
-import { resumeData } from '../data/resume_data'
+import { resumeData } from 'data/resume_data'
 
 const INITIAL_DATA = {
   history: [

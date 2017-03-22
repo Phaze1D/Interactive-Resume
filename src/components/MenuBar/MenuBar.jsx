@@ -1,5 +1,5 @@
 import React from 'react'
-import DropDown from '../DropDown'
+import DropDown from 'components/DropDown'
 import classnames from 'classnames'
 import { connect } from 'react-redux'
 
@@ -92,7 +92,7 @@ export default class MenuBar extends React.Component{
           </ul>
 
           <div className='location-info'>
-            <img className='terminal-icon' src={require('../../../images/home.png')}/>
+            <img className='terminal-icon' src={require('images/home.png')}/>
             <h5>david — resume — -bash — Solarized Dark ansi</h5>
           </div>
         </div>
@@ -139,7 +139,7 @@ const NavBarItem = (props) => {
       {title}
 
       {icon &&
-        <img src={require(`../../../images/${icon}`)} alt={iconAlt}/>
+        <img src={require(`images/${icon}`)} alt={iconAlt}/>
       }
 
       <DropDown

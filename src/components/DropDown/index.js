@@ -1,4 +1,4 @@
-import './DropDown.sass'
-import DropDown from './DropDown'
+import 'components/DropDown/DropDown.sass'
+import DropDown from 'components/DropDown/DropDown'
 
 export default DropDown

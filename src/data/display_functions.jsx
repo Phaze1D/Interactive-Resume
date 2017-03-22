@@ -1,5 +1,5 @@
 import React from 'react'
-import { projectSearch } from './search'
+import { projectSearch } from 'data/search'
 
 export const BioDisplay = function(options) {
   return (
@@ -149,6 +149,7 @@ export const EducationDisplay = function(options) {
     </section>
   )
 }
+
 
 const SchoolItem = (props) => (
   <table className='display-table'>

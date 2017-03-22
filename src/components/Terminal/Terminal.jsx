@@ -1,7 +1,7 @@
 import React from 'react'
 import autosize from 'autosize'
 import { connect } from 'react-redux'
-import { commandEntered } from '../../actions/terminal_actions'
+import { commandEntered } from 'actions/terminal_actions'
 
 
 @connect((store) => {
@@ -122,7 +122,7 @@ export default class Terminal extends React.Component{
           id='pdf'
           name='pdf'
           type='pdf'
-          src={require('../../../Resume1.pdf')}/>
+          src={require('Resume1.pdf')}/>
 
         <div className='content'>
           {historyList}

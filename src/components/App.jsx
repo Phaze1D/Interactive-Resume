@@ -1,6 +1,6 @@
 import React from 'react'
-import Layout from './Layout'
-import Terminal from './Terminal'
+import Layout from 'components/Layout'
+import Terminal from 'components/Terminal'
 
 export default class App extends React.Component{
   constructor(props){
