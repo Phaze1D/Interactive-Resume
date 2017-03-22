@@ -2,8 +2,15 @@ import React from 'react'
 import { projectSearch } from 'data/search'
 
 
+/**
+* The function for displaying my projects information
+* @this resumeData.projects object from the resume_data.js file
+* @param {array} options - An array of strings representing the user input options
+* @return {html} A html string that is render by react
+*/
 export default function ProjectsDisplay(options) {
   if(options.length > 0 && !(options[0] === '--search') ){
+    // Return Unknown options if user did not input --search
     return (
       <pre>
         {`Unknown option: ${options[0]} \nusage: projects [--search]`}
@@ -20,6 +27,7 @@ export default function ProjectsDisplay(options) {
     results = this.projects
   }
 
+  // Iterate over the search results and create the React Component for projects object
   let projectList = results.map( (project, index) =>
     <table className='display-table' key={index}>
       <tbody>
@@ -71,6 +79,13 @@ export default function ProjectsDisplay(options) {
   )
 }
 
+
+/**
+* React Component that represents one tag
+* @param {string} tag
+* @param {integer} index
+* @return {html}  A html string that is render by react
+*/
 const TagsDisplay = (tag, index) => {
   return(
     <span key={index} className='tag'>{tag}</span>

@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default function SkillsDisplay(options) {
+/**
+* The function for displaying my skills information
+* @this resumeData.skills object from the resume_data.js file
+* @return {html} A html string that is render by react
+*/
+export default function SkillsDisplay() {
   this.technology.sort((a,b) => {return b.mastery - a.mastery})
 
   let skillList = this.technology.map( (skill, index) =>

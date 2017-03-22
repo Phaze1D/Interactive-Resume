@@ -1,7 +1,12 @@
 import React from 'react'
 
 
-export default function BioDisplay(options) {
+/**
+* The function for displaying my bio information
+* @this resumeData.bio object from the resume_data.js file
+* @return {html} A html string that is render by react
+*/
+export default function BioDisplay() {
   return (
     <section>
       <h4 className='table-header'>BIO:</h4>

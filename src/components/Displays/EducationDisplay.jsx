@@ -1,7 +1,15 @@
 import React from 'react'
 
+/**
+* The function for displaying my education information
+* @this resumeData.education object from the resume_data.js file
+* @param {array} options - An array of strings representing the user input options
+* @return {html} A html string that is render by react
+*/
 export default function EducationDisplay(options) {
   if(options.length > 0 && !(options[0] === '--schools' || options[0] === '--online')){
+
+    // Return Unknown options if user did not input --schools or --online as options
     return (
       <pre>
         {`Unknown option: ${options[0]} \nusage: education [--schools] [--online]`}
@@ -38,6 +46,11 @@ export default function EducationDisplay(options) {
 }
 
 
+/**
+* React Component that represents one school
+* @param {object} props - React props
+* @return {html}  A html string that is render by react
+*/
 const SchoolItem = (props) => (
   <table className='display-table'>
     <tbody>
@@ -76,6 +89,12 @@ const SchoolItem = (props) => (
   </table>
 )
 
+
+/**
+* React Component that represents one online course
+* @param {object} props - React props
+* @return {html}  A html string that is render by react
+*/
 const CourseItem = (props) => (
   <table className='display-table'>
     <tbody>

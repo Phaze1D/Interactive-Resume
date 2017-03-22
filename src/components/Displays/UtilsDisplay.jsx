@@ -1,6 +1,10 @@
 import React from 'react'
 
-
+/**
+* The function for displaying the intro information
+* @this resumeData.intro object from the resume_data.js file
+* @return {html} A html string that is render by react
+*/
 export const IntroDisplay = () => (
   <section>
     <pre>
@@ -84,14 +88,19 @@ export const IntroDisplay = () => (
 
     <h4 className='table-header'>PS:</h4>
     <p>
-      This is an exact replica of my terminal. If you are using Mac OS and you have
-      the Chrome browser expanded you can press COMMAND SHIFT F to get a more immersive experience
+      This is an exact replica of my terminal. You can also use some common terminal keystrokes like up and down arrows
+      to navigate throught previously entered commands. If you are using Mac OS and you have
+      the Chrome browser expanded you can press COMMAND SHIFT F to get a more immersive experience.
     </p>
   </section>
 )
 
-
-export const PrintDisplay = function (options) {
+/**
+* The function for displaying the print dialog
+* @this resumeData.print object from the resume_data.js file
+* @return {html} A empty div
+*/
+export const PrintDisplay = function () {
   var pdfFrame = window.frames["pdf"];
   pdfFrame.focus();
   pdfFrame.print();

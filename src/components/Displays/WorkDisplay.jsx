@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default function WorkDisplay(options) {
+/**
+* The function for displaying my work information
+* @this resumeData.work object from the resume_data.js file
+* @return {html} A html string that is render by react
+*/
+export default function WorkDisplay() {
   let jobList = this.jobs.map( (job, index) =>
     <table className='display-table' key={index}>
       <tbody>

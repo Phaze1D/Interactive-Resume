@@ -50,10 +50,9 @@ export default class Terminal extends React.Component{
   handleSelection(event){
     if(event.type === 'keydown' && event.keyCode == 13){
       this.handleEntered(event)
-    }else if(event.type === 'keydown' && (event.keyCode == 38 || event.keyCode == 40) ){
+    }else if(event.type === 'keyup' && (event.keyCode == 38 || event.keyCode == 40) ){
       this.handleCommandMovement(event)
     }
-
     document.getElementById('caret').style.transform = `translate(${100 * (event.target.selectionStart+1)}%, 0)`
 
   }
@@ -69,6 +68,7 @@ export default class Terminal extends React.Component{
     if(event.keyCode == 38 && this.commandM > 0){
       this.commandM--
       event.target.value = this.props.terminalData.history[this.commandM].command
+      event.target.selectionStart = this.props.terminalData.history[this.commandM].command.length
     }
 
     if(event.keyCode == 40 && this.commandM < this.props.terminalData.history.length){
