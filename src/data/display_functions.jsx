@@ -183,7 +183,7 @@ const SchoolItem = (props) => (
 
       <tr>
         <td className='title'>website:</td>
-        <td><a href={props.url}>{props.url}</a></td>
+        <td><a target="_blank" href={props.url}>{props.url}</a></td>
       </tr>
     </tbody>
   </table>
@@ -209,7 +209,7 @@ const CourseItem = (props) => (
 
       <tr>
         <td className='title'>website:</td>
-        <td><a href={props.url}>{props.url}</a></td>
+        <td><a target="_blank" href={props.url}>{props.url}</a></td>
       </tr>
     </tbody>
   </table>
@@ -249,7 +249,7 @@ export const WorkDisplay = function (options) {
 
         <tr>
           <td className='title'>Website:</td>
-          <td><a href={job.url}>{job.url}</a></td>
+          <td><a target="_blank" href={job.url}>{job.url}</a></td>
         </tr>
       </tbody>
     </table>
@@ -286,6 +286,12 @@ export const ProjectsDisplay = function (options) {
     <table className='display-table' key={index}>
       <tbody>
         <tr>
+          <td className='title'>images:</td>
+          <td>
+            <a target="_blank" href={project.url}><img src={require(`images/${project.images[1]}`)}/> </a>
+          </td>
+        </tr>
+        <tr>
           <td className='title'>title:</td>
           <td>{project.title}</td>
         </tr>
@@ -302,7 +308,7 @@ export const ProjectsDisplay = function (options) {
 
         <tr>
           <td className='title'>url:</td>
-          <td><a href={project.url}>{project.url}</a></td>
+          <td><a target="_blank" href={project.url}>{project.url}</a></td>
         </tr>
 
         <tr>
