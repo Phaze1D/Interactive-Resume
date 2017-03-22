@@ -1,5 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 
 
 module.exports = {
@@ -36,19 +38,18 @@ module.exports = {
       {
         test: /\.(png|jpg|svg|pdf)$/,
         include: [path.resolve(__dirname, './public/images')],
-        loader: 'url-loader?limit=5000'
+        use: 'url-loader?limit=5000'
       },
       {
         test: /\.sass$/,
-        loaders: [
-          'style-loader',
-          'css-loader',
-          { loader: 'sass-loader', query: { outputStyle: 'expanded' } }
-        ]
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader!sass-loader",
+        })
       },
       {
         test: /\.(ttf|pdf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
+        use: 'file-loader'
       }
     ],
   },
@@ -57,6 +58,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       comments: false
-    })
+    }),
+    new ExtractTextPlugin("static/styles.css")
   ],
 };
