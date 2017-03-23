@@ -43,20 +43,29 @@ export default class Terminal extends React.Component{
 
   /**
   * Handler for OnChange KeyUp and KeyDown
-  * Moves the textarea caret if the key that was pressed is not ENTER
-  * If the ENTER key is pressed dispatch commandEntered action
-  * @param {object} event - KeyUp || KeyDown || Change event
+  * @param {object} event - KeyUp || KeyDown || Change  || Click event
   */
   handleSelection(event){
+
+    // if event is keydown and enter key is pressed
     if(event.type === 'keydown' && event.keyCode == 13){
       this.handleEntered(event)
+
+    // if event is keyup and the up or down arrows are pressed
     }else if(event.type === 'keyup' && (event.keyCode == 38 || event.keyCode == 40) ){
       this.handleCommandMovement(event)
     }
+
     document.getElementById('caret').style.transform = `translate(${100 * (event.target.selectionStart+1)}%, 0)`
 
   }
 
+
+  /**
+  * Handler for when the enter key is pressed
+  * Dispatches the commandEntered action
+  * @param {object} event - KeyDown event
+  */
   handleEntered(event){
     event.preventDefault()
     this.props.dispatch(commandEntered(event.target.value))
@@ -64,6 +73,11 @@ export default class Terminal extends React.Component{
     event.target.selectionStart = 0
   }
 
+
+  /**
+  * Handler for when the up or down arrow keys are pressed
+  * @param {object} event - KeyUp event
+  */
   handleCommandMovement(event){
     if(event.keyCode == 38 && this.commandM > 0){
       this.commandM--

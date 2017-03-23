@@ -1,5 +1,11 @@
 
 
+/**
+* Searches array of projects objects by tag
+* @param {array} projectsArray - the array to search in
+* @param {string} query - the tag to search forEach
+* @return {array}
+*/
 export const projectSearch = (projectsArray, query) => {
   let results = []
 
