@@ -43,10 +43,13 @@ module.exports = {
       },
       {
         test: /\.sass$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader!sass-loader",
-        })
+        use:[{
+                loader: "style-loader"
+            }, {
+                loader: "css-loader"
+            }, {
+                loader: "sass-loader"
+            }]
       },
       {
         test: /\.(ttf|pdf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -60,7 +63,7 @@ module.exports = {
       sourceMap: true,
       comments: false
     }),
-    new ExtractTextPlugin("static/styles.css"),
+    // new ExtractTextPlugin("static/styles.css"),
     // new CompressionPlugin({
     //     asset: "public/Resume1.pdf",
     //     algorithm: "gzip",
