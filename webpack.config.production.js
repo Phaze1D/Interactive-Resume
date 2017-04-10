@@ -12,7 +12,7 @@ module.exports = {
   output: {
     filename: 'static/bundle.js',
     path: path.resolve(__dirname, 'build'),
-    publicPath: 'file://' + path.resolve(__dirname, 'build') + '/'
+    publicPath: 'https://phaze1d.github.io/Interactive-Resume/'
   },
 
   resolve: {
