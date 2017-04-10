@@ -7,7 +7,9 @@
     "start": "webpack-dev-server",
     "prebuild": "rimraf build",
     "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.production.js",
-    "postbuild": "copyfiles index.html build"
+    "postbuild": "copyfiles index.html build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Phaze1D/Interactive-Resume/issues"
   },
-  "homepage": "https://github.com/Phaze1D/Interactive-Resume#readme",
+  "homepage": "https://phaze1d.github.io/Interactive-Resume/",
   "dependencies": {
     "autosize": "^3.0.20",
     "classnames": "^2.2.5",
@@ -41,6 +43,7 @@
     "css-loader": "^0.27.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
+    "gh-pages": "^0.12.0",
     "gulp": "^3.9.1",
     "gulp-image-resize": "^0.12.0",
     "gulp-rename": "^1.2.2",
