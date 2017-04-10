@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var CompressionPlugin = require("compression-webpack-plugin");
 
 
 
@@ -59,6 +60,12 @@ module.exports = {
       sourceMap: true,
       comments: false
     }),
-    new ExtractTextPlugin("static/styles.css")
+    new ExtractTextPlugin("static/styles.css"),
+    // new CompressionPlugin({
+    //     asset: "public/Resume1.pdf",
+    //     algorithm: "gzip",
+    //     threshold: 10240,
+    //     minRatio: 0.8
+    // })
   ],
 };
