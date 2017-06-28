@@ -1,62 +1,73 @@
 
 .display-table
-  margin: 15px 0px 25px 15px
+	margin: 15px 0px 25px 15px
 
-  .title
-    white-space: nowrap
-    text-transform: capitalize
+	.title
+		white-space: nowrap
+		text-transform: capitalize
 
-  td
-    text-align: justify
-    vertical-align: top
-    padding: 0 5px 5px
+	td
+		text-align: justify
+		vertical-align: top
+		padding: 0 5px 5px
 
-  i
-    font-size: 1.3em
-    margin-right: 8px
+		&:last-child
+			padding-right: 0
 
-  a
-    color: #268bd2
-    word-break: break-all
+	i
+		font-size: 1.3em
+		margin-right: 8px
 
-  img
-    width: 250px
-    opacity: 0.3
-    cursor: pointer
+	a
+		color: #268bd2
+		word-break: break-all
 
-    &:hover
-      opacity: 1
+	img
+		width: 250px
+		opacity: 0.3
+		cursor: pointer
+
+		&:hover
+			opacity: 1
 
 
 .table-header
-  margin: 0 0 10px
-  padding: 10px 0 0
-  font-weight: 400
-  text-transform: uppercase
+	margin: 0 0 10px
+	padding: 10px 0 0
+	font-weight: 400
+	text-transform: uppercase
 
 
 .result-area
-  color: rgb(131, 148, 150)
+	color: rgb(131, 148, 150)
 
-  p
-    word-break: normal
-    text-align: justify
+	p
+		word-break: normal
+		text-align: justify
 
-  pre
-    font-family: Menlo-Regular
+	pre
+		font-family: Menlo-Regular
 
 
 .tags
-  display: inline-flex
-  flex-wrap: wrap
-  padding: 0
+	display: inline-flex
+	flex-wrap: wrap
+	padding: 0
 
 
 .tag
-  color: white
-  opacity: 0.8
-  padding: 5px 15px
-  margin: 0 15px 5px 0
-  font-size: 0.9em
-  border-radius: 20px
-  background-color: #2aa198
+	color: white
+	opacity: 0.8
+	padding: 5px 15px
+	margin: 0 15px 5px 0
+	font-size: 0.9em
+	border-radius: 20px
+	background-color: #2aa198
+
+@media(max-width: 594px)
+	#intro-title
+		font-size: 10px
+
+@media(max-width: 489px)
+	#intro-title
+		font-size: 6px

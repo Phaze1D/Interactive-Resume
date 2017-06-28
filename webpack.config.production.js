@@ -1,7 +1,9 @@
-var path = require('path');
 var webpack = require('webpack');
+var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var CompressionPlugin = require("compression-webpack-plugin");
+var OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 
@@ -25,8 +27,6 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss', '.sass']
   },
 
-  devtool: 'source-map',
-
   module: {
     rules: [
       {
@@ -35,23 +35,17 @@ module.exports = {
           'babel-loader',
         ],
         exclude: /node_modules/,
-      },
-      {
+      },{
         test: /\.(png|jpg|svg|pdf)$/,
         include: [path.resolve(__dirname, './public/images')],
-        use: 'url-loader?limit=5000'
-      },
-      {
-        test: /\.sass$/,
-        use:[{
-                loader: "style-loader"
-            }, {
-                loader: "css-loader"
-            }, {
-                loader: "sass-loader"
-            }]
-      },
-      {
+        use: 'url-loader?limit=500'
+      },{
+	      test: /\.(scss|sass|css)$/,
+	      use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'postcss-loader', 'sass-loader']
+	      })
+	    },{
         test: /\.(ttf|pdf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: 'file-loader'
       }
@@ -59,16 +53,14 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      comments: false
+    new UglifyJSPlugin(),
+		new ExtractTextPlugin("static/styles.css"),
+		new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.optimize\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: { discardComments: {removeAll: true } },
+      canPrint: true
     }),
-    // new ExtractTextPlugin("static/styles.css"),
-    // new CompressionPlugin({
-    //     asset: "public/Resume1.pdf",
-    //     algorithm: "gzip",
-    //     threshold: 10240,
-    //     minRatio: 0.8
-    // })
+		new BundleAnalyzerPlugin()
   ],
 };

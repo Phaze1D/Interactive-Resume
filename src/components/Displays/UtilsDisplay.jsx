@@ -7,7 +7,7 @@ import React from 'react'
 */
 export const IntroDisplay = () => (
   <section>
-    <pre>
+    <pre id="intro-title">
       {`
          /$$      /$$           /$$
         | $$  /$ | $$          | $$

@@ -35,7 +35,7 @@ export default function ProjectsDisplay(options) {
           <tr>
             <td className='title'>images:</td>
             <td>
-              <a target="_blank" href={project.url}><img src={require(`images/${project.images[1]}`)}/> </a>
+              <a target="_blank" href={project.url}> </a>
             </td>
           </tr>
         }

@@ -160,7 +160,7 @@ export const resumeData = {
           "SCSS"
         ],
         url: "https://github.com/Phaze1D/Devrag",
-        images: [ 'dev169-large.jpg','dev169-medium.jpg' ]
+        // images: [ 'dev169-large.jpg','dev169-medium.jpg' ]
       },
       {
         title: "Belleza Organica",
@@ -178,7 +178,7 @@ export const resumeData = {
           "Less"
         ],
         url: "https://bellezaorganica.com.mx/",
-        images: [ 'bell169-large.jpg', 'bell169-medium.jpg' ]
+        // images: [ 'bell169-large.jpg', 'bell169-medium.jpg' ]
       },
       {
         title: "Farmage Backend",
@@ -195,7 +195,7 @@ export const resumeData = {
           "Less"
         ],
         url: "https://github.com/Phaze1D/Farmage-Concept",
-        images: [ 'fb169-large.jpg', 'fb169-medium.jpg' ]
+        // images: [ 'fb169-large.jpg', 'fb169-medium.jpg' ]
       },
       {
         title: "Farmage Frontend",
@@ -211,7 +211,7 @@ export const resumeData = {
           "Less"
         ],
         url: "https://github.com/Phaze1D/Farmage_Frontend",
-        images: [ 'ff169-large.jpg', 'ff169-medium.jpg' ]
+        // images: [ 'ff169-large.jpg', 'ff169-medium.jpg' ]
       },
       {
         title: "Movie Review Project",
@@ -223,7 +223,7 @@ export const resumeData = {
           "HTML"
         ],
         url: "https://github.com/Phaze1D/Udacity-Fullstack-Projects/tree/master/MovieTrailerWebsite",
-        images: [ 'mo169-large.jpg', 'mo169-medium.jpg' ]
+        // images: [ 'mo169-large.jpg', 'mo169-medium.jpg' ]
       },
       {
         title: "Portfolio",
@@ -238,7 +238,7 @@ export const resumeData = {
           "SCSS"
         ],
         url: "https://github.com/Phaze1D/Portfolio",
-        images: [ 'po169-large.jpg', 'po169-medium.jpg' ]
+        // images: [ 'po169-large.jpg', 'po169-medium.jpg' ]
       },
       {
         title: "Rising Fall Android",
@@ -252,7 +252,7 @@ export const resumeData = {
           "LibGDX"
         ],
         url: "https://play.google.com/store/apps/details?id=com.Phaze1D.RisingFallAndroidV2.android",
-        images: [ 'rf169-large.jpg', 'rf169-medium.jpg' ]
+        // images: [ 'rf169-large.jpg', 'rf169-medium.jpg' ]
       },
       {
         title: "Rising Fall IOS",
@@ -266,7 +266,7 @@ export const resumeData = {
           "SpriteKit"
         ],
         url: "https://itunes.apple.com/us/app/rising-fall/id904055570?mt=8",
-        images: [ 'rf169-large.jpg', 'rf169-medium.jpg' ]
+        // images: [ 'rf169-large.jpg', 'rf169-medium.jpg' ]
       },
       {
         title: "Eschew Cocos2d-X",
@@ -281,7 +281,7 @@ export const resumeData = {
           "IOS"
         ],
         url: "https://itunes.apple.com/us/app/eschew/id980786957?mt=8",
-        images: [ 'es169-large.jpg', 'es169-medium.jpg' ]
+        // images: [ 'es169-large.jpg', 'es169-medium.jpg' ]
       }
     ],
     display: ProjectsDisplay // Can be found in display_functions.js file
