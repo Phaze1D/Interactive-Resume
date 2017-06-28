@@ -4,6 +4,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 
@@ -53,7 +54,7 @@ module.exports = {
   },
 
   plugins: [
-    new UglifyJSPlugin(),
+    // new UglifyJSPlugin(),
 		new ExtractTextPlugin("static/styles.css"),
 		new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.optimize\.css$/g,
@@ -61,6 +62,7 @@ module.exports = {
       cssProcessorOptions: { discardComments: {removeAll: true } },
       canPrint: true
     }),
-		new BundleAnalyzerPlugin()
+		new HtmlWebpackPlugin(),
+		// new BundleAnalyzerPlugin()
   ],
 };
