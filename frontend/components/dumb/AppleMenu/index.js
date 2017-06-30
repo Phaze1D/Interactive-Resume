@@ -1,4 +1,4 @@
 import AppleMenu from './AppleMenu'
-import './styles.sass'
+import './sass/index.sass'
 
 export default AppleMenu

@@ -7,8 +7,7 @@ export default class AppleMenu extends React.Component {
 
 	render(){
 		return(
-			<div>
-				AppleMenu
+			<div className='apple-bar'>
 			</div>
 		)
 	}
