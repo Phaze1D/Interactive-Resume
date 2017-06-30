@@ -6,8 +6,7 @@ import promise from 'redux-promise-middleware'
 import { getReducers } from 'reducers'
 import Layout from 'smart/Layout'
 
-
-
+import 'sass/index.sass'
 
 let middleware = applyMiddleware( promise({promiseTypeSuffixes: ['LOADING', 'SUCCESS', 'ERROR']}))
 const store = createStore(getReducers(), middleware)
