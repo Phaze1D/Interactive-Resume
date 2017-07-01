@@ -30,6 +30,15 @@ var config = {
         }
       }]
     },{
+      test: /\.(png|jpg|svg|pdf)$/,
+			use: {
+				loader: 'url-loader',
+        options: {
+          limit: 819
+        }
+			}
+    },
+		{
       test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
       loader: 'file-loader?name=fonts/[name].[ext]'
     },{
