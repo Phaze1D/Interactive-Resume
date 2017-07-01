@@ -4,18 +4,18 @@ import Immutable from 'immutable'
 
 
 import { terminalReducer } from 'reducers/terminal'
-import { appleBarReducer } from 'reducers/applebar'
+import { appleMenuReducer } from 'reducers/apple_menu'
 
 
 
 const StateRecord = Immutable.Record({
 	terminalLog: undefined,
-	appleBar: undefined
+	appleMenuItems: undefined
 })
 
 export const getReducers = (preloadState=StateRecord) => {
 	return combineReducers({
 		terminalLog: terminalReducer,
-		appleBar: appleBarReducer
+		appleMenuItems: appleMenuReducer
 	}, preloadState)
 }
