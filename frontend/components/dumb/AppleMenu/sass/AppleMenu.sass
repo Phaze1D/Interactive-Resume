@@ -6,33 +6,43 @@
 	padding: 0px 12px
 	background-color: $bar-background
 
-.bar-item
-  position: relative
-  height: 100%
-  font-weight: 300
-  font-size: 0.85em
-  text-decoration: none
-  color: white
-  cursor: default
-  padding: 0 10px
-  background-color: transparent
-  border: none
-  outline: none
-  &.main
-    font-weight: 600
-  &.icon
-    padding: 3px 8px
-  &.hover
-    background-color: $bar-item-hover
-  img
-    height: 100%
+.menu-item
+	position: relative
+	height: 100%
+	font-weight: 300
+	font-size: 0.85em
+	text-decoration: none
+	color: white
+	cursor: default
+	padding: 0 10px
+	background-color: transparent
+	border: none
+	outline: none
 
-	
+	&.main
+		font-weight: 600
+
+	&.hover
+		background-color: $bar-item-hover
+
+	.icon
+		font-size: 17px
+
+.overlay
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  background-color: transparent
+
+
+
 #close
-  background-color: $bar-close
+	background-color: $bar-close
 
 #min
-  background-color: $bar-min
+	background-color: $bar-min
 
 #expand
-  background-color: $bar-expand
+	background-color: $bar-expand
