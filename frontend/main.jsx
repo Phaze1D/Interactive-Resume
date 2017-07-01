@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
 import promise from 'redux-promise-middleware'
 import { getReducers } from 'reducers'
-import Layout from 'smart/Layout'
+import Layout from 'Layout'
 
 import 'sass/index.sass'
 
