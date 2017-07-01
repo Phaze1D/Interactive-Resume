@@ -1,5 +1,5 @@
 import React from 'react'
-import AppleMenu from 'dumb/AppleMenu'
+import MenuContainer from 'smart/MenuContainer'
 import Terminal from 'dumb/Terminal'
 
 
@@ -12,7 +12,7 @@ export default class Layout extends React.Component{
 
 		return(
 			<div>
-				<AppleMenu/>
+				<MenuContainer/>
 				<Terminal/>
 			</div>
 		)
