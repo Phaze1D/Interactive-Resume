@@ -1,17 +1,21 @@
 import { combineReducers } from 'redux-immutable'
-import reduceReducers from 'reduce-reducers'
 import Immutable from 'immutable'
+// import reduceReducers from 'reduce-reducers'
+
 
 import { terminalReducer } from 'reducers/terminal'
+import { appleBarReducer } from 'reducers/applebar'
 
 
 
 const StateRecord = Immutable.Record({
-	terminalLog: undefined
+	terminalLog: undefined,
+	appleBar: undefined
 })
 
 export const getReducers = (preloadState=StateRecord) => {
 	return combineReducers({
-		terminalLog: terminalReducer
+		terminalLog: terminalReducer,
+		appleBar: appleBarReducer
 	}, preloadState)
 }
