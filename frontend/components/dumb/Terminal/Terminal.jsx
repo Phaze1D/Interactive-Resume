@@ -1,4 +1,5 @@
 import React from 'react'
+import homeIcon from 'resources/images/home.png'
 
 
 export default class Terminal extends React.Component {
@@ -18,7 +19,7 @@ export default class Terminal extends React.Component {
 					</ul>
 
 					<div className='location-info'>
-						<img className='terminal-icon' src={import('resources/images/home.png')}/>
+						<img className='terminal-icon' src={homeIcon}/>
 						<h5>david — resume — -bash — Solarized Dark ansi</h5>
 					</div>
 				</div>
