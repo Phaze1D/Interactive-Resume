@@ -20,7 +20,7 @@
 
 .glass
 	min-width: 220px
-	background-color: rgba(25, 34, 39, 0.97)
+	background-color: $dropdown-background
 
 .menu-list
 	font-weight: 300
@@ -30,7 +30,7 @@
 	text-align: left
 
 	hr
-		border: 1px solid rgba(238, 238, 238, 0.25)
+		border: 1px solid $hr-border
 		margin: 4px 0
 
 	li
@@ -52,17 +52,17 @@
 			margin: 0
 			font-size: 0.75em
 			margin-left: auto
-			background-color: rgba(255,255,255,0.2)
+			background-color: $pre-background
 			border-radius: 10px
 			padding: 0 10px
 
 		&.disabled
-			color: rgba(255, 255, 255, 0.5)
+			color: $disabled-item
 
 		&:not(.disabled):hover
-			background-color: rgb(27, 117, 225)
+			background-color: $bar-item-hover
 			pre
-				background-color: rgb(27, 117, 225)
+				background-color: $bar-item-hover
 
 
 .search
@@ -74,17 +74,17 @@
 		font-size: 1em
 		margin-bottom: 2px
 		padding: 5px 10px 5px 48px
-		background-color: rgba(255,255,255, 0.3)
+		background-color: $search-background
 
 		&:hover
-			background-color: rgba(255,255,255, 0.3) !important
+			background-color: $search-background !important
 
 	li
 		padding: 0 10px 0 48px
 
 	input
 		border: none
-		background: rgba(0,0,0, 0.3)
+		background: $input-backround
 		border-radius: 3px
 		margin-left: 16px
 		outline: none
