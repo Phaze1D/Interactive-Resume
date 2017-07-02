@@ -1,5 +1,5 @@
 import Terminal from './Terminal'
-import './styles.sass'
+import './sass/index.sass'
 
 
 export default Terminal

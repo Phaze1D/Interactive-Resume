@@ -9,8 +9,19 @@ export default class Terminal extends React.Component {
 	render(){
 
 		return (
-			<div>
-				Terminal
+			<div className='terminal'>
+				<div className='terminal-bar'>
+					<ul className='button-list'>
+						<li><button id='close'><div></div></button></li>
+						<li><button id='min'><div></div></button></li>
+						<li><button id='expand'><div></div></button></li>
+					</ul>
+
+					<div className='location-info'>
+						<img className='terminal-icon' src={import('resources/images/home.png')}/>
+						<h5>david — resume — -bash — Solarized Dark ansi</h5>
+					</div>
+				</div>
 			</div>
 		)
 	}
