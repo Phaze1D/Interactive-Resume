@@ -21,13 +21,12 @@ The file that contains the information that is not on Github is located in [fron
 ### Production
 The production version of this app is hosted on [Firebase](https://firebase.google.com/).
 
+## Dependencies
+* [NodeJS](https://nodejs.org/en/)
+* [NPM](https://www.npmjs.com/)
+
 ## Contributing
 There are a bunch of small features that can be added to make the terminal feel more like an actual terminal, for example, autocomplete. Since that app is built with the module pattern (Terminal Module, AppleBar Module), one can add more features to each module without having to touch the rest of the app. If you do add some cool features, you can just send a quick pull request, and I'll check them out.
 
 ## License
 Usage is provided under the MIT License. See [LICENSE](LICENSE) for the full details.
-
-
-### Dependencies
-* [NodeJS](https://nodejs.org/en/)
-* [NPM](https://www.npmjs.com/)
