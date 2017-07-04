@@ -2,6 +2,8 @@
 This repo contains my Interactive Resume website. It is purely a frontend project that is built with ReactJS. It does however use [GitHub GraphQL API](https://developer.github.com/v4/) to get information about my repositories. Using Github's API means that the website will be up to date with all my current repositories. You can view the live version [here](https://phaze1d.github.io/Interactive-Resume/)
 
 <img src="./readme_imgs/screen.png"/>
+
+
 > This is a screenshot of the actual website not a screenshot of a terminal window
 
 
