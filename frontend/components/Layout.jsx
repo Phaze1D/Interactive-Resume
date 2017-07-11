@@ -1,6 +1,6 @@
 import React from 'react'
 import MenuContainer from 'smart/MenuContainer'
-import Terminal from 'dumb/Terminal'
+import TerminalContainer from 'smart/TerminalContainer'
 
 
 export default class Layout extends React.Component{
@@ -13,7 +13,7 @@ export default class Layout extends React.Component{
 		return(
 			<div>
 				<MenuContainer/>
-				<Terminal/>
+				<TerminalContainer/>
 			</div>
 		)
 	}
