@@ -1,0 +1,2 @@
+
+export const COMMAND_ENTERED = 'COMMAND_ENTERED'
