@@ -8,6 +8,9 @@ export default class Terminal extends React.Component {
 	}
 
 	render(){
+		const {
+			children
+		} = this.props
 
 		return (
 			<div className='terminal'>
@@ -23,7 +26,17 @@ export default class Terminal extends React.Component {
 						<h5>david — resume — -bash — Solarized Dark ansi</h5>
 					</div>
 				</div>
+
+				{children}
+
 			</div>
 		)
 	}
 }
+
+
+const TerminalInput = (props) => (
+	<div>
+		
+	</div>
+)
