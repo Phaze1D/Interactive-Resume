@@ -90,6 +90,17 @@ export default class Terminal extends React.Component {
 	}
 }
 
+
+/**
+* Switch Component
+*/
+const Switch = ({command}) => (
+	<div>
+
+	</div>
+)
+
+
 /**
 * Terminal Input Component
 */
@@ -109,6 +120,7 @@ const TerminalInput = (props) => (
 		<span id='caret' className='caret focus-out'>A</span>
 	</TerminalItem>
 )
+
 
 /**
 * Terminal Item Component
