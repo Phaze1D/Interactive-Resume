@@ -42,11 +42,11 @@ export default class Terminal extends React.Component {
 		this.handleSelection(event)
 	}
 
-	handleBlur(event){
+	handleBlur(){
 		document.getElementById('caret').classList.add('focus-out')
 	}
 
-	handleMainClick(event){
+	handleMainClick(){
 		document.getElementById('caret').classList.remove('focus-out')
 		document.getElementById('main-textarea').focus()
 	}
