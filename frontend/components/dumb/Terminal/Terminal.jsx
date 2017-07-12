@@ -1,19 +1,69 @@
 import React from 'react'
+import autosize from 'autosize'
 import homeIcon from 'resources/images/home.png'
 
 
 export default class Terminal extends React.Component {
 	constructor(props){
 		super(props)
+		this.handleBlur = this.handleBlur.bind(this)
+		this.handleEntered = this.handleEntered.bind(this)
+		this.handleSelection = this.handleSelection.bind(this)
+		this.handleMainClick = this.handleMainClick.bind(this)
+		this.handleCommandMovement = this.handleCommandMovement.bind(this)
+	}
+
+	componentDidMount() {
+		autosize(document.getElementById('main-textarea'))
+	}
+
+	handleSelection(event){
+		document.getElementById('caret').style.transform = `translate(${100 * (event.target.selectionStart+1)}%, 0)`
+	}
+
+	handleEntered(event){
+		if(event.keyCode === 13){
+			event.preventDefault()
+			this.props.onRequestCommand(event.target.value)
+			event.target.value = ''
+			event.target.selectionStart = 0
+		}
+		this.handleSelection(event)
+	}
+
+	handleCommandMovement(event){
+		if(event.keyCode === 38){
+			//
+		}
+
+		if(event.keyCode === 40){
+			//
+		}
+		this.handleSelection(event)
+	}
+
+	handleBlur(event){
+		document.getElementById('caret').classList.add('focus-out')
+	}
+
+	handleMainClick(event){
+		document.getElementById('caret').classList.remove('focus-out')
+		document.getElementById('main-textarea').focus()
 	}
 
 	render(){
 		const {
-			children
+			terminalLog
 		} = this.props
 
+		const logList = terminalLog.map( (command, index) =>
+			<TerminalItem key={index}>
+
+			</TerminalItem>
+		)
+
 		return (
-			<div className='terminal'>
+			<main className='terminal' onClick={this.handleMainClick}>
 				<div className='terminal-bar'>
 					<ul className='button-list'>
 						<li><button id='close'><div></div></button></li>
@@ -27,16 +77,54 @@ export default class Terminal extends React.Component {
 					</div>
 				</div>
 
-				{children}
+				{logList}
 
-			</div>
+				<TerminalInput
+					onChange={this.handleSelection}
+					onKeyUp={this.handleCommandMovement}
+					onKeyDown={this.handleEntered}
+					onClick={this.handleSelection}
+					onBlur={this.handleBlur}/>
+			</main>
 		)
 	}
 }
 
-
+/**
+* Terminal Input Component
+*/
 const TerminalInput = (props) => (
-	<div>
-		
+	<TerminalItem>
+		$<textarea
+			spellCheck='false'
+			id='main-textarea'
+			rows='1'
+			onChange={props.onChange}
+			onKeyUp={props.onKeyUp}
+			onKeyDown={props.onKeyDown}
+			onClick={props.onClick}
+			onBlur={props.onBlur}>
+		</textarea>
+
+		<span id='caret' className='caret focus-out'>A</span>
+	</TerminalItem>
+)
+
+/**
+* Terminal Item Component
+* Parent Component for all terminal items
+*/
+const TerminalItem = ({children}) => (
+	<div className='input-item with-input'>
+		<p>
+			<span className='orange'> david </span> at
+			<span className='yellow'> Joker </span> in
+			<span className='green'> ~/Projects/Udacity/InteractiveResume </span> on
+			<span className='purple'> master </span>
+		</p>
+
+		<div className='input-area'>
+			{children}
+		</div>
 	</div>
 )

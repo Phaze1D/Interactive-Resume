@@ -4,17 +4,26 @@ $bar-expand:  rgb(53, 203, 75)
 $bar-gradient1: #ebebeb
 $bar-gradient2: #d3d3d3
 $terminal-background: rgb(7, 46, 58)
+$text-color: rgb(131, 148, 150)
 
 =gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%)
-  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent)
-  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent)
-  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent)
-  background-repeat: repeat-x
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0)
+	background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent)
+	background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent)
+	background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent)
+	background-repeat: repeat-x
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0)
+
 
 .terminal
+	max-width: 100%
 	background-color: $terminal-background
 	min-height: calc(100vh - 22px)
+	cursor: text
+	overflow-x: hidden
+
+	.content
+		max-width: 750px
+
 
 .terminal-bar
 	+gradient-vertical($bar-gradient1, $bar-gradient2)
@@ -24,89 +33,164 @@ $terminal-background: rgb(7, 46, 58)
 
 
 .button-list
-  display: flex
-  align-items: center
-  height: 100%
-  list-style: none
-  padding: 0 4px
-  margin: 0
+	display: flex
+	align-items: center
+	height: 100%
+	list-style: none
+	padding: 0 4px
+	margin: 0
 
-  li
-    position: relative
-    height: 12px
-    width: 12px
-    margin: 0 4px
+	li
+		position: relative
+		height: 12px
+		width: 12px
+		margin: 0 4px
 
-  button
-    display: block
-    border: none
-    border-radius: 50%
-    border: 1px solid rgba(0, 0, 0, 0.1)
-    height: 100%
-    width: 100%
-    padding: 0
-    outline: none
+	button
+		display: block
+		border: none
+		border-radius: 50%
+		border: 1px solid rgba(0, 0, 0, 0.1)
+		height: 100%
+		width: 100%
+		padding: 0
+		outline: none
 
-  div
-    border-radius: 50%
-    opacity: 0.9
-    position: absolute
-    height: 100%
-    width: 100%
-    top: 0px
-    left: 0px
-    background-repeat: no-repeat
-    background-position: center center
-    &:active
-      background-color: rgba(0,0,0,0.3)
+	div
+		border-radius: 50%
+		opacity: 0.9
+		position: absolute
+		height: 100%
+		width: 100%
+		top: 0px
+		left: 0px
+		background-repeat: no-repeat
+		background-position: center center
+		&:active
+			background-color: rgba(0,0,0,0.3)
 
 
-  &:hover
-    #close
-      div
-        background-size: 6px
-        background-image: url('~resources/images/close.png')
+	&:hover
+		#close
+			div
+				background-size: 6px
+				background-image: url('~resources/images/close.png')
 
-    #min
-      div
-        background-size: 8px
-        background-position: center center
-        background-image: url('~resources/images/min.png')
+		#min
+			div
+				background-size: 8px
+				background-position: center center
+				background-image: url('~resources/images/min.png')
 
-    #expand
-      div
-        background-size: 6px
-        background-image: url('~resources/images/expand.png')
+		#expand
+			div
+				background-size: 6px
+				background-image: url('~resources/images/expand.png')
 
 
 .location-info
-  margin: 0 auto
-  display: flex
-  align-items: center
-  overflow: hidden
-  padding-right: 15px
+	margin: 0 auto
+	display: flex
+	align-items: center
+	overflow: hidden
+	padding-right: 15px
 
-  h5
-    white-space: nowrap
-    overflow: hidden
-    text-overflow: ellipsis
-    font-size: 0.8em
-    color: rgb(79,79,79)
-    font-weight: 400
-    margin: 0
+	h5
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+		font-size: 0.8em
+		color: rgb(79,79,79)
+		font-weight: 400
+		margin: 0
 
 .terminal-icon
-  height: auto
-  max-width: 18px
-  margin: 0 5px
+	height: auto
+	max-width: 18px
+	margin: 0 5px
 
+.input-item
+	color: white
+	font-family: Menlo-Regular
+	font-size: 0.7em
+	padding: 4px 8px
+
+	&.with-input
+		min-height: calc(100vh - 54px)
+
+	p
+		text-align: justify
+		word-break: break-all
+		margin: 2px 0 2px
+
+
+
+.input-area
+	position: relative
+	display: flex
+	align-items: flex-start
+	margin-bottom: 1px
+
+	textarea
+		flex-grow: 1
+		padding: 0 8px
+		margin: 0
+		font-family: Menlo-Regular
+		background-color: transparent
+		border: none
+		resize: none
+		outline: none
+		font-size: 1em
+		color: transparent
+		text-shadow: 0 0 0 $text-color
+
+	p
+		word-break: break-all
+		flex-grow: 1
+		padding: 0 8px
+		margin: 0
+		color: $text-color
+
+
+.caret
+	position: absolute
+	bottom: 0
+	left: 8px
+	height: 13px
+	color: transparent
+	transform: translate(100%, 0)
+	background-color: $text-color
+	animation: blinker 1s steps(2, start) infinite
+
+	&.focus-out
+		width: 6.73px
+		border: 1px solid $text-color
+		background-color: transparent
+		animation: none
+
+
+.yellow
+	color: rgb(213, 169, 64)
+
+.orange
+	color: rgb(253, 133, 61)
+
+.green
+	color: rgb(138, 175, 64)
+
+.purple
+	color: rgb(144, 143, 224)
+
+@keyframes blinker
+	to
+		 visibility: hidden
 
 
 #close
-  background-color: rgb(252, 98, 93)
+	background-color: $bar-close
 
 #min
-  background-color: rgb(254, 192, 65)
+	background-color: $bar-min
 
 #expand
-  background-color: rgb(53, 203, 75)
+	background-color: $bar-expand
