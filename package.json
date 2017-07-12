@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Phaze1D/Interactive-Resume#readme",
   "dependencies": {
+    "autosize": "^3.0.21",
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "react": "^15.6.1",
