@@ -133,10 +133,18 @@ export default {
 		return new Promise(function(resolve, reject) {
 			if(resumeData[command]){
 				resolve({
-					data: resumeData[command]
+					data: {
+						command: command,
+						value: resumeData[command]
+					}
 				})
 			}else{
-				reject({data: {error: `-bash: ${command}: command not found`}})
+				reject({
+					data: {
+						command: command,
+						value: `-bash: ${command}: command not found`
+					}
+				})
 			}
 		})
 	}
