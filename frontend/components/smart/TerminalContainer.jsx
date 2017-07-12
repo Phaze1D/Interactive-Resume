@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Terminal from 'dumb/Terminal'
+import * as terminalActions from 'actions/terminal'
 
 @connect( store => {
 	return {
 		terminalLog: store.terminalLog
 	}
-})
+}, terminalActions)
 export default class TerminalContainer extends React.Component{
 	constructor(props){
 		super(props)
@@ -15,25 +16,15 @@ export default class TerminalContainer extends React.Component{
 
 	render(){
 		const {
-			terminalLog
+			terminalLog,
+			commandEntered
 		} = this.props
 
-		const logList = terminalLog.map( command =>
-			<SwitchCommand command={command}/>
-		)
 
 		return (
-			<Terminal>
-
-				{logList}
-			</Terminal>
+			<Terminal
+				onRequestCommand={commandEntered}
+				terminalLog={terminalLog.toJS()}/>
 		)
 	}
 }
-
-
-const SwitchCommand = ({command}) => (
-	<div>
-
-	</div>
-)
