@@ -1,7 +1,10 @@
 import React from 'react'
 import TerminalItem from './Item'
 import {
-	GithubSVG
+	GithubSVG,
+	LinkedinSVG,
+	CodeFightsSVG,
+	StackoverflowSVG
 } from 'dumb/SVGs'
 
 
@@ -44,6 +47,13 @@ export const Bio = ({data}) => {
 					<div className='cell fill'>{about}</div>
 				</article>
 
+				<article className='flex-row'>
+					<div className='cell sm'>Location: </div>
+					<div className='cell fill'>
+						{location.city}, {location.state}, {location.country}
+					</div>
+				</article>
+
 				<h4>Profiles:</h4>
 				<article className='flex-row'>
 					<div className='cell sm cell-logo'>
@@ -57,19 +67,34 @@ export const Bio = ({data}) => {
 					</div>
 				</article>
 				<article className='flex-row'>
-					<div className='cell sm'>Linkedin: </div>
+					<div className='cell sm cell-logo'>
+						<LinkedinSVG/>
+						<span>
+							Linkedin:
+						</span>
+					</div>
 					<div className='cell fill'>
 						<a href={profiles.linkedin} target='__blank'>{profiles.linkedin}</a>
 					</div>
 				</article>
 				<article className='flex-row'>
-					<div className='cell sm'>CodeFights: </div>
+					<div className='cell sm cell-logo'>
+						<CodeFightsSVG/>
+						<span>
+							CodeFights:
+						</span>
+					</div>
 					<div className='cell fill'>
 						<a href={profiles.codefights} target='__blank'>{profiles.codefights}</a>
 					</div>
 				</article>
 				<article className='flex-row'>
-					<div className='cell sm'>Stackoverflow: </div>
+					<div className='cell sm cell-logo'>
+						<StackoverflowSVG/>
+						<span>
+							Stackoverflow:
+						</span>
+					</div>
 					<div className='cell fill'>
 						<a href={profiles.stackoverflow} target='__blank'>{profiles.stackoverflow}</a>
 					</div>
