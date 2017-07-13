@@ -2,17 +2,17 @@ const resumeData = {
 	bio: {
 		name: 'David Villarreal',
 		role: 'Software Engineer',
-
-		contacts: {
-			email: 'steadypathapp@gmail.com',
+		email: 'steadypathapp@gmail.com',
+		location: {city: 'Zapopan', state: 'Jalisco', country: 'Mexico'},
+		
+		profiles: {
 			github: 'https://github.com/Phaze1D',
 			codefights: 'https://codefights.com/profile/playssss',
 			stackoverflow: 'http://stackoverflow.com/story/davidstory',
 			linkedin: 'https://www.linkedin.com/in/david-villarreal-720ab5134/',
-			location: {city: 'Zapopan', state: 'Jalisco', country: 'Mexico'}
 		},
 
-		welcomeMessage: `
+		about: `
 		I have always been inspired by people who create art because I have never
 		been able to do it, until I found out how to code. I feel like coding
 		satisfies my logical side, and at the same time, it gives me a way to create
@@ -122,6 +122,33 @@ const resumeData = {
 	},
 
 	intro: {
+		welcomeMessage: `
+			Thanks for visiting my Interactive Resume. My name is David Villarreal and
+			I'm a Software Engineer If you'll like to get to know more about me enter
+			these commands in the terminal
+		`,
+		commands: [
+			{name: 'bio', info: '- Displays my bio information e.g contact info'},
+			{name: 'skills', info: '- Displays my technical skills with a mastery level'},
+			{name: 'education', info: '- Displays all the education I have received'},
+			{name: 'education --schools', info: '- Displays the schools that I have attend'},
+			{name: 'education --online', info: '- Displays just the online courses I have taken'},
+			{name: 'work', info: '- Displays my work experience'},
+			{name: 'projects', info: '- Displays all my projects that I have created'},
+			{name: 'projects --search <query>', info: '- Search projects by technical skill used'},
+			{name: 'intro', info: '- Reset the terminal and display these instructions'},
+			{name: 'print', info: '- Print out a PDF version of my resume'},
+		],
+		example: {
+			instruction: 'To display all my Javascript projects just type',
+			command: 'projects --search Javascript'
+		},
+		ps: `
+		This is an exact replica of my terminal. You can also use some common
+		terminal keystrokes like up and down arrows to navigate throught previously
+		entered commands. If you are using Mac OS and you have the Chrome browser
+		expanded you can press COMMAND SHIFT F to get a more immersive experience.
+		`
 	},
 
 	print: {
@@ -131,17 +158,24 @@ const resumeData = {
 export default {
 	get: (command) => {
 		return new Promise(function(resolve, reject) {
-			if(resumeData[command]){
+			if(command.length > 0 && resumeData[command]){
 				resolve({
 					data: {
 						command: command,
 						value: resumeData[command]
 					}
 				})
+			}else if(command.length == 0){
+				resolve({
+					data: {
+						command: command,
+						value: ''
+					}
+				})
 			}else{
 				reject({
 					data: {
-						command: command,
+						command: 'error',
 						value: `-bash: ${command}: command not found`
 					}
 				})
