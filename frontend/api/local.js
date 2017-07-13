@@ -29,9 +29,9 @@ const resumeData = {
 			{ name: 'HTML', mastery: 90 },
 			{ name: 'CSS', mastery: 90 },
 			{ name: 'Bash Scripting', mastery: 50 },
-			{ name: 'Ruby On Rails', mastery: 85 },
+			{ name: 'Ruby On Rails', mastery: 75 },
 			{ name: 'Python', mastery: 65 },
-			{ name: 'ReactJS', mastery: 90 },
+			{ name: 'ReactJS', mastery: 95 },
 			{ name: 'PHP', mastery: 68 },
 			{ name: 'Laravel', mastery: 65 },
 			{ name: 'Web Development', mastery: 90 },
@@ -39,14 +39,13 @@ const resumeData = {
 			{ name: 'Objective C', mastery: 70 },
 			{ name: 'C++', mastery: 64 },
 			{ name: 'C', mastery: 60 },
-			{ name: 'SQL', mastery: 72 },
-			{ name: 'NoSQL', mastery: 76 },
-			{ name: 'MySQL', mastery: 78 },
-			{ name: 'MongoDB', mastery: 79 },
+			{ name: 'SQL', mastery: 78 },
+			{ name: 'NoSQL', mastery: 78 },
 			{ name: 'Security Fundamentals', mastery: 65 },
 			{ name: 'Data Structures', mastery: 80 },
 			{ name: 'Algorithms', mastery: 80 },
-			{ name: 'Machine Learning', mastery: 60 }
+			{ name: 'Machine Learning', mastery: 60 },
+			{ name: 'ExpressJS', mastery: 85}
 		],
 	},
 
@@ -62,39 +61,39 @@ const resumeData = {
 			},
 		],
 
-		online: [
+		onlineCourses: [
 			{
-				title: 'Introduction to Algorithms',
+				name: 'Introduction to Algorithms',
 				school: 'MIT',
 				dates: {from: 'July 28, 2013', to: 'August 25, 2013'},
 				url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/'
 			},
 			{
-				title: 'Mathematics for Computer Science',
+				name: 'Mathematics for Computer Science',
 				school: 'MIT',
 				dates: {from: 'August 01, 2012', to: 'September 25, 2012'},
 				url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/'
 			},
 			{
-				title: 'Artificial Intelligence',
+				name: 'Artificial Intelligence',
 				school: 'MIT',
 				dates: {from: 'November 01, 2016', to: 'Jan 15, 2017'},
 				url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/'
 			},
 			{
-				title: 'Introduction to Machine Learning',
+				name: 'Introduction to Machine Learning',
 				school: 'Udacity',
 				dates: {from: 'Jan 15, 2017', to: 'Feb 01, 2017'},
 				url: 'https://www.udacity.com/course/intro-to-machine-learning--ud120'
 			},
 			{
-				title: 'Full Stack Web Developer Nanodegree',
+				name: 'Full Stack Web Developer Nanodegree',
 				school: 'Udacity',
 				dates: {from: 'Feb 15, 2017', to: 'June 2, 2017'},
 				url: 'https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004'
 			},
 			{
-				title: 'Front-End Web Developer Nanodegree',
+				name: 'Front-End Web Developer Nanodegree',
 				school: 'Udacity',
 				dates: {from: 'Feb 15, 2017', to: 'June 2, 2017'},
 				url: 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
