@@ -35,6 +35,7 @@
         ],
 				"no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
 				"react/jsx-uses-vars": [2],
+				"react/jsx-uses-react": "error",
 				"jsx-quotes": ["error", "prefer-single"]
     }
 }
