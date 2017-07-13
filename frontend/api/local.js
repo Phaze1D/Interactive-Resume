@@ -4,7 +4,7 @@ const resumeData = {
 		role: 'Software Engineer',
 		email: 'steadypathapp@gmail.com',
 		location: {city: 'Zapopan', state: 'Jalisco', country: 'Mexico'},
-		
+
 		profiles: {
 			github: 'https://github.com/Phaze1D',
 			codefights: 'https://codefights.com/profile/playssss',
@@ -23,7 +23,7 @@ const resumeData = {
 	},
 
 	skills: {
-		technology: [
+		technologies: [
 			{ name: 'Java', mastery: 80 },
 			{ name: 'Javascript', mastery: 95 },
 			{ name: 'HTML', mastery: 90 },
