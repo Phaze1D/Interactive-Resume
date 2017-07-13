@@ -1,0 +1,16 @@
+$bar-close: rgb(252, 98, 93)
+$bar-min: rgb(254, 192, 65)
+$bar-expand:  rgb(53, 203, 75)
+$bar-gradient1: #ebebeb
+$bar-gradient2: #d3d3d3
+$terminal-background: rgb(7, 46, 58)
+$text-color: rgba(255, 255, 255, 0.5)
+$link: #268bd2
+
+
+=gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%)
+	background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent)
+	background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent)
+	background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent)
+	background-repeat: repeat-x
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0)

@@ -1,0 +1,84 @@
+.input-item
+	color: white
+	font-family: Menlo-Regular
+	font-size: 0.75em
+	padding: 4px 8px
+
+	&.with-input
+		min-height: calc(100vh - 54px)
+
+	p
+		text-align: justify
+		word-break: break-all
+		margin: 2px 0 2px
+
+.input-area
+	position: relative
+	display: flex
+	align-items: flex-start
+	margin-bottom: 1px
+
+	textarea
+		flex-grow: 1
+		padding: 0 8px
+		margin: 0
+		font-family: Menlo-Regular
+		background-color: transparent
+		border: none
+		resize: none
+		outline: none
+		font-size: 1em
+		color: transparent
+		text-shadow: 0 0 0 $text-color
+
+	p
+		word-break: break-all
+		flex-grow: 1
+		padding: 0 8px
+		margin: 0
+		color: $text-color
+
+
+.caret
+	position: absolute
+	bottom: 0
+	left: 8px
+	height: 13px
+	color: transparent
+	transform: translate(100%, 0)
+	background-color: $text-color
+	animation: blinker 1s steps(2, start) infinite
+
+	&.focus-out
+		width: 6.73px
+		border: 1px solid $text-color
+		background-color: transparent
+		animation: none
+
+.close
+	font-weight: 100
+	color: rgba(90,144,159,1)
+	margin-top: 0px
+
+	&.left
+		margin-left: -7px
+
+	&.right
+		margin-right: -7px
+
+
+.yellow
+	color: rgb(213, 169, 64)
+
+.orange
+	color: rgb(253, 133, 61)
+
+.green
+	color: rgb(138, 175, 64)
+
+.purple
+	color: rgb(144, 143, 224)
+
+@keyframes blinker
+	to
+		 visibility: hidden
