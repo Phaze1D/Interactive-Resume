@@ -1,49 +1,17 @@
 import React from 'react'
-import autosize from 'autosize'
 import homeIcon from 'resources/images/home.png'
+import {
+	TerminalInput,
+	Intro,
+	Bio
+} from './items'
 
 
 export default class Terminal extends React.Component {
 	constructor(props){
 		super(props)
-		this.handleBlur = this.handleBlur.bind(this)
-		this.handleEntered = this.handleEntered.bind(this)
-		this.handleSelection = this.handleSelection.bind(this)
+
 		this.handleMainClick = this.handleMainClick.bind(this)
-		this.handleCommandMovement = this.handleCommandMovement.bind(this)
-	}
-
-	componentDidMount() {
-		autosize(document.getElementById('main-textarea'))
-	}
-
-	handleSelection(event){
-		document.getElementById('caret').style.transform = `translate(${100 * (event.target.selectionStart+1)}%, 0)`
-	}
-
-	handleEntered(event){
-		if(event.keyCode === 13){
-			event.preventDefault()
-			this.props.onRequestCommand(event.target.value)
-			event.target.value = ''
-			event.target.selectionStart = 0
-		}
-		this.handleSelection(event)
-	}
-
-	handleCommandMovement(event){
-		if(event.keyCode === 38){
-			//
-		}
-
-		if(event.keyCode === 40){
-			//
-		}
-		this.handleSelection(event)
-	}
-
-	handleBlur(){
-		document.getElementById('caret').classList.add('focus-out')
 	}
 
 	handleMainClick(){
@@ -53,13 +21,12 @@ export default class Terminal extends React.Component {
 
 	render(){
 		const {
-			terminalLog
+			terminalLog,
+			onRequestCommand
 		} = this.props
 
-		const logList = terminalLog.map( (command, index) =>
-			<TerminalItem key={index}>
-
-			</TerminalItem>
+		const logList = terminalLog.map( (data, index) =>
+			<Switch key={index} data={data}/>
 		)
 
 		return (
@@ -77,14 +44,12 @@ export default class Terminal extends React.Component {
 					</div>
 				</div>
 
-				{logList}
+				<div className='content'>
+					{logList}
 
-				<TerminalInput
-					onChange={this.handleSelection}
-					onKeyUp={this.handleCommandMovement}
-					onKeyDown={this.handleEntered}
-					onClick={this.handleSelection}
-					onBlur={this.handleBlur}/>
+					<TerminalInput
+						onRequestEnter={onRequestCommand}/>
+				</div>
 			</main>
 		)
 	}
@@ -94,49 +59,33 @@ export default class Terminal extends React.Component {
 /**
 * Switch Component
 */
-const Switch = ({command}) => (
-	<div>
+const Switch = ({data}) => {
+	switch (data.command) {
+	case 'bio':
+		return <Bio data={data}/>
 
-	</div>
-)
+	case 'skills':
+		return null
 
+	case 'education':
+		return null
 
-/**
-* Terminal Input Component
-*/
-const TerminalInput = (props) => (
-	<TerminalItem>
-		$<textarea
-			spellCheck='false'
-			id='main-textarea'
-			rows='1'
-			onChange={props.onChange}
-			onKeyUp={props.onKeyUp}
-			onKeyDown={props.onKeyDown}
-			onClick={props.onClick}
-			onBlur={props.onBlur}>
-		</textarea>
+	case 'work':
+		return null
 
-		<span id='caret' className='caret focus-out'>A</span>
-	</TerminalItem>
-)
+	case 'projects':
+		return null
 
+	case 'intro':
+		return <Intro data={data}/>
 
-/**
-* Terminal Item Component
-* Parent Component for all terminal items
-*/
-const TerminalItem = ({children}) => (
-	<div className='input-item with-input'>
-		<p>
-			<span className='orange'> david </span> at
-			<span className='yellow'> Joker </span> in
-			<span className='green'> ~/Projects/Udacity/InteractiveResume </span> on
-			<span className='purple'> master </span>
-		</p>
+	case 'print':
+		return null
 
-		<div className='input-area'>
-			{children}
-		</div>
-	</div>
-)
+	case 'error':
+		return null
+
+	default:
+		return null
+	}
+}
