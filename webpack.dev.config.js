@@ -34,7 +34,7 @@ var config = {
 			use: {
 				loader: 'url-loader',
         options: {
-          limit: 819
+          limit: 19
         }
 			}
     },
