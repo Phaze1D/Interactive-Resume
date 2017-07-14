@@ -1,3 +1,6 @@
 export * from './Input'
 export * from './Intro'
 export * from './Bio'
+export * from './Skills'
+export * from './Education'
+export * from './Work'
