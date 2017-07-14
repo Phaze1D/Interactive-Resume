@@ -3,7 +3,10 @@ import homeIcon from 'resources/images/home.png'
 import {
 	TerminalInput,
 	Intro,
-	Bio
+	Bio,
+	Skills,
+	Education,
+	Work
 } from './items'
 
 
@@ -12,6 +15,10 @@ export default class Terminal extends React.Component {
 		super(props)
 
 		this.handleMainClick = this.handleMainClick.bind(this)
+	}
+
+	componentDidMount() {
+		this.props.onRequestCommand('intro')
 	}
 
 	handleMainClick(){
@@ -65,13 +72,13 @@ const Switch = ({data}) => {
 		return <Bio data={data}/>
 
 	case 'skills':
-		return null
+		return <Skills data={data}/>
 
 	case 'education':
-		return null
+		return <Education data={data}/>
 
 	case 'work':
-		return null
+		return <Work data={data}/>
 
 	case 'projects':
 		return null
