@@ -1,3 +1,4 @@
+/* global require */
 const resumeData = {
 	bio: {
 		name: 'David Villarreal',
