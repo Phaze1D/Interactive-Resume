@@ -58,25 +58,31 @@ const resumeData = {
 				majors: 'Computer Science',
 				dates: {from: 'Nov 29, 2011', to: 'July 02, 2014'},
 				url: 'https://www.smc.edu'
-			},
+			},{
+				name: 'Tecnologico de Monterrey Campus Guadalajara',
+				location: {city: 'Zapopan', state: 'Jalisco', country: 'Mexico'},
+				degree: 'High School Diploma',
+				dates: {from: 'August 29, 2005', to: 'May 02, 2009'},
+				url: 'http://www.itesm.mx/wps/wcm/connect/Campus/GDA/Guadalajara/'
+			}
 		],
 
 		onlineCourses: [
 			{
 				name: 'Introduction to Algorithms',
-				school: 'MIT',
+				school: 'MIT OpenCourseWare',
 				dates: {from: 'July 28, 2013', to: 'August 25, 2013'},
-				url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/'
+				url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/',
 			},
 			{
 				name: 'Mathematics for Computer Science',
-				school: 'MIT',
+				school: 'MIT OpenCourseWare',
 				dates: {from: 'August 01, 2012', to: 'September 25, 2012'},
 				url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/'
 			},
 			{
 				name: 'Artificial Intelligence',
-				school: 'MIT',
+				school: 'MIT OpenCourseWare',
 				dates: {from: 'November 01, 2016', to: 'Jan 15, 2017'},
 				url: 'https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/'
 			},
@@ -90,23 +96,25 @@ const resumeData = {
 				name: 'Full Stack Web Developer Nanodegree',
 				school: 'Udacity',
 				dates: {from: 'Feb 15, 2017', to: 'June 2, 2017'},
-				url: 'https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004'
+				url: 'https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004',
+				certificate: require('resources/images/fullstack.jpg')
 			},
 			{
 				name: 'Front-End Web Developer Nanodegree',
 				school: 'Udacity',
 				dates: {from: 'Feb 15, 2017', to: 'June 2, 2017'},
-				url: 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
+				url: 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001',
+				certificate: require('resources/images/frontend.jpg')
 			}
 		],
 	},
 	work: {
 		jobs: [
 			{
-				employer: 'Vida Flor',
-				title: 'Fullstack Engineer',
+				employer: 'Comercializadora Vida Flor SA de CV',
+				role: 'Fullstack Engineer',
 				location: {city: 'Zapopan', state: 'Jalisco', country: 'Mexico'},
-				dates: {from: 'Nov 2014', to: 'Dec 2016'},
+				dates: {from: 'July 2014', to: 'June 2017'},
 				url: 'https://bellezaorganica.com.mx/',
 				description: `
 				Vida Flor is an organic beauty company that first hire me to help them
@@ -115,7 +123,12 @@ const resumeData = {
 				of Sales system to help them with organizing all there sells and
 				inventory. I also used Microsoft Access to create reports about their
 				clients and products.
-				`
+				`,
+				achievements: [
+					'Optimized website for better SEO and loading speed, which increased sales by 20%',
+					'Automated the creation of reports with Microsoft Access which lead to a workforce that was more focus on improving the company',
+					'Created simple machine learning models with sklearn that lead to less waste products and around $10,000 USD in monthly savings '
+				]
 			}
 		],
 	},
@@ -128,13 +141,13 @@ const resumeData = {
 		`,
 		commands: [
 			{name: 'bio', info: '- Displays my bio information e.g contact info'},
+			{name: 'projects', info: '- Displays all my projects that I have created'},
+			{name: 'projects --search <query>', info: '- Search projects by technical skill used'},
 			{name: 'skills', info: '- Displays my technical skills with a mastery level'},
 			{name: 'education', info: '- Displays all the education I have received'},
 			{name: 'education --schools', info: '- Displays the schools that I have attend'},
 			{name: 'education --online', info: '- Displays just the online courses I have taken'},
 			{name: 'work', info: '- Displays my work experience'},
-			{name: 'projects', info: '- Displays all my projects that I have created'},
-			{name: 'projects --search <query>', info: '- Search projects by technical skill used'},
 			{name: 'intro', info: '- Reset the terminal and display these instructions'},
 			{name: 'print', info: '- Print out a PDF version of my resume'},
 		],
