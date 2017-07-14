@@ -5,6 +5,6 @@ export const commandEntered = (command) => {
 
 	return {
 		type: types.COMMAND_ENTERED,
-		payload: getCommandInfo(command)
+		payload: getCommandInfo(command.toLowerCase())
 	}
 }
