@@ -6,7 +6,8 @@ import {
 	Bio,
 	Skills,
 	Education,
-	Work
+	Work,
+	Print
 } from './items'
 
 
@@ -87,7 +88,7 @@ const Switch = ({data}) => {
 		return <Intro data={data}/>
 
 	case 'print':
-		return null
+		return <Print data={data}/>
 
 	case 'error':
 		return null

@@ -30,7 +30,7 @@ var config = {
         }
       }]
     },{
-      test: /\.(ttf|otf|eot|png|jpg|svg|woff(2)?)$/,
+      test: /\.(ttf|otf|eot|png|jpg|svg|pdf|woff(2)?)$/,
       use: {
 				loader: 'url-loader',
 				options: {
