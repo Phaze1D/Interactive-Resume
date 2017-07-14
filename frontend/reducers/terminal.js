@@ -11,6 +11,10 @@ export const terminalReducer = (state = INITIAL_TERMINAL, action) => {
 	}
 
 	if(action.type === `${types.COMMAND_ENTERED}_SUCCESS`){
+
+		if(action.payload.data.command === 'intro'){
+			return INITIAL_TERMINAL.push(action.payload.data)
+		}
 		return state.push(fromJS(action.payload.data))
 	}
 
