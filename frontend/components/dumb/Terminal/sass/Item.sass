@@ -2,6 +2,7 @@
 	display: flex
 	margin: 10px 0 10px 35px
 
+
 .row-block
 	padding: 0 0 20px
 
@@ -19,10 +20,11 @@
 		flex-grow: 1
 
 	img
-		width: 100%
-		max-width: 200px
+		width: auto
+		max-height: 150px
 		border-radius: 6px
 		cursor: zoom-in
+		padding: 0 5px
 
 .cell-logo
 	display: flex
@@ -43,7 +45,6 @@
 
 	pre
 		font-family: Menlo-Regular
-		font-size: 0.6em
 
 	h4
 		font-weight: lighter
@@ -53,6 +54,10 @@
 		color: $link
 		word-break: break-all
 		text-decoration: none
+
+.ascii-art
+	font-family: Menlo-Regular
+	font-size: 0.6em
 
 .item-img
 	max-width: 200px
@@ -64,3 +69,17 @@
 
 	li
 		padding: 4px 0
+
+.tag
+	color: #fff
+	opacity: .8
+	padding: 5px 15px
+	margin: 0 15px 5px 0
+	font-size: .9em
+	border-radius: 20px
+
+	&.topic
+		background-color: rgba(156, 39, 176, 0.65)
+
+	&.lang
+		background-color: rgba(0, 184, 212, 0.65)

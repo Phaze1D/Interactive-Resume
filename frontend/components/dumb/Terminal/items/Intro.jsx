@@ -21,7 +21,7 @@ export const Intro = ({data}) => {
 	return (
 		<TerminalItem command={data.command}>
 			<section className='result-area'>
-				<pre>
+				<pre className='ascii-art'>
 					{`
           ....,,
         .::o::;'          .....
