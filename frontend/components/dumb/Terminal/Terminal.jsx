@@ -7,7 +7,9 @@ import {
 	Skills,
 	Education,
 	Work,
-	Print
+	Print,
+	TerminalError,
+	Projects
 } from './items'
 
 
@@ -68,6 +70,10 @@ export default class Terminal extends React.Component {
 * Switch Component
 */
 const Switch = ({data}) => {
+	if(data.error){
+		return <TerminalError data={data}/>
+	}
+
 	switch (data.command) {
 	case 'bio':
 		return <Bio data={data}/>
@@ -82,7 +88,7 @@ const Switch = ({data}) => {
 		return <Work data={data}/>
 
 	case 'projects':
-		return null
+		return <Projects data={data}/>
 
 	case 'intro':
 		return <Intro data={data}/>
@@ -90,10 +96,7 @@ const Switch = ({data}) => {
 	case 'print':
 		return <Print data={data}/>
 
-	case 'error':
-		return null
-
 	default:
-		return null
+		return <TerminalError data={data}/>
 	}
 }
