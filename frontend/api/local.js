@@ -134,6 +134,88 @@ const resumeData = {
 		],
 	},
 
+	projects: [
+		{
+			name: 'Belleza Organica',
+			giturl: 'https://github.com/Phaze1D/BellezaNodeJS',
+			liveurl: 'https://bellezaorganica.com.mx',
+			description: 'Production Grade e-commerce website built for a client.',
+			topics: ['ReactJS', 'Redux', 'ExpressJS', 'Sequelize', 'AWS'],
+			languages: ['Javascript','HTML','CSS'],
+			imgs: [require('resources/images/bo1.jpg'), require('resources/images/bo2.jpg'), require('resources/images/bo3.jpg')]
+		},
+		{
+			name: 'Google Zomato Maps',
+			giturl: 'https://github.com/Phaze1D/Google_Zomato_Maps',
+			liveurl: 'https://phaze1d.github.io/Google_Zomato_Maps/',
+			description: 'Google Maps Replica that also uses Zomato\'s API to search for restaurants',
+			topics: ['KnockoutJS', 'Google Maps API', 'Zomato API'],
+			languages: ['Javascript', 'HTML', 'CSS'],
+			imgs: [require('resources/images/gzm1.jpg'), require('resources/images/gzm2.jpg'), require('resources/images/gzm3.jpg')]
+		},
+		{
+			name: 'Blug',
+			giturl: 'https://github.com/Phaze1D/Blug',
+			liveurl: 'https://blog-160318.appspot.com/',
+			description: 'A simple user blog that allows users to post there stories. Kind of like Reddit',
+			topics: ['ReactJS', 'Redux', 'Flask', 'Google Cloud Platform'],
+			languages: ['Python', 'Javascript', 'CSS'],
+			imgs: [require('resources/images/bl1.jpg'), require('resources/images/bl2.jpg'), require('resources/images/bl3.jpg')]
+		},
+		{
+			name: 'Popdris',
+			giturl: 'https://github.com/Phaze1D/Popdris',
+			liveurl: 'https://phaze1d.github.io/Popdris/',
+			description: 'A game mix between Candy Crush and Tetris',
+			topics: ['PixiJS', 'HTML Canvas', 'OOP'],
+			languages: ['Javascript', 'HTML'],
+			imgs: ['pop1.jpg', 'pop2.jpg']
+		},
+		{
+			name: 'Interactive Resume',
+			giturl: 'https://github.com/Phaze1D/Interactive-Resume',
+			liveurl: 'https://phaze1d.github.io/Interactive-Resume/',
+			description: 'This is my Interactive Resume that you are currently viewing right now.',
+			topics: ['ReactJS', 'Redux'],
+			languages: ['Javascript', 'CSS'],
+			imgs: ['ir1.jpg']
+		},
+		{
+			name: 'Farmage Frontend',
+			giturl: 'https://github.com/Phaze1D/Farmage-Frontend',
+			description: 'The is a farm management application that simplifies the process of maintaining and organizing economic data of any farm',
+			topics: ['ReactJS', 'MeteorJS', 'MongoDB'],
+			languages: ['Javascript', 'CSS', 'HTML'],
+			imgs: ['ff1.jpg', 'ff2.jpg', 'ff3.jpg']
+		},
+		{
+			name: 'Farmage Concept',
+			giturl: 'https://github.com/Phaze1D/Farmage-Concept',
+			description: 'This is the concept version of my farm management app. This version of the app can handle all the backend',
+			topics: ['MeteorJS','MongoDB', 'Blaze Components'],
+			languages: ['CoffeeScript', 'HTML', 'CSS'],
+			imgs: ['fc1.jpg', 'fc2.jpg']
+		},
+		{
+			name: 'Rising Fall Android',
+			giturl: 'https://github.com/Phaze1D/RisingFallAndroidV2',
+			liveurl: 'https://play.google.com/store/apps/details?id=com.Phaze1D.RisingFallAndroidV2.android&hl=en',
+			description: 'This is the first game that I built for Android. A game mix between Candy Crush and Tetris',
+			topics: ['Libgdx', 'Android'],
+			languages: ['Java'],
+			imgs: ['rfa1.jpg', 'rfa2.jpg', 'rfa3.jpg']
+		},
+		{
+			name: 'Rising Fall IOS',
+			giturl: 'https://github.com/Phaze1D/RisingFallIOS',
+			liveurl: 'https://itunes.apple.com/za/app/rising-fall/id904055570?mt=8',
+			description: 'This is the first game that I built for IOS. A game mix between Candy Crush and Tetris',
+			topics: ['Spritekit', 'IOS'],
+			languages: ['Objective C'],
+			imgs: ['rfi1.jpg', 'rfi2.jpg', 'rfi3.jpg']
+		},
+	],
+
 	intro: {
 		welcomeMessage: `
 			Thanks for visiting my Interactive Resume. My name is David Villarreal and
@@ -188,7 +270,8 @@ export default {
 			}else{
 				reject({
 					data: {
-						command: 'error',
+						error: true,
+						command: command,
 						value: `-bash: ${command}: command not found`
 					}
 				})
