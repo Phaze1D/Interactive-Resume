@@ -166,17 +166,17 @@ const resumeData = {
 			name: 'Popdris',
 			giturl: 'https://github.com/Phaze1D/Popdris',
 			liveurl: 'https://phaze1d.github.io/Popdris/',
-			description: 'A game mix between Candy Crush and Tetris',
+			description: 'A simple game that mixes Candy Crush and Tetris gameplay',
 			topics: ['PixiJS', 'HTML Canvas', 'OOP'],
 			languages: ['Javascript', 'HTML'],
-			imgs: ['pop1.jpg', 'pop2.jpg']
+			imgs: [require('resources/images/po1.jpg'), require('resources/images/po2.jpg')]
 		},
 		{
 			name: 'Interactive Resume',
 			giturl: 'https://github.com/Phaze1D/Interactive-Resume',
 			liveurl: 'https://phaze1d.github.io/Interactive-Resume/',
 			description: 'This is my Interactive Resume that you are currently viewing right now.',
-			topics: ['ReactJS', 'Redux'],
+			topics: ['ReactJS', 'Redux', 'Firebase'],
 			languages: ['Javascript', 'CSS'],
 			imgs: ['ir1.jpg']
 		},
@@ -186,15 +186,15 @@ const resumeData = {
 			description: 'The is a farm management application that simplifies the process of maintaining and organizing economic data of any farm',
 			topics: ['ReactJS', 'MeteorJS', 'MongoDB'],
 			languages: ['Javascript', 'CSS', 'HTML'],
-			imgs: ['ff1.jpg', 'ff2.jpg', 'ff3.jpg']
+			imgs: [require('resources/images/ff1.jpg'), require('resources/images/ff2.jpg'), require('resources/images/ff3.jpg')]
 		},
 		{
 			name: 'Farmage Concept',
 			giturl: 'https://github.com/Phaze1D/Farmage-Concept',
-			description: 'This is the concept version of my farm management app. This version of the app can handle all the backend',
+			description: 'This is the concept version of my farm management app. This version of the app is mostly focused on the backend',
 			topics: ['MeteorJS','MongoDB', 'Blaze Components'],
 			languages: ['CoffeeScript', 'HTML', 'CSS'],
-			imgs: ['fc1.jpg', 'fc2.jpg']
+			imgs: [require('resources/images/fc1.jpg'), require('resources/images/fc2.jpg'), require('resources/images/fc3.jpg')]
 		},
 		{
 			name: 'Rising Fall Android',
@@ -203,7 +203,7 @@ const resumeData = {
 			description: 'This is the first game that I built for Android. A game mix between Candy Crush and Tetris',
 			topics: ['Libgdx', 'Android'],
 			languages: ['Java'],
-			imgs: ['rfa1.jpg', 'rfa2.jpg', 'rfa3.jpg']
+			imgs: [require('resources/images/rf1.jpg'), require('resources/images/rf2.jpg'), require('resources/images/rf3.jpg')]
 		},
 		{
 			name: 'Rising Fall IOS',
@@ -212,7 +212,7 @@ const resumeData = {
 			description: 'This is the first game that I built for IOS. A game mix between Candy Crush and Tetris',
 			topics: ['Spritekit', 'IOS'],
 			languages: ['Objective C'],
-			imgs: ['rfi1.jpg', 'rfi2.jpg', 'rfi3.jpg']
+			imgs: [require('resources/images/rf1.jpg'), require('resources/images/rf2.jpg'), require('resources/images/rf3.jpg')]
 		},
 	],
 
