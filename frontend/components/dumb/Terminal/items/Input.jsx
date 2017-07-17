@@ -5,7 +5,7 @@ import TerminalItem from './Item'
 /**
 * Terminal Input Component
 */
-class TerminalInput extends React.PureComponent {
+class Input extends React.PureComponent {
 	constructor(props){
 		super(props)
 		this.handleBlur = this.handleBlur.bind(this)
@@ -71,4 +71,4 @@ class TerminalInput extends React.PureComponent {
 	}
 }
 
-export { TerminalInput }
+export { Input }

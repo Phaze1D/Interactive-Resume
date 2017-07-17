@@ -1,7 +1,7 @@
 import React from 'react'
 import homeIcon from 'resources/images/home.png'
 import {
-	TerminalInput,
+	Input,
 	Intro,
 	Bio,
 	Skills,
@@ -57,7 +57,7 @@ export default class Terminal extends React.Component {
 				<div className='content'>
 					{logList}
 
-					<TerminalInput
+					<Input
 						onRequestEnter={onRequestCommand}/>
 				</div>
 			</main>
