@@ -2,14 +2,17 @@ import React from 'react'
 import TerminalItem from './Item'
 
 
-export const Projects = ({data}) => {
+export const Projects = ({data, onRequestImage, path}) => {
 
 	const projectList = data.value.map( (project, index) =>
-		<Project key={index} project={project}/>
+		<Project
+			key={index}
+			project={project}
+			onRequestImage={onRequestImage}/>
 	)
 
 	return (
-		<TerminalItem command={data.command}>
+		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
 				<h4>Projects:</h4>
 				{projectList}
@@ -19,7 +22,7 @@ export const Projects = ({data}) => {
 }
 
 
-const Project = ({project}) => {
+const Project = ({project, onRequestImage}) => {
 
 	const topicList = project.topics.map((topic, index) =>
 		<Tag key={index} tag={topic} type='topic'/>
@@ -31,7 +34,7 @@ const Project = ({project}) => {
 
 	const imgList = project.imgs.map((img, index) =>
 		<div key={index} className='cell'>
-			<img src={img}></img>
+			<img src={img} onClick={onRequestImage}></img>
 		</div>
 	)
 

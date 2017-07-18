@@ -8,7 +8,7 @@ import {
 } from 'dumb/SVGs'
 
 
-export const Bio = ({data}) => {
+export const Bio = ({data, path}) => {
 
 	const {
 		name,
@@ -21,7 +21,7 @@ export const Bio = ({data}) => {
 	} = data.value
 
 	return (
-		<TerminalItem command={data.command}>
+		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
 				<h4>Avatar:</h4>
 				<img className='item-img' src={biopic} alt='avatar'></img>

@@ -4,12 +4,12 @@ import React from 'react'
 * Terminal Item Component
 * Parent Component for all terminal items
 */
-const TerminalItem = ({children, withInput, command}) => (
+const TerminalItem = ({children, withInput, command, path}) => (
 	<div className={`input-item ${withInput ? 'with-input' : ''}`}>
 		<p>
 			<span className='orange'> david </span> at
 			<span className='yellow'> Joker </span> in
-			<span className='green'> ~/Projects/InteractiveResume </span> on
+			<span className='green'> {path} </span> on
 			<span className='purple'> master </span>
 		</p>
 

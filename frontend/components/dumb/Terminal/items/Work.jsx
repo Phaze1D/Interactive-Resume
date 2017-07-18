@@ -2,7 +2,7 @@ import React from 'react'
 import TerminalItem from './Item'
 
 
-export const Work = ({data}) => {
+export const Work = ({data, path}) => {
 	const jobs = data.value.jobs
 
 	const jobList = jobs.map( (job, index) => {
@@ -14,7 +14,7 @@ export const Work = ({data}) => {
 	})
 
 	return (
-		<TerminalItem command={data.command}>
+		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
 				<h4>Work:</h4>
 				{jobList}

@@ -10,17 +10,18 @@ export class Skills extends React.PureComponent{
 
 	render(){
 		const {
-			technologies
-		} = this.props.data.value
+			value,
+			command
+		} = this.props.data
 
-		technologies.sort( (a,b) => {return b.mastery - a.mastery})
+		value.technologies.sort( (a,b) => {return b.mastery - a.mastery})
 
-		const techList = technologies.map( (skill, index) =>
+		const techList = value.technologies.map( (skill, index) =>
 			<SkillBar key={index} skill={skill}/>
 		)
 
 		return (
-			<TerminalItem command={this.props.data.command}>
+			<TerminalItem command={command} path={this.props.path}>
 				<section className='result-area'>
 					<h4>TECHNICAL SKILLS:</h4>
 					{techList}

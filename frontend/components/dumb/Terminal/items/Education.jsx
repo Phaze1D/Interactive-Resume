@@ -2,7 +2,7 @@ import React from 'react'
 import TerminalItem from './Item'
 
 
-export const Education = ({data}) => {
+export const Education = ({data, path}) => {
 
 	const {
 		schools,
@@ -26,7 +26,7 @@ export const Education = ({data}) => {
 	)
 
 	return (
-		<TerminalItem command={data.command}>
+		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
 				<h4>Schools:</h4>
 				{schoolList}

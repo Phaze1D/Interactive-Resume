@@ -51,9 +51,10 @@ class Input extends React.PureComponent {
 	}
 
 	render(){
+		const path = this.props.path
 
 		return (
-			<TerminalItem withInput={true}>
+			<TerminalItem withInput={true} path={path}>
 					$<textarea
 					spellCheck='false'
 					id='main-textarea'

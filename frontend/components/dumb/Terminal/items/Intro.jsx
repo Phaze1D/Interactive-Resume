@@ -2,7 +2,7 @@ import React from 'react'
 import TerminalItem from './Item'
 
 
-export const Intro = ({data}) => {
+export const Intro = ({data, path}) => {
 
 	const {
 		welcomeMessage,
@@ -19,7 +19,7 @@ export const Intro = ({data}) => {
 	)
 
 	return (
-		<TerminalItem command={data.command}>
+		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
 				<pre className='ascii-art'>
 					{`
