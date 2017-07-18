@@ -1,0 +1,84 @@
+.tab-bar
+	@extend .terminal-bar
+	background-color: $bar-gradient2
+	background-image: none
+	background-repeat: no-repeat
+	height: 24px
+
+
+.tab
+	position: relative
+	display: block
+	font-size: 0.9em
+	border-top: 1px solid $tab-inactive-border
+	border-bottom: 1px solid $tab-inactive-border
+	border-left: 1px solid $tab-inactive-border
+	background-color: $tab-inactive-back
+	flex-grow: 1
+	text-align: center
+	cursor: default
+	padding: 1px 18px 0 18px
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+
+	&.active
+		border-top: 1px solid $bar-border
+		border-bottom: 1px solid $tab-inactive-border
+		background-color: $bar-gradient2
+
+		&:hover
+			background-color: $bar-gradient2
+
+	&:hover
+		background-color: rgb(178,178,178)
+
+		.tab-close
+			display: inline-block
+			
+	.second
+		color: black
+
+
+.tab-add
+	background: $tab-inactive-back
+	width: 24px
+	height: 24px
+	box-shadow: none
+	border: 1px solid $tab-inactive-border
+	padding: 0
+	font-size: 20px
+	line-height: 1px
+	font-weight: 200
+	color: rgb(110,110,110)
+	padding-bottom: 3px
+	-webkit-font-smoothing: antialiased
+	outline: none
+	flex-shrink: 0
+
+	&:active
+		background-color: $bar-gradient2
+
+
+.tab-close
+	display: none
+	position: absolute
+	left: 3px
+	top: 4px
+	border: none
+	background-color: transparent
+	line-height: 1px
+	font-weight: 400
+	color: rgb(117,117,117)
+	outline: none
+	height: 14px
+	width: 14px
+	border-radius: 2px
+	padding: 0 2px 2px
+	margin-right: auto
+
+	&:hover
+		background-color: rgba(0,0,0,0.08)
+
+	&:active
+		background-color: rgba(0,0,0,0.1)
