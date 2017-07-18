@@ -9,7 +9,7 @@ const TerminalItem = ({children, withInput, command}) => (
 		<p>
 			<span className='orange'> david </span> at
 			<span className='yellow'> Joker </span> in
-			<span className='green'> ~/Projects/Udacity/InteractiveResume </span> on
+			<span className='green'> ~/Projects/InteractiveResume </span> on
 			<span className='purple'> master </span>
 		</p>
 
