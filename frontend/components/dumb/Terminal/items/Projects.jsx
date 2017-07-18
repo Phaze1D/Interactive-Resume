@@ -30,7 +30,7 @@ const Project = ({project}) => {
 	)
 
 	const imgList = project.imgs.map((img, index) =>
-		<div className='cell'>
+		<div key={index} className='cell'>
 			<img src={img}></img>
 		</div>
 	)
