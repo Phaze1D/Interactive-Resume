@@ -5,11 +5,11 @@ import uuid from 'uuid/v4'
 
 const INITIAL_TERMINAL = fromJS({
 	'0': {
-		location: '~/Projects/InteractiveResume',
+		path: '~/Projects/InteractiveResume',
 		tabLog: []
 	},
 	'122': {
-		location: '~/Projects/InteractiveResume',
+		path: '~/Projects/InteractiveResume',
 		tabLog: []
 	}
 })
@@ -24,7 +24,6 @@ export const commandReducer = (state = INITIAL_TERMINAL, action) => {
 		}
 		return state.updateIn([id, 'tabLog'], l => l.push(fromJS(action.payload.data)))
 	}
-
 	return state
 }
 
@@ -38,7 +37,6 @@ export const addTabReducer = (state = INITIAL_TERMINAL, action) => {
 
 export const removeTabReducer = (state = INITIAL_TERMINAL, action) => {
 	if(action.type === types.REMOVE_TAB){
-
 		return state.delete(action.payload.id)
 	}
 

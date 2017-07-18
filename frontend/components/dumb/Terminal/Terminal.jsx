@@ -68,7 +68,7 @@ export default class Terminal extends React.Component{
 					<div className='tab-bar'>
 						{tabsList}
 						<button
-							onClick={(e) => onRequestAdd()}
+							onClick={() => onRequestAdd()}
 							className='tab-add'>+</button>
 					</div>
 				}
@@ -76,7 +76,8 @@ export default class Terminal extends React.Component{
 				<Panel
 					{...terminalTabs[this.state.activeTab]}
 					tabID={this.state.activeTab}
-					onRequestCommand={onRequestCommand}/>
+					onRequestCommand={onRequestCommand}
+					onRequestAdd={onRequestAdd}/>
 
 			</main>
 		)
@@ -92,6 +93,6 @@ const Tab = ({id, tab, isActive, onClick, onClose}) => (
 			<button
 				className='tab-close'
 				onClick={onClose}>✕</button>}
-		<span className='second'>{tab.location} — -bash</span>
+		<span className='second'>{tab.path} — -bash</span>
 	</article>
 )

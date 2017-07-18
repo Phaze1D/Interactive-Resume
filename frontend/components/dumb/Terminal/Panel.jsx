@@ -19,6 +19,7 @@ export default class Panel extends React.PureComponent{
 
 		this.handleMainClick = this.handleMainClick.bind(this)
 		this.handleEntered = this.handleEntered.bind(this)
+		this.handleImageClick = this.handleImageClick.bind(this)
 	}
 
 	handleMainClick(){
@@ -30,14 +31,20 @@ export default class Panel extends React.PureComponent{
 		this.props.onRequestCommand(command, this.props.tabID)
 	}
 
+	handleImageClick(event, project, index){
+		event.stopPropagation()
+		console.log(project)
+	}
+
 	render(){
 		const {
-			location,
+			path,
 			tabLog,
 		} = this.props
 
 		const logList = tabLog.map( (data, index) =>
-			<Switch key={index} data={data}/>
+			<Switch key={index} data={data} path={path}
+				onRequestImage={this.handleImageClick}/>
 		)
 
 		return (
@@ -45,11 +52,13 @@ export default class Panel extends React.PureComponent{
 				{logList}
 
 				<Input
+					path={path}
 					onRequestEnter={this.handleEntered}/>
 			</div>
 		)
 	}
 }
+
 
 /**
 * Switch Component
@@ -67,36 +76,45 @@ class Switch extends React.Component{
 	}
 
 	render(){
-		const data = this.props.data
+		const {
+			data,
+			path,
+			onRequestImage
+		} = this.props
 
 		if(data.error){
-			return <TerminalError data={data}/>
+			return <TerminalError data={data} path={path}/>
 		}
 
 		switch (data.command) {
 		case 'bio':
-			return <Bio data={data}/>
+			return <Bio data={data} path={path}/>
 
 		case 'skills':
-			return <Skills data={data}/>
+			return <Skills data={data} path={path}/>
 
 		case 'education':
-			return <Education data={data}/>
+			return <Education data={data} path={path}/>
 
 		case 'work':
-			return <Work data={data}/>
+			return <Work data={data} path={path}/>
 
 		case 'projects':
-			return <Projects data={data}/>
+			return (
+				<Projects
+					path={path}
+					onRequestImage={onRequestImage}
+					data={data}/>
+			)
 
 		case 'intro':
-			return <Intro data={data}/>
+			return <Intro data={data} path={path}/>
 
 		case 'print':
-			return <Print data={data}/>
+			return <Print data={data} path={path}/>
 
 		default:
-			return <TerminalError data={data}/>
+			return <TerminalError data={data} path={path}/>
 		}
 	}
 }
