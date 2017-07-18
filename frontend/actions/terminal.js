@@ -10,11 +10,11 @@ export const commandEntered = (command, tabID) => {
 }
 
 
-export const addTab = (location) => {
+export const addTab = (path) => {
 	return {
 		type: types.ADD_TAB,
 		payload: {
-			location: location ? location : '~/Projects/InteractiveResume',
+			path: path ? path : '~/Projects/InteractiveResume',
 			tabLog: []
 		}
 	}
