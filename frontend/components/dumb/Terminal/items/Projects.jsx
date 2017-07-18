@@ -34,7 +34,7 @@ const Project = ({project, onRequestImage}) => {
 
 	const imgList = project.imgs.map((img, index) =>
 		<div key={index} className='cell'>
-			<img src={img} onClick={onRequestImage}></img>
+			<img src={img} onClick={e => onRequestImage(e, project, index)}></img>
 		</div>
 	)
 
