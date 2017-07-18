@@ -1,46 +1,56 @@
 import React from 'react'
+import Panel from './Panel'
 import homeIcon from 'resources/images/home.png'
-import {
-	Input,
-	Intro,
-	Bio,
-	Skills,
-	Education,
-	Work,
-	Print,
-	TerminalError,
-	Projects
-} from './items'
 
 
-export default class Terminal extends React.Component {
+
+export default class Terminal extends React.Component{
 	constructor(props){
 		super(props)
-
-		this.handleMainClick = this.handleMainClick.bind(this)
+		this.state = {activeTab: Object.keys(props.terminalTabs)[0]}
 	}
 
-	componentDidMount() {
-		this.props.onRequestCommand('intro')
+	componentDidMount(){
+		this.props.onRequestCommand('intro', '0')
 	}
 
-	handleMainClick(){
-		document.getElementById('caret').classList.remove('focus-out')
-		document.getElementById('main-textarea').focus()
+	handleTabClick(id){
+		this.setState({activeTab: id})
+	}
+
+	handleTabClose(id, event){
+		event.stopPropagation()
+		if(id === this.state.activeTab){
+			this.setState({activeTab: '0'})
+		}
+		this.props.onRequestRemove(id)
+
 	}
 
 	render(){
 		const {
-			terminalLog,
-			onRequestCommand
+			terminalTabs,
+			onRequestCommand,
+			onRequestAdd,
 		} = this.props
 
-		const logList = terminalLog.map( (data, index) =>
-			<Switch key={index} data={data}/>
-		)
+		const tabsList = []
+
+
+		for (var key in terminalTabs) {
+			if (terminalTabs.hasOwnProperty(key)) {
+				let tab = terminalTabs[key]
+				tabsList.push(
+					<Tab key={key} id={key} tab={tab}
+						isActive={key === this.state.activeTab}
+						onClick={this.handleTabClick.bind(this, key)}
+						onClose={this.handleTabClose.bind(this, key)}/>
+				)
+			}
+		}
 
 		return (
-			<main className='terminal' onClick={this.handleMainClick}>
+			<main className='terminal'>
 				<div className='terminal-bar'>
 					<ul className='button-list'>
 						<li><button id='close'><div></div></button></li>
@@ -50,53 +60,38 @@ export default class Terminal extends React.Component {
 
 					<div className='location-info'>
 						<img className='terminal-icon' src={homeIcon}/>
-						<h5>david — resume — -bash — Solarized Dark ansi</h5>
+						<span>david — resume — -bash — Solarized Dark ansi</span>
 					</div>
 				</div>
 
-				<div className='content'>
-					{logList}
+				{Object.keys(terminalTabs).length > 1 &&
+					<div className='tab-bar'>
+						{tabsList}
+						<button
+							onClick={(e) => onRequestAdd()}
+							className='tab-add'>+</button>
+					</div>
+				}
 
-					<Input
-						onRequestEnter={onRequestCommand}/>
-				</div>
+				<Panel
+					{...terminalTabs[this.state.activeTab]}
+					tabID={this.state.activeTab}
+					onRequestCommand={onRequestCommand}/>
+
 			</main>
 		)
 	}
 }
 
 
-/**
-* Switch Component
-*/
-const Switch = ({data}) => {
-	if(data.error){
-		return <TerminalError data={data}/>
-	}
-
-	switch (data.command) {
-	case 'bio':
-		return <Bio data={data}/>
-
-	case 'skills':
-		return <Skills data={data}/>
-
-	case 'education':
-		return <Education data={data}/>
-
-	case 'work':
-		return <Work data={data}/>
-
-	case 'projects':
-		return <Projects data={data}/>
-
-	case 'intro':
-		return <Intro data={data}/>
-
-	case 'print':
-		return <Print data={data}/>
-
-	default:
-		return <TerminalError data={data}/>
-	}
-}
+const Tab = ({id, tab, isActive, onClick, onClose}) => (
+	<article
+		className={`location-info tab ${isActive ? 'active' : ''}`}
+		onClick={onClick}>
+		{id !== '0' &&
+			<button
+				className='tab-close'
+				onClick={onClose}>✕</button>}
+		<span className='second'>{tab.location} — -bash</span>
+	</article>
+)
