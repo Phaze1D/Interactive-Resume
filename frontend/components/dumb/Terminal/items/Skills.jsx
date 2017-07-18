@@ -16,14 +16,8 @@ export class Skills extends React.PureComponent{
 		technologies.sort( (a,b) => {return b.mastery - a.mastery})
 
 		const techList = technologies.map( (skill, index) =>
-			<article className='flex-row' key={index}>
-				<div className='cell md'>{skill.name}:</div>
-				<div className='cell fill'>
-					<SkillBar mastery={skill.mastery}/>
-				</div>
-			</article>
+			<SkillBar key={index} skill={skill}/>
 		)
-
 
 		return (
 			<TerminalItem command={this.props.data.command}>
@@ -54,18 +48,22 @@ class SkillBar extends React.Component{
 	}
 
 	componentDidUpdate() {
-		if(this.state.currentM >= this.props.mastery){
+		if(this.state.currentM >= this.props.skill.mastery){
 			clearInterval(this.intervalID)
 		}
 	}
 
 	render(){
+		const name = this.props.skill.name
 		const currentM = this.state.currentM
 
 		return (
-			<div>
-				| { '█'.repeat(Math.round(currentM/2)) }{'░'.repeat(50 - Math.round(currentM/2)) } | {currentM}%
-			</div>
+			<article className='flex-row'>
+				<div className='cell sm'>{name}:</div>
+				<div className='cell fill'>
+					| { '█'.repeat(Math.round(currentM/2)) }{'░'.repeat(50 - Math.round(currentM/2)) } | {currentM}%
+				</div>
+			</article>
 		)
 	}
 }
