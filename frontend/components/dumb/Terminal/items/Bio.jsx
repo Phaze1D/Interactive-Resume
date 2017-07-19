@@ -17,14 +17,14 @@ export const Bio = ({data, path}) => {
 		location,
 		profiles,
 		about,
-		biopic
+		images
 	} = data.value
 
 	return (
 		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
 				<h4>Avatar:</h4>
-				<img className='item-img' src={biopic} alt='avatar'></img>
+				<img className='item-img' src={images[0]} alt='avatar'></img>
 
 				<h4>Bio:</h4>
 				<article className='flex-row'>
