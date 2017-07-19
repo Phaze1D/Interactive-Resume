@@ -2,36 +2,35 @@ import React from 'react'
 import TerminalItem from './Item'
 
 
-export const Education = ({data, path}) => {
+export const Education = ({data, path, onRequestImage}) => {
 
 	const {
 		schools,
-		onlineCourses
+		online
 	} = data.value
-
-	schools.sort( (a, b) => {
-		return new Date(b.dates.from).getTime() - new Date(a.dates.from).getTime()
-	})
 
 	const schoolList = schools.map( (school, index) =>
 		<School school={school} key={index}/>
 	)
 
-	onlineCourses.sort( (a, b) => {
-		return new Date(b.dates.from).getTime() - new Date(a.dates.from).getTime()
-	})
-
-	const onlineList = onlineCourses.map( (online, index) =>
-		<Online online={online} key={index}/>
+	const onlineList = online.map( (onlineC, index) =>
+		<Online online={onlineC} key={index}
+			onImageClick={e =>
+				onRequestImage(e, `~/Education/${onlineC.name.replace(/\s/g,'')}/Images`, `images education online ${index}`)
+			}/>
 	)
 
 	return (
 		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
-				<h4>Schools:</h4>
+				{schoolList.length > 0 &&
+					<h4>Schools:</h4>
+				}
 				{schoolList}
 
-				<h4>Online Courses:</h4>
+				{onlineList.length > 0 &&
+					<h4>Online Courses:</h4>
+				}
 				{onlineList}
 			</section>
 		</TerminalItem>
@@ -85,13 +84,14 @@ const School = ({school}) => (
 /**
 * Online Component
 */
-const Online = ({online}) => (
+const Online = ({online, onImageClick}) => (
 	<div className='row-block'>
-		{online.certificate &&
+		{online.images &&
 			<article className='flex-row'>
 				<div className='cell sm'></div>
 				<div className='cell fill'>
-					<img src={online.certificate}></img>
+					<img src={online.images[0]}
+						onClick={onImageClick}></img>
 				</div>
 			</article>
 		}
