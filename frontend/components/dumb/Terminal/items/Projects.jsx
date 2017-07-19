@@ -3,12 +3,13 @@ import TerminalItem from './Item'
 
 
 export const Projects = ({data, onRequestImage, path}) => {
-
 	const projectList = data.value.map( (project, index) =>
 		<Project
 			key={index}
 			project={project}
-			onRequestImage={onRequestImage}/>
+			onImageClick={e =>
+				onRequestImage(e, `~/Projects/${project.name.replace(/\s/g,'')}/Images`, `images projects ${project.id}`)
+			}/>
 	)
 
 	return (
@@ -22,7 +23,7 @@ export const Projects = ({data, onRequestImage, path}) => {
 }
 
 
-const Project = ({project, onRequestImage}) => {
+const Project = ({project, onImageClick}) => {
 
 	const topicList = project.topics.map((topic, index) =>
 		<Tag key={index} tag={topic} type='topic'/>
@@ -32,9 +33,10 @@ const Project = ({project, onRequestImage}) => {
 		<Tag key={index} tag={lang} type='lang'/>
 	)
 
-	const imgList = project.imgs.map((img, index) =>
+	const imgList = project.images.map((img, index) =>
 		<div key={index} className='cell'>
-			<img src={img} onClick={e => onRequestImage(e, project, index)}></img>
+			<img src={img}
+				onClick={onImageClick}></img>
 		</div>
 	)
 
