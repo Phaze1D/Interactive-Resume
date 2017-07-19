@@ -8,10 +8,9 @@ import {
 	Work,
 	Print,
 	TerminalError,
-	Projects
+	Projects,
+	Images
 } from './items'
-
-
 
 export default class Panel extends React.PureComponent{
 	constructor(props){
@@ -19,7 +18,12 @@ export default class Panel extends React.PureComponent{
 
 		this.handleMainClick = this.handleMainClick.bind(this)
 		this.handleEntered = this.handleEntered.bind(this)
-		this.handleImageClick = this.handleImageClick.bind(this)
+	}
+
+	componentWillUpdate(nextProps, nextState) {
+		if(nextProps.tabID !== this.props.tabID){
+			document.getElementsByClassName('content')[0].scrollTop = 0
+		}
 	}
 
 	handleMainClick(){
@@ -31,20 +35,17 @@ export default class Panel extends React.PureComponent{
 		this.props.onRequestCommand(command, this.props.tabID)
 	}
 
-	handleImageClick(event, project, index){
-		event.stopPropagation()
-		console.log(project)
-	}
-
 	render(){
 		const {
 			path,
 			tabLog,
+			onRequestImage
 		} = this.props
 
 		const logList = tabLog.map( (data, index) =>
 			<Switch key={index} data={data} path={path}
-				onRequestImage={this.handleImageClick}/>
+				shouldPrint={tabLog.length - 1 === index}
+				onRequestImage={onRequestImage}/>
 		)
 
 		return (
@@ -79,6 +80,7 @@ class Switch extends React.Component{
 		const {
 			data,
 			path,
+			shouldPrint,
 			onRequestImage
 		} = this.props
 
@@ -86,7 +88,7 @@ class Switch extends React.Component{
 			return <TerminalError data={data} path={path}/>
 		}
 
-		switch (data.command) {
+		switch (data.command.split(/\s/g)[0]) {
 		case 'bio':
 			return <Bio data={data} path={path}/>
 
@@ -94,7 +96,12 @@ class Switch extends React.Component{
 			return <Skills data={data} path={path}/>
 
 		case 'education':
-			return <Education data={data} path={path}/>
+			return (
+				<Education
+					data={data}
+					path={path}
+					onRequestImage={onRequestImage}/>
+			)
 
 		case 'work':
 			return <Work data={data} path={path}/>
@@ -102,16 +109,19 @@ class Switch extends React.Component{
 		case 'projects':
 			return (
 				<Projects
+					data={data}
 					path={path}
-					onRequestImage={onRequestImage}
-					data={data}/>
+					onRequestImage={onRequestImage}/>
 			)
 
 		case 'intro':
 			return <Intro data={data} path={path}/>
 
 		case 'print':
-			return <Print data={data} path={path}/>
+			return <Print data={data} path={path} shouldPrint={shouldPrint}/>
+
+		case 'images':
+			return <Images data={data} path={path}/>
 
 		default:
 			return <TerminalError data={data} path={path}/>
