@@ -1,14 +1,9 @@
 import { fromJS } from 'immutable'
-import * as types from 'actions/types'
-import uuid from 'uuid/v4'
+import * as tp from 'actions/types'
 
 
 const INITIAL_TERMINAL = fromJS({
 	'0': {
-		path: '~/Projects/InteractiveResume',
-		tabLog: []
-	},
-	'122': {
 		path: '~/Projects/InteractiveResume',
 		tabLog: []
 	}
@@ -17,7 +12,7 @@ const INITIAL_TERMINAL = fromJS({
 
 
 export const commandReducer = (state = INITIAL_TERMINAL, action) => {
-	if(action.type.includes('SUCCESS') || action.type.includes('ERROR')){
+	if(action.type === `${tp.COMMAND_ENTERED}_SUCCESS` || action.type === `${tp.COMMAND_ENTERED}_ERROR`){
 		let id = action.meta
 		if(action.payload.data.command === 'intro'){
 			return state.setIn([id, 'tabLog'], fromJS([action.payload.data]))
@@ -28,15 +23,16 @@ export const commandReducer = (state = INITIAL_TERMINAL, action) => {
 }
 
 export const addTabReducer = (state = INITIAL_TERMINAL, action) => {
-	if(action.type === types.ADD_TAB){
-		return state.set(uuid(),fromJS(action.payload))
+	if(action.type === `${tp.ADD_TAB}_SUCCESS`){
+		let data = action.payload
+		return state.set(data.id,fromJS(data))
 	}
 
 	return state
 }
 
 export const removeTabReducer = (state = INITIAL_TERMINAL, action) => {
-	if(action.type === types.REMOVE_TAB){
+	if(action.type === tp.REMOVE_TAB){
 		return state.delete(action.payload.id)
 	}
 
