@@ -8,6 +8,8 @@ export default class Terminal extends React.Component{
 	constructor(props){
 		super(props)
 		this.state = {activeTab: Object.keys(props.terminalTabs)[0]}
+
+		this.handleImageClick = this.handleImageClick.bind(this)
 	}
 
 	componentDidMount(){
@@ -24,7 +26,15 @@ export default class Terminal extends React.Component{
 			this.setState({activeTab: '0'})
 		}
 		this.props.onRequestRemove(id)
+	}
 
+	handleImageClick(event, path, imageCommand){
+		event.stopPropagation()
+		this.props.onRequestAdd(path)
+		.then(res => {
+			this.handleTabClick(res.value.id)
+			this.props.onRequestCommand(imageCommand, res.value.id)
+		})
 	}
 
 	render(){
@@ -77,7 +87,7 @@ export default class Terminal extends React.Component{
 					{...terminalTabs[this.state.activeTab]}
 					tabID={this.state.activeTab}
 					onRequestCommand={onRequestCommand}
-					onRequestAdd={onRequestAdd}/>
+					onRequestImage={this.handleImageClick}/>
 
 			</main>
 		)
