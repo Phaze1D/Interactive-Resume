@@ -5,6 +5,7 @@ import TerminalItem from './Item'
 export const Intro = ({data, path}) => {
 
 	const {
+		art,
 		welcomeMessage,
 		commands,
 		example,
@@ -22,15 +23,7 @@ export const Intro = ({data, path}) => {
 		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
 				<pre className='ascii-art'>
-					{`
- _     _  _______  ___      _______  _______  __   __  _______
-| | _ | ||       ||   |    |       ||       ||  |_|  ||       |
-| || || ||    ___||   |    |       ||   _   ||       ||    ___|
-|       ||   |___ |   |    |       ||  | |  ||       ||   |___
-|       ||    ___||   |___ |      _||  |_|  ||       ||    ___|
-|   _   ||   |___ |       ||     |_ |       || ||_|| ||   |___
-|__| |__||_______||_______||_______||_______||_|   |_||_______|
-					`}
+					{art}
 				</pre>
 
 				<p>
