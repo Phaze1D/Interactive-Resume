@@ -20,7 +20,9 @@ class Input extends React.PureComponent {
 
 
 	handleSelection(event){
-		document.getElementById('caret').style.transform = `translate(${100 * (event.target.selectionStart+1)}%, 0)`
+		let caret = document.getElementById('caret')
+		let width = caret.getBoundingClientRect().width
+		caret.style.transform = `translate(${width * (event.target.selectionStart+1)}px, 0)`
 	}
 
 	handleEntered(event){
