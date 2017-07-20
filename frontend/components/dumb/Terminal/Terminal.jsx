@@ -87,7 +87,7 @@ export default class Terminal extends React.Component{
 					{...terminalTabs[this.state.activeTab]}
 					tabID={this.state.activeTab}
 					onRequestCommand={onRequestCommand}
-					onRequestImage={this.handleImageClick}/>
+					onRequestImage={this.handleImageClick}/> 
 
 			</main>
 		)

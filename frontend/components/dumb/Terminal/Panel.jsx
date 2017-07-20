@@ -16,14 +16,22 @@ export default class Panel extends React.PureComponent{
 	constructor(props){
 		super(props)
 
+		this.commandAt = 1
 		this.handleMainClick = this.handleMainClick.bind(this)
 		this.handleEntered = this.handleEntered.bind(this)
+		this.handleNavigationUp = this.handleNavigationUp.bind(this)
+		this.handleNavigationDown = this.handleNavigationDown.bind(this)
+		this.handleTabCompletion = this.handleTabCompletion.bind(this)
 	}
 
 	componentWillUpdate(nextProps, nextState) {
 		if(nextProps.tabID !== this.props.tabID){
 			document.getElementsByClassName('content')[0].scrollTop = 0
 		}
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		this.commandAt = this.props.tabLog.length
 	}
 
 	handleMainClick(){
@@ -33,6 +41,28 @@ export default class Panel extends React.PureComponent{
 
 	handleEntered(command){
 		this.props.onRequestCommand(command, this.props.tabID)
+	}
+
+	handleNavigationUp(event){
+		if(this.commandAt > 0){
+			this.commandAt--
+			event.target.value = this.props.tabLog[this.commandAt].command
+		}
+	}
+
+	handleNavigationDown(event){
+		if(this.commandAt < this.props.tabLog.length){
+			this.commandAt++
+			if(this.commandAt === this.props.tabLog.length){
+				event.target.value = ''
+			}else{
+				event.target.value = this.props.tabLog[this.commandAt].command
+			}
+		}
+	}
+
+	handleTabCompletion(event){
+		console.log(event)
 	}
 
 	render(){
@@ -50,11 +80,15 @@ export default class Panel extends React.PureComponent{
 
 		return (
 			<div className='content' onClick={this.handleMainClick}>
+				<audio></audio>
 				{logList}
 
 				<Input
 					path={path}
-					onRequestEnter={this.handleEntered}/>
+					onRequestEnter={this.handleEntered}
+					onRequestUp={this.handleNavigationUp}
+					onRequestDown={this.handleNavigationDown}
+					onRequestTab={this.handleTabCompletion}/>
 			</div>
 		)
 	}
