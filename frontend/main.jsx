@@ -23,10 +23,17 @@ if(process.env.NODE_ENV === 'production'){
 			}
 		}) : null
 
-	store = createStore(
-		getReducers(),
-		composeEnhancers(middleware)
-	)
+	if(typeof composeEnhancers === 'function' ){
+		store = createStore(
+			getReducers(),
+			composeEnhancers(middleware)
+		)
+	}else{
+		store = createStore(
+			getReducers(),
+			middleware
+		)
+	}
 }
 
 
