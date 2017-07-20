@@ -30,18 +30,25 @@ class Input extends React.PureComponent {
 			event.target.value = ''
 			event.target.selectionStart = 0
 		}
+
+		if(event.keyCode === 9){
+			event.preventDefault()
+			this.props.onRequestTab(event)
+		}
+
 		this.handleSelection(event)
 	}
 
 
 	handleCommandMovement(event){
 		if(event.keyCode === 38){
-			//
+			this.props.onRequestUp(event)
 		}
 
 		if(event.keyCode === 40){
-			//
+			this.props.onRequestDown(event)
 		}
+
 		this.handleSelection(event)
 	}
 
