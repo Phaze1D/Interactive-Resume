@@ -5,6 +5,7 @@ import print from './print'
 import projects from './projects'
 import skills from './skills'
 import work from './work'
+import commands from './commands'
 
 
 const localData = {
@@ -15,6 +16,7 @@ const localData = {
 	projects: projects,
 	skills: skills,
 	work: work,
+	tab: commands,
 	images: function (commands) {
 		let ret = this
 		for (var i = 1; i < commands.length; i++) {
@@ -75,5 +77,6 @@ export default {
 				resolve({data: data})
 			}
 		})
-	}
+	},
+	commands: commands
 }
