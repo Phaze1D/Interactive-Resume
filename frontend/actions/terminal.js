@@ -1,5 +1,5 @@
 import * as types from 'actions/types'
-import getCommandInfo from 'api'
+import {getCommandInfo, tabCompletion} from 'api'
 import uuid from 'uuid/v4'
 
 
@@ -10,7 +10,6 @@ export const commandEntered = (command, tabID) => {
 		meta: tabID
 	}
 }
-
 
 export const addTab = (path) => {
 	return {
@@ -25,11 +24,25 @@ export const addTab = (path) => {
 	}
 }
 
-
-
 export const removeTab = (id) => {
 	return {
 		type: types.REMOVE_TAB,
-		payload: {id: id}
+		payload: new Promise(function (resolve) {
+			resolve({id: id})
+		})
+	}
+}
+
+export const completion = (value) => {
+	return {
+		type: types.TAB_COMPLETION,
+		payload: new Promise(function(resolve, reject) {
+			let results = tabCompletion(['tab',value])
+			if(results.length > 0){
+				resolve({data: results})
+			}else{
+				reject({data: null})
+			}
+		})
 	}
 }
