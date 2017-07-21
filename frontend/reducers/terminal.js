@@ -9,8 +9,6 @@ const INITIAL_TERMINAL = fromJS({
 	}
 })
 
-
-
 export const commandReducer = (state = INITIAL_TERMINAL, action) => {
 	if(action.type === `${tp.COMMAND_ENTERED}_SUCCESS` || action.type === `${tp.COMMAND_ENTERED}_ERROR`){
 		let id = action.meta
@@ -27,14 +25,12 @@ export const addTabReducer = (state = INITIAL_TERMINAL, action) => {
 		let data = action.payload
 		return state.set(data.id,fromJS(data))
 	}
-
 	return state
 }
 
 export const removeTabReducer = (state = INITIAL_TERMINAL, action) => {
-	if(action.type === tp.REMOVE_TAB){
+	if(action.type === `${tp.REMOVE_TAB}_SUCCESS`){
 		return state.delete(action.payload.id)
 	}
-
 	return state
 }
