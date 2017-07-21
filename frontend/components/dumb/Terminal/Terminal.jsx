@@ -1,7 +1,7 @@
 import React from 'react'
 import Panel from './Panel'
 import homeIcon from 'resources/images/home.png'
-
+import funk from 'resources/Funk.mp3'
 
 
 export default class Terminal extends React.Component{
@@ -42,6 +42,7 @@ export default class Terminal extends React.Component{
 			terminalTabs,
 			onRequestCommand,
 			onRequestAdd,
+			onRequestTabCompletion
 		} = this.props
 
 		const tabsList = []
@@ -61,6 +62,7 @@ export default class Terminal extends React.Component{
 
 		return (
 			<main className='terminal'>
+				<audio id='funk' src={funk}></audio>
 				<div className='terminal-bar'>
 					<ul className='button-list'>
 						<li><button id='close'><div></div></button></li>
@@ -87,7 +89,8 @@ export default class Terminal extends React.Component{
 					{...terminalTabs[this.state.activeTab]}
 					tabID={this.state.activeTab}
 					onRequestCommand={onRequestCommand}
-					onRequestImage={this.handleImageClick}/> 
+					onRequestImage={this.handleImageClick}
+					onRequestTabCompletion={onRequestTabCompletion}/>
 
 			</main>
 		)

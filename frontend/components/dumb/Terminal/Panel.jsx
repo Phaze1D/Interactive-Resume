@@ -1,15 +1,7 @@
 import React from 'react'
 import {
-	Input,
-	Intro,
-	Bio,
-	Skills,
-	Education,
-	Work,
-	Print,
-	TerminalError,
-	Projects,
-	Images
+	Input, Intro, Bio, Skills, Projects, Images,
+	Education, Work, Print, TerminalError, Tab
 } from './items'
 
 export default class Panel extends React.PureComponent{
@@ -21,8 +13,9 @@ export default class Panel extends React.PureComponent{
 		this.handleEntered = this.handleEntered.bind(this)
 		this.handleNavigationUp = this.handleNavigationUp.bind(this)
 		this.handleNavigationDown = this.handleNavigationDown.bind(this)
-		this.handleTabCompletion = this.handleTabCompletion.bind(this)
 	}
+
+
 
 	componentWillUpdate(nextProps, nextState) {
 		if(nextProps.tabID !== this.props.tabID){
@@ -32,6 +25,16 @@ export default class Panel extends React.PureComponent{
 
 	componentDidUpdate(prevProps, prevState) {
 		this.commandAt = this.props.tabLog.length
+
+		let prediv = document.getElementsByClassName('input-item')[this.props.tabLog.length-1]
+		let content = document.getElementById('content')
+		if(prediv && prevProps.tabLog.length >= 1){
+			if(prediv.clientHeight > content.clientHeight || content.scrollTop + prediv.clientHeight > prediv.offsetTop - 44){
+				content.scrollTop = prediv.offsetTop - 64
+			}else{
+				content.scrollTop = content.scrollTop + prediv.clientHeight
+			}
+		}
 	}
 
 	handleMainClick(){
@@ -46,13 +49,21 @@ export default class Panel extends React.PureComponent{
 	handleNavigationUp(event){
 		if(this.commandAt > 0){
 			this.commandAt--
-			event.target.value = this.props.tabLog[this.commandAt].command
+			let command = this.props.tabLog[this.commandAt].command
+			while(command.split(' ')[0] === 'tab'){
+				this.commandAt--
+				command = this.props.tabLog[this.commandAt].command
+			}
+
+			event.target.value = command
 		}
 	}
 
 	handleNavigationDown(event){
 		if(this.commandAt < this.props.tabLog.length){
-			this.commandAt++
+			while(++this.commandAt < this.props.tabLog.length &&
+				this.props.tabLog[this.commandAt].command.split(' ')[0] === 'tab');
+
 			if(this.commandAt === this.props.tabLog.length){
 				event.target.value = ''
 			}else{
@@ -61,15 +72,12 @@ export default class Panel extends React.PureComponent{
 		}
 	}
 
-	handleTabCompletion(event){
-		console.log(event)
-	}
-
 	render(){
 		const {
 			path,
 			tabLog,
-			onRequestImage
+			onRequestImage,
+			onRequestTabCompletion
 		} = this.props
 
 		const logList = tabLog.map( (data, index) =>
@@ -79,8 +87,7 @@ export default class Panel extends React.PureComponent{
 		)
 
 		return (
-			<div className='content' onClick={this.handleMainClick}>
-				<audio></audio>
+			<div id='content' className='content' onClick={this.handleMainClick}>
 				{logList}
 
 				<Input
@@ -88,7 +95,7 @@ export default class Panel extends React.PureComponent{
 					onRequestEnter={this.handleEntered}
 					onRequestUp={this.handleNavigationUp}
 					onRequestDown={this.handleNavigationDown}
-					onRequestTab={this.handleTabCompletion}/>
+					onRequestTab={onRequestTabCompletion}/>
 			</div>
 		)
 	}
@@ -156,6 +163,9 @@ class Switch extends React.Component{
 
 		case 'images':
 			return <Images data={data} path={path}/>
+
+		case 'tab':
+			return <Tab data={data} path={path}/>
 
 		default:
 			return <TerminalError data={data} path={path}/>

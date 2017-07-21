@@ -9,9 +9,9 @@ class Input extends React.PureComponent {
 	constructor(props){
 		super(props)
 		this.handleBlur = this.handleBlur.bind(this)
-		this.handleEntered = this.handleEntered.bind(this)
+		this.handleKeyDown = this.handleKeyDown.bind(this)
 		this.handleSelection = this.handleSelection.bind(this)
-		this.handleCommandMovement = this.handleCommandMovement.bind(this)
+		this.handleKeyUp = this.handleKeyUp.bind(this)
 	}
 
 	componentDidMount() {
@@ -25,7 +25,7 @@ class Input extends React.PureComponent {
 		caret.style.transform = `translate(${width * (event.target.selectionStart+1)}px, 0)`
 	}
 
-	handleEntered(event){
+	handleKeyDown(event){
 		if(event.keyCode === 13){
 			event.preventDefault()
 			this.props.onRequestEnter(event.target.value)
@@ -35,14 +35,27 @@ class Input extends React.PureComponent {
 
 		if(event.keyCode === 9){
 			event.preventDefault()
-			this.props.onRequestTab(event)
+			event.persist()
+			this.props.onRequestTab(event.target.value)
+			.then((res) => {
+				if(res.value.data.length === 1){
+					event.target.value = res.value.data[0]
+				}else{
+					this.props.onRequestEnter(`tab ${event.target.value}`)
+				}
+				this.handleSelection(event)
+			})
+			.catch(() => {
+				document.getElementById('funk').play()
+				this.handleSelection(event)
+			})
 		}
 
 		this.handleSelection(event)
 	}
 
 
-	handleCommandMovement(event){
+	handleKeyUp(event){
 		if(event.keyCode === 38){
 			this.props.onRequestUp(event)
 		}
@@ -69,8 +82,8 @@ class Input extends React.PureComponent {
 					id='main-textarea'
 					rows='1'
 					onChange={this.handleSelection}
-					onKeyUp={this.handleCommandMovement}
-					onKeyDown={this.handleEntered}
+					onKeyUp={this.handleKeyUp}
+					onKeyDown={this.handleKeyDown}
 					onClick={this.handleSelection}
 					onBlur={this.handleBlur}>
 				</textarea>
