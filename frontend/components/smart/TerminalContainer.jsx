@@ -23,7 +23,8 @@ export default class TerminalContainer extends React.Component{
 		const {
 			terminalTabs,
 			addTab,
-			removeTab
+			removeTab,
+			completion
 		} = this.props
 
 
@@ -32,6 +33,7 @@ export default class TerminalContainer extends React.Component{
 				onRequestCommand={this.handleCommandEnter}
 				onRequestAdd={addTab}
 				onRequestRemove={removeTab}
+				onRequestTabCompletion={completion}
 				terminalTabs={terminalTabs.toJS()}/>
 		)
 	}
