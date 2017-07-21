@@ -54,6 +54,10 @@ class SkillBar extends React.Component{
 		}
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.intervalID)
+	}
+
 	render(){
 		const name = this.props.skill.name
 		const currentM = this.state.currentM
