@@ -63,7 +63,10 @@ export const Bio = ({data, path}) => {
 						</span>
 					</div>
 					<div className='cell fill'>
-						<a href={profiles.github} target='__blank'>{profiles.github}</a>
+						<a href={profiles.github} target='__blank'
+							onClick={e => window.ga('send', 'social', 'Github', profiles.github)}>
+							{profiles.github}
+						</a>
 					</div>
 				</article>
 				<article className='flex-row'>
@@ -74,7 +77,10 @@ export const Bio = ({data, path}) => {
 						</span>
 					</div>
 					<div className='cell fill'>
-						<a href={profiles.linkedin} target='__blank'>{profiles.linkedin}</a>
+						<a href={profiles.linkedin} target='__blank'
+							onClick={e => window.ga('send', 'social', 'Linkedin', profiles.linkedin)}>
+							{profiles.linkedin}
+						</a>
 					</div>
 				</article>
 				<article className='flex-row'>
@@ -85,7 +91,10 @@ export const Bio = ({data, path}) => {
 						</span>
 					</div>
 					<div className='cell fill'>
-						<a href={profiles.codefights} target='__blank'>{profiles.codefights}</a>
+						<a href={profiles.codefights} target='__blank'
+							onClick={e => window.ga('send', 'social', 'CodeFights', profiles.codefights)}>
+							{profiles.codefights}
+						</a>
 					</div>
 				</article>
 				<article className='flex-row'>
@@ -96,7 +105,10 @@ export const Bio = ({data, path}) => {
 						</span>
 					</div>
 					<div className='cell fill'>
-						<a href={profiles.stackoverflow} target='__blank'>{profiles.stackoverflow}</a>
+						<a href={profiles.stackoverflow} target='__blank'
+							onClick={e => window.ga('send', 'social', 'Stackoverflow', profiles.stackoverflow)}>
+							{profiles.stackoverflow}
+						</a>
 					</div>
 				</article>
 
