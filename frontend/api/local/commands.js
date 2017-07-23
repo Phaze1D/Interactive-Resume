@@ -1,14 +1,14 @@
 const commands = [
-	{name: 'bio', info: '- Displays my bio information e.g contact info'},
-	{name: 'projects', info: '- Displays all my projects that I have created'},
-	{name: 'projects --search <query>', info: '- Search projects by technical skill used'},
-	{name: 'skills', info: '- Displays my technical skills with a mastery level'},
-	{name: 'education', info: '- Displays all the education I have received'},
-	{name: 'education --schools', info: '- Displays the schools that I have attend'},
-	{name: 'education --online', info: '- Displays just the online courses I have taken'},
-	{name: 'work', info: '- Displays my work experience'},
-	{name: 'intro', info: '- Reset the terminal and display these instructions'},
-	{name: 'print', info: '- Print out a PDF version of my resume'},
+	{name: 'bio', info: 'Displays my bio information e.g contact info'},
+	{name: 'projects', info: 'Displays all my projects that I have created'},
+	{name: 'projects --search <query>', info: 'Search projects by technical skill used'},
+	{name: 'skills', info: 'Displays my technical skills with a mastery level'},
+	{name: 'education', info: 'Displays all the education I have received'},
+	{name: 'education --schools', info: 'Displays the schools that I have attend'},
+	{name: 'education --online', info: 'Displays just the online courses I have taken'},
+	{name: 'work', info: 'Displays my work experience'},
+	{name: 'intro', info: 'Reset the terminal and display these instructions'},
+	{name: 'print', info: 'Print out a PDF version of my resume'},
 ]
 
 
