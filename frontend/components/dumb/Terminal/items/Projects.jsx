@@ -15,7 +15,7 @@ export const Projects = ({data, onRequestImage, path}) => {
 	return (
 		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
-				<h4>Projects:</h4>
+				<h4 className='title'>Projects:</h4>
 				{projectList}
 			</section>
 		</TerminalItem>
@@ -50,17 +50,17 @@ const Project = ({project, onImageClick}) => {
 			</article>
 
 			<article className='flex-row'>
-				<div className='cell sm'>Name:</div>
+				<div className='cell sm title'>Name:</div>
 				<div className='cell fill'>{project.name}</div>
 			</article>
 
 			<article className='flex-row'>
-				<div className='cell sm'>Description:</div>
+				<div className='cell sm title'>Description:</div>
 				<div className='cell fill'>{project.description}</div>
 			</article>
 
 			<article className='flex-row'>
-				<div className='cell sm'>Github Repo:</div>
+				<div className='cell sm title'>Github Repo:</div>
 				<div className='cell fill'>
 					<a href={project.giturl} target='__blank'>{project.giturl}</a>
 				</div>
@@ -68,7 +68,7 @@ const Project = ({project, onImageClick}) => {
 
 			{project.liveurl &&
 				<article className='flex-row'>
-					<div className='cell sm'>Live Website:</div>
+					<div className='cell sm title'>Live Website:</div>
 					<div className='cell fill'>
 						<a href={project.liveurl} target='__blank'>{project.liveurl}</a>
 					</div>
@@ -76,12 +76,12 @@ const Project = ({project, onImageClick}) => {
 			}
 
 			<article className='flex-row'>
-				<div className='cell sm'>Tech:</div>
+				<div className='cell sm title'>Tech:</div>
 				{topicList}
 			</article>
 
 			<article className='flex-row'>
-				<div className='cell sm'>Languages:</div>
+				<div className='cell sm title'>Languages:</div>
 				{langList}
 			</article>
 

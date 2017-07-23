@@ -13,7 +13,7 @@ export const Images = ({data, path}) => {
 	return (
 		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
-				<h4>Images: </h4>
+				<h4 className='title'>Images: </h4>
 				{imgList}
 			</section>
 		</TerminalItem>

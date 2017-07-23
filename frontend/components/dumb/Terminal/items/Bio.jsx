@@ -23,40 +23,40 @@ export const Bio = ({data, path}) => {
 	return (
 		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
-				<h4>Avatar:</h4>
+				<h4 className='title'>Avatar:</h4>
 				<img className='item-img' src={images[0]} alt='avatar'></img>
 
-				<h4>Bio:</h4>
+				<h4 className='title'>Bio:</h4>
 				<article className='flex-row'>
-					<div className='cell sm'>Name: </div>
+					<div className='cell sm title'>Name: </div>
 					<div className='cell fill'>{name}</div>
 				</article>
 
 				<article className='flex-row'>
-					<div className='cell sm'>Role: </div>
+					<div className='cell sm title'>Role: </div>
 					<div className='cell fill'>{role}</div>
 				</article>
 
 				<article className='flex-row'>
-					<div className='cell sm'>Email: </div>
+					<div className='cell sm title'>Email: </div>
 					<div className='cell fill'>{email}</div>
 				</article>
 
 				<article className='flex-row'>
-					<div className='cell sm'>About: </div>
+					<div className='cell sm title'>About: </div>
 					<div className='cell fill'>{about}</div>
 				</article>
 
 				<article className='flex-row'>
-					<div className='cell sm'>Location: </div>
+					<div className='cell sm title'>Location: </div>
 					<div className='cell fill'>
 						{location.city}, {location.state}, {location.country}
 					</div>
 				</article>
 
-				<h4>Profiles:</h4>
+				<h4 className='title'>Profiles:</h4>
 				<article className='flex-row'>
-					<div className='cell sm cell-logo'>
+					<div className='cell sm cell-logo '>
 						<GithubSVG/>
 						<span>
 							Github:
@@ -70,7 +70,7 @@ export const Bio = ({data, path}) => {
 					</div>
 				</article>
 				<article className='flex-row'>
-					<div className='cell sm cell-logo'>
+					<div className='cell sm cell-logo '>
 						<LinkedinSVG/>
 						<span>
 							Linkedin:
@@ -84,7 +84,7 @@ export const Bio = ({data, path}) => {
 					</div>
 				</article>
 				<article className='flex-row'>
-					<div className='cell sm cell-logo'>
+					<div className='cell sm cell-logo '>
 						<CodeFightsSVG/>
 						<span>
 							CodeFights:
@@ -98,7 +98,7 @@ export const Bio = ({data, path}) => {
 					</div>
 				</article>
 				<article className='flex-row'>
-					<div className='cell sm cell-logo'>
+					<div className='cell sm cell-logo '>
 						<StackoverflowSVG/>
 						<span>
 							Stackoverflow:

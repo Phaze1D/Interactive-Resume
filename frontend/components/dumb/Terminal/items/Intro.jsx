@@ -30,13 +30,13 @@ export const Intro = ({data, path}) => {
 					{welcomeMessage}
 				</p>
 
-				<h4>
+				<h4 className='title'>
 					COMMANDS:
 				</h4>
 
 				{cList}
 
-				<h4>
+				<h4 className='title'>
 					EXAMPLE:
 				</h4>
 
@@ -48,7 +48,7 @@ export const Intro = ({data, path}) => {
 					<p>{example.command}</p>
 				</div>
 
-				<h4>
+				<h4 className='title'>
 					PS:
 				</h4>
 

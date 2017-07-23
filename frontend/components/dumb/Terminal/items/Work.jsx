@@ -16,7 +16,7 @@ export const Work = ({data, path}) => {
 	return (
 		<TerminalItem command={data.command} path={path}>
 			<section className='result-area'>
-				<h4>Work:</h4>
+				<h4 className='title'>Work:</h4>
 				{jobList}
 			</section>
 		</TerminalItem>
@@ -27,24 +27,24 @@ export const Work = ({data, path}) => {
 const Job = ({job, aList}) => (
 	<div className='row-block'>
 		<article className='flex-row'>
-			<div className='cell sm'>Employer:</div>
+			<div className='cell sm title'>Employer:</div>
 			<div className='cell fill'>{job.employer}</div>
 		</article>
 
 		<article className='flex-row'>
-			<div className='cell sm'>Role:</div>
+			<div className='cell sm title'>Role:</div>
 			<div className='cell fill'>{job.role}</div>
 		</article>
 
 		<article className='flex-row'>
-			<div className='cell sm'>Location:</div>
+			<div className='cell sm title'>Location:</div>
 			<div className='cell fill'>
 				{job.location.city}, {job.location.state}, {job.location.country}
 			</div>
 		</article>
 
 		<article className='flex-row'>
-			<div className='cell sm'>Achievements:</div>
+			<div className='cell sm title'>Achievements:</div>
 			<div className='cell fill'>
 				<ul className='cell-list'>
 					{aList}
@@ -53,12 +53,12 @@ const Job = ({job, aList}) => (
 		</article>
 
 		<article className='flex-row'>
-			<div className='cell sm'>Dates:</div>
+			<div className='cell sm title'>Dates:</div>
 			<div className='cell fill'>{job.dates.from} - {job.dates.to}</div>
 		</article>
 
 		<article className='flex-row'>
-			<div className='cell sm'>Website:</div>
+			<div className='cell sm title'>Website:</div>
 			<div className='cell fill'>
 				<a href={job.url} target='__blank'>{job.url}</a>
 			</div>

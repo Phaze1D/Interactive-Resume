@@ -42,7 +42,7 @@ export class Skills extends React.PureComponent{
 		return (
 			<TerminalItem command={command} path={this.props.path}>
 				<section className='result-area'>
-					<h4>TECHNICAL SKILLS:</h4>
+					<h4 className='title'>TECHNICAL SKILLS:</h4>
 					{techList}
 				</section>
 			</TerminalItem>
