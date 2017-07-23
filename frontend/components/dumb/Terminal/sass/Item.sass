@@ -3,7 +3,14 @@
 	margin: 10px 0 10px 35px
 
 .row-block
-	padding: 0 0 20px
+	padding: 20px 0 20px
+	border-bottom: 1px solid transparentize($text-color, 0.7)
+
+	&:last-child
+		border-bottom: none
+
+.title
+	color: transparentize($text-color, 0.3)
 
 .cell
 	text-align: justify
@@ -64,16 +71,17 @@
 	margin-left: 35px
 
 .cell-list
+	margin: 0
 	padding-left: 14px
 
 	li
-		padding: 4px 0
+		padding: 2px 0
 
 .tag
 	color: #fff
 	opacity: .8
 	padding: 5px 15px
-	margin: 0 15px 5px 0
+	margin: 5px 15px 0px 0
 	font-size: .9em
 	border-radius: 20px
 
@@ -98,3 +106,16 @@
 	div
 		flex-basis: 0
 		padding-right: 16px
+
+
+@media(max-width: 716px)
+	.flex-row
+		flex-wrap: wrap
+	.cell
+		width: 100%
+		padding: 2px 0
+
+
+@media(max-width: 494px)
+	.flex-row
+		margin-left: 10px
