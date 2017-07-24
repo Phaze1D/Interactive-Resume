@@ -50,7 +50,7 @@ const projects = [
 		description: 'This is my Interactive Resume that you are currently viewing right now.',
 		topics: ['ReactJS', 'Redux', 'Firebase'],
 		languages: ['Javascript', 'CSS'],
-		images: ['ir1.jpg']
+		images: [require('resources/images/ir1.jpg'), require('resources/images/ir2.jpg'), require('resources/images/ir3.jpg')]
 	},
 	{
 		id: 5,
