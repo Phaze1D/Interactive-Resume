@@ -25,8 +25,13 @@ var config = {
       use: [{
         loader: 'babel-loader',
         options: {
-          presets: ['es2016', 'react'],
-          plugins: ["transform-decorators-legacy", "syntax-dynamic-import", "babel-plugin-inline-import"]
+          presets: ['es2015', 'es2016', 'react'],
+          plugins: [
+						"transform-decorators-legacy",
+						"syntax-dynamic-import",
+						"babel-plugin-inline-import",
+						"transform-es2015-parameters"
+					]
         }
       }]
     },{
