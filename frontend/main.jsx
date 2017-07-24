@@ -9,6 +9,7 @@ import Immutable from 'immutable'
 
 import 'sass/index.sass'
 import '../index.html'
+import 'resources/images/favicon.ico'
 
 let middleware = applyMiddleware( promise({promiseTypeSuffixes: ['LOADING', 'SUCCESS', 'ERROR']}))
 let store = null

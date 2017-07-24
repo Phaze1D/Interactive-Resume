@@ -43,6 +43,15 @@ var config = {
         }
 			},
     },{
+			test: /\.(ico)$/,
+      use: {
+				loader: 'url-loader',
+				options: {
+					name: '[name].[ext]',
+          limit: 19
+        }
+			},
+		},{
       test: /\.(scss|sass|css)$/,
       use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
