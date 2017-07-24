@@ -14,7 +14,10 @@ let store = null
 
 
 if(process.env.NODE_ENV === 'production'){
-	//
+	store = createStore(
+		getReducers(),
+		middleware
+	)
 }else{
 	const composeEnhancers = typeof window === 'object' && typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ !== 'undefined' ?
 		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
@@ -45,7 +48,7 @@ ReactDOM.render(
 )
 
 
-if (module.hot) {
+if (process.env.NODE_ENV !== 'production' && module.hot) {
 	const hotEmitter = require('webpack/hot/emitter')
 	const DEAD_CSS_TIMEOUT = 2000
 
