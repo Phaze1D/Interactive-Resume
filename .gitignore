@@ -1,3 +1,6 @@
 node_modules/
 *.log
 *.env
+public/
+.firebaserc
+firebase.json
