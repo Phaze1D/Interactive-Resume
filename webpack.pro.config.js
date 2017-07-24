@@ -5,13 +5,6 @@ var OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-// TODO: Finish Webpack production config
-
-var webpack = require('webpack')
-var path = require('path')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
-
-
 var config = {
   entry: './frontend/main.jsx',
   output: {
@@ -52,6 +45,15 @@ var config = {
         }
 			},
     },{
+			test: /\.(html)$/,
+      use: {
+				loader: 'url-loader',
+				options: {
+					name: 'index.[ext]',
+          limit: 19
+        }
+			},
+		},{
       test: /\.(scss|sass|css)$/,
       use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -68,7 +70,7 @@ var config = {
       canPrint: true
     }),
     new UglifyJSPlugin({ output: {comments: false} }),
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ],
 }
 
