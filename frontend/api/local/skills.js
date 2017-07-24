@@ -1,4 +1,3 @@
-
 const skills = {
 	technologies: [
 		{ name: 'Java', mastery: 80 },

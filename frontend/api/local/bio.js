@@ -12,10 +12,7 @@ const bio = {
 	},
 
 	about: `
-	I have always been inspired by people who create art because I have never
-	been able to do it, until I found out how to code. I feel like coding
-	satisfies my logical side, and at the same time, it gives me a way to create
-	amazing and beautiful art in the form of code.
+	Since I was a kid I have always loved to do 2 things, create and solve. I go into computers the moment my dad got one for his work and I immediately wanted to know how it worked in the hopes of building one myself. While research computers I came across the software side of things, which was a perfect fit for me, a way I could create and solve.
 	`,
 
 	images: ['https://avatars0.githubusercontent.com/u/8495952?v=3'],

@@ -1,6 +1,5 @@
 /* global require */
 
-
 const projects = [
 	{
 		id: 0,
@@ -27,7 +26,7 @@ const projects = [
 		name: 'Blug',
 		giturl: 'https://github.com/Phaze1D/Blug',
 		liveurl: 'https://blog-160318.appspot.com/',
-		description: 'A simple user blog that allows users to post there stories. Kind of like Reddit',
+		description: 'A simple user blog that allows users to post there stories. Kind of like Reddit but simplier',
 		topics: ['ReactJS', 'Redux', 'Flask', 'Google Cloud Platform'],
 		languages: ['Python', 'Javascript', 'CSS'],
 		images: [require('resources/images/bl1.jpg'), require('resources/images/bl2.jpg'), require('resources/images/bl3.jpg')]
@@ -56,7 +55,7 @@ const projects = [
 		id: 5,
 		name: 'Farmage Frontend',
 		giturl: 'https://github.com/Phaze1D/Farmage-Frontend',
-		description: 'The is a farm management application that simplifies the process of maintaining and organizing economic data of any farm',
+		description: 'The is a farm management application that simplifies the process of maintaining and organizing financial data of any farm. A project that I wish to finish some day.',
 		topics: ['ReactJS', 'MeteorJS', 'MongoDB'],
 		languages: ['Javascript', 'CSS', 'HTML'],
 		images: [require('resources/images/ff1.jpg'), require('resources/images/ff2.jpg'), require('resources/images/ff3.jpg')]
