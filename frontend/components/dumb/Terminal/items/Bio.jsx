@@ -28,27 +28,27 @@ export const Bio = ({data, path}) => {
 
 				<h4 className='title'>Bio:</h4>
 				<article className='flex-row'>
-					<div className='cell sm title'>Name: </div>
+					<div className='cell sm sub-title'>Name: </div>
 					<div className='cell fill'>{name}</div>
 				</article>
 
 				<article className='flex-row'>
-					<div className='cell sm title'>Role: </div>
+					<div className='cell sm sub-title'>Role: </div>
 					<div className='cell fill'>{role}</div>
 				</article>
 
 				<article className='flex-row'>
-					<div className='cell sm title'>Email: </div>
+					<div className='cell sm sub-title'>Email: </div>
 					<div className='cell fill'>{email}</div>
 				</article>
 
 				<article className='flex-row'>
-					<div className='cell sm title'>About: </div>
+					<div className='cell sm sub-title'>About: </div>
 					<div className='cell fill'>{about}</div>
 				</article>
 
 				<article className='flex-row'>
-					<div className='cell sm title'>Location: </div>
+					<div className='cell sm sub-title'>Location: </div>
 					<div className='cell fill'>
 						{location.city}, {location.state}, {location.country}
 					</div>
