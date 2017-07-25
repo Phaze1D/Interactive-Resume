@@ -4,7 +4,9 @@ import uuid from 'uuid/v4'
 
 
 export const commandEntered = (command, tabID) => {
-	window.ga('send', 'event', 'Command Entered', command)
+	if(window.ga){
+		window.ga('send', 'event', 'Command Entered', command)
+	}
 
 	return {
 		type: types.COMMAND_ENTERED,
@@ -14,7 +16,9 @@ export const commandEntered = (command, tabID) => {
 }
 
 export const addTab = (path='~/Projects/InteractiveResume') => {
-	window.ga('send', 'event', 'Tab Added', path)
+	if(window.ga){
+		window.ga('send', 'event', 'Tab Added', path)
+	}
 
 	return {
 		type: types.ADD_TAB,
@@ -29,7 +33,9 @@ export const addTab = (path='~/Projects/InteractiveResume') => {
 }
 
 export const removeTab = (id) => {
-	window.ga('send', 'event', 'Tab Removed', id)
+	if(window.ga){
+		window.ga('send', 'event', 'Tab Removed', id)
+	}
 
 	return {
 		type: types.REMOVE_TAB,
@@ -40,7 +46,9 @@ export const removeTab = (id) => {
 }
 
 export const completion = (value) => {
-	window.ga('send', 'event', 'Tab Completion', value)
+	if(window.ga){
+		window.ga('send', 'event', 'Tab Completion', value)
+	}
 
 	return {
 		type: types.TAB_COMPLETION,
