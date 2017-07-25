@@ -35,7 +35,7 @@ var config = {
         }
       }]
     },{
-      test: /\.(ttf|otf|eot|png|jpg|svg|html|mp3|pdf|woff(2)?)$/,
+      test: /\.(ttf|otf|eot|png|jpg|svg|html|mp3|woff(2)?)$/,
       use: {
 				loader: 'url-loader',
 				options: {
@@ -43,7 +43,7 @@ var config = {
         }
 			},
     },{
-			test: /\.(ico)$/,
+			test: /\.(ico|pdf)$/,
       use: {
 				loader: 'url-loader',
 				options: {

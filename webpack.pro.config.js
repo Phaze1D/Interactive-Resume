@@ -37,7 +37,7 @@ var config = {
         }
       }]
     },{
-      test: /\.(ttf|otf|eot|png|jpg|svg|mp3|pdf|woff(2)?)$/,
+      test: /\.(ttf|otf|eot|png|jpg|svg|mp3|woff(2)?)$/,
       use: {
 				loader: 'url-loader',
 				options: {
@@ -45,16 +45,7 @@ var config = {
         }
 			},
     },{
-			test: /\.(html)$/,
-      use: {
-				loader: 'url-loader',
-				options: {
-					name: 'index.[ext]',
-          limit: 19
-        }
-			},
-		},{
-			test: /\.(ico)$/,
+			test: /\.(ico|html|pdf)$/,
       use: {
 				loader: 'url-loader',
 				options: {
