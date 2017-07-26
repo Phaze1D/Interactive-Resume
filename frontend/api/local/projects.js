@@ -26,7 +26,7 @@ const projects = [
 		name: 'Blug',
 		giturl: 'https://github.com/Phaze1D/Blug',
 		liveurl: 'https://blog-160318.appspot.com/',
-		description: 'A simple user blog that allows users to post there stories. Kind of like Reddit but simplier',
+		description: 'A simple user blog that allows users to post their stories. Kind of like Reddit but simpler',
 		topics: ['ReactJS', 'Redux', 'Flask', 'Google Cloud Platform'],
 		languages: ['Python', 'Javascript', 'SASS'],
 		images: [require('resources/images/bl1.jpg'), require('resources/images/bl2.jpg'), require('resources/images/bl3.jpg')]
