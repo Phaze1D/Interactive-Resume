@@ -8,7 +8,7 @@ const projects = [
 		liveurl: 'https://bellezaorganica.com.mx',
 		description: 'Production Grade e-commerce website built for a client.',
 		topics: ['ReactJS', 'Redux', 'ExpressJS', 'Sequelize', 'AWS'],
-		languages: ['Javascript','HTML','CSS'],
+		languages: ['Javascript','HTML','SASS'],
 		images: [require('resources/images/bo1.jpg'), require('resources/images/bo2.jpg'), require('resources/images/bo3.jpg')]
 	},
 	{
@@ -28,7 +28,7 @@ const projects = [
 		liveurl: 'https://blog-160318.appspot.com/',
 		description: 'A simple user blog that allows users to post there stories. Kind of like Reddit but simplier',
 		topics: ['ReactJS', 'Redux', 'Flask', 'Google Cloud Platform'],
-		languages: ['Python', 'Javascript', 'CSS'],
+		languages: ['Python', 'Javascript', 'SASS'],
 		images: [require('resources/images/bl1.jpg'), require('resources/images/bl2.jpg'), require('resources/images/bl3.jpg')]
 	},
 	{
@@ -45,10 +45,10 @@ const projects = [
 		id: 4,
 		name: 'Interactive Resume',
 		giturl: 'https://github.com/Phaze1D/Interactive-Resume',
-		liveurl: 'https://phaze1d.github.io/Interactive-Resume/',
+		liveurl: 'https://david-villarreal.com',
 		description: 'This is my Interactive Resume that you are currently viewing right now.',
 		topics: ['ReactJS', 'Redux', 'Firebase'],
-		languages: ['Javascript', 'CSS'],
+		languages: ['Javascript', 'SASS'],
 		images: [require('resources/images/ir1.jpg'), require('resources/images/ir2.jpg'), require('resources/images/ir3.jpg')]
 	},
 	{
@@ -57,7 +57,7 @@ const projects = [
 		giturl: 'https://github.com/Phaze1D/Farmage-Frontend',
 		description: 'The is a farm management application that simplifies the process of maintaining and organizing financial data of any farm. A project that I wish to finish some day.',
 		topics: ['ReactJS', 'MeteorJS', 'MongoDB'],
-		languages: ['Javascript', 'CSS', 'HTML'],
+		languages: ['Javascript', 'Less', 'HTML'],
 		images: [require('resources/images/ff1.jpg'), require('resources/images/ff2.jpg'), require('resources/images/ff3.jpg')]
 	},
 	{
@@ -66,7 +66,7 @@ const projects = [
 		giturl: 'https://github.com/Phaze1D/Farmage-Concept',
 		description: 'This is the concept version of my farm management app. This version of the app is mostly focused on the backend',
 		topics: ['MeteorJS','MongoDB', 'Blaze Components'],
-		languages: ['CoffeeScript', 'HTML', 'CSS'],
+		languages: ['CoffeeScript', 'HTML', 'Less'],
 		images: [require('resources/images/fc1.jpg'), require('resources/images/fc2.jpg'), require('resources/images/fc3.jpg')]
 	},
 	{
