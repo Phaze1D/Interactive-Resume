@@ -17,6 +17,7 @@ export const Bio = ({data, path}) => {
 		location,
 		profiles,
 		about,
+		codeEthic,
 		images
 	} = data.value
 
@@ -45,6 +46,11 @@ export const Bio = ({data, path}) => {
 				<article className='flex-row'>
 					<div className='cell sm sub-title'>About: </div>
 					<div className='cell fill'>{about}</div>
+				</article>
+
+				<article className='flex-row'>
+					<div className='cell sm sub-title'>Code Ethic: </div>
+					<div className='cell fill' style={{ whiteSpace: 'pre-line'}}>{codeEthic}</div>
 				</article>
 
 				<article className='flex-row'>

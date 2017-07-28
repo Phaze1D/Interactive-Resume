@@ -19,7 +19,7 @@ _     _  _______  ___      _______  _______  __   __  _______
 		command: 'projects --search Javascript'
 	},
 	ps: `
-	This is an exact replica of my current terminal. You can use some common terminal keystrokes like up and down arrows to navigate through previously entered commands, and tab completion if you forgot the commands that are available. If you are using Mac OS and you have the Chrome browser expanded you can press COMMAND SHIFT F to get a more immersive experience.
+	This is an exact replica of my current terminal. You can use some common terminal keystrokes like up and down arrows to navigate through previously entered commands, and tab completion if you forget the commands that are available. If you are using Mac OS and you have the Chrome browser expanded you can press COMMAND SHIFT F to get a more immersive experience.
 	`
 }
 
