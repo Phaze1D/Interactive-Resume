@@ -17,7 +17,7 @@ const bio = {
 	`,
 
 	codeEthic: `
-	I know that in the world of software engineering there are many possible solutions to one answer so when I approach a solution I keep 3 things in mind, performance, organized code, and security. I am not the type of coder that writes a lot of code just to get it to work. I must always understand every single line of code that I write or it will keep me up at night and I really don't like looking at the messy code so I tend to refactor as often as possible. 
+	I know that in the world of software engineering there are many possible solutions to one answer so when I approach a solution I keep 3 things in mind, performance, organized code, and security. I am not the type of coder that writes a lot of code just to get it to work. I must always understand every single line of code that I write or it will keep me up at night and I really don't like looking at messy code so I tend to refactor as often as possible. 
 
 	When it comes to working in teams I keep the same 3 principles (performance, organized code, and security) in mind but am a lot more opened minded and understanding of other peoples code.
 	`,
