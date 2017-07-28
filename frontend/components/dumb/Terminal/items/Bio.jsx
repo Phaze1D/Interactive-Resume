@@ -45,7 +45,7 @@ export const Bio = ({data, path}) => {
 
 				<article className='flex-row'>
 					<div className='cell sm sub-title'>About: </div>
-					<div className='cell fill'>{about}</div>
+					<div className='cell fill' style={{ whiteSpace: 'pre-line'}}>{about}</div>
 				</article>
 
 				<article className='flex-row'>
