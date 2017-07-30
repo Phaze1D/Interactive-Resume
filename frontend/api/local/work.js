@@ -2,7 +2,7 @@ const work = {
 	jobs: [
 		{
 			employer: 'Comercializadora Vida Flor SA de CV',
-			role: 'Software Engineer',
+			role: 'Senior Software Engineer',
 			location: {city: 'Zapopan', state: 'Jalisco', country: 'Mexico'},
 			dates: {from: 'August 2014', to: 'August 2017'},
 			url: 'https://bellezaorganica.com.mx/',
