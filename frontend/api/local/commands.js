@@ -1,5 +1,5 @@
 const commands = [
-	{name: 'intro', info: 'Reset the terminal and display these instructions'},
+	{name: 'intro, clear', info: 'Reset the terminal and display these instructions'},
 	{name: 'bio', info: 'Displays my bio information e.g contact info'},
 	{name: 'print', info: 'Print out a PDF version of my resume'},
 	{name: 'projects', info: 'Displays my favorite projects that I have created'},

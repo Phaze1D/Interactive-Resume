@@ -43,7 +43,9 @@ const localData = {
 export default {
 	get: function (command) {
 		return new Promise(function(resolve, reject) {
-
+			if(command.includes('clear')){
+				command = command.replace('clear', 'intro')
+			}
 			let options = command.split(/\s/g)
 			let data = {command: command}
 
