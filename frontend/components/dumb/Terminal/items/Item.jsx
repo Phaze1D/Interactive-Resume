@@ -4,8 +4,9 @@ import React from 'react'
 * Terminal Item Component
 * Parent Component for all terminal items
 */
-const TerminalItem = ({children, withInput, command, path}) => (
-	<div className={`input-item ${withInput ? 'with-input' : ''}`}>
+const TerminalItem = ({children, withInput, command, path, onClick}) => (
+	<div className={`input-item ${withInput ? 'with-input' : ''}`}
+		onClick={onClick}>
 		<p>
 			<span className='orange'> david </span> at
 			<span className='yellow'> Joker </span> in

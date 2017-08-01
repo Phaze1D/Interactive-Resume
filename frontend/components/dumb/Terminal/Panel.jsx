@@ -38,8 +38,8 @@ export default class Panel extends React.PureComponent{
 	}
 
 	handleMainClick(){
-		document.getElementById('caret').classList.remove('focus-out')
-		document.getElementById('main-textarea').focus()
+		// document.getElementById('caret').classList.remove('focus-out')
+		// document.getElementById('main-textarea').focus()
 	}
 
 	handleEntered(command){

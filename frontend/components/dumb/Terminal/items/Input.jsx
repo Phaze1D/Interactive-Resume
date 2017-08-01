@@ -12,12 +12,17 @@ class Input extends React.PureComponent {
 		this.handleKeyDown = this.handleKeyDown.bind(this)
 		this.handleSelection = this.handleSelection.bind(this)
 		this.handleKeyUp = this.handleKeyUp.bind(this)
+		this.handleOnFocus = this.handleOnFocus.bind(this)
 	}
 
 	componentDidMount() {
 		autosize(document.getElementById('main-textarea'))
 	}
 
+	handleOnFocus(event){
+		document.getElementById('caret').classList.remove('focus-out')
+		document.getElementById('main-textarea').focus()
+	}
 
 	handleSelection(event){
 		let caret = document.getElementById('caret')
@@ -79,7 +84,7 @@ class Input extends React.PureComponent {
 		const path = this.props.path
 
 		return (
-			<TerminalItem withInput={true} path={path}>
+			<TerminalItem withInput={true} path={path} onClick={this.handleOnFocus}>
 					$<textarea
 					spellCheck='false'
 					id='main-textarea'
