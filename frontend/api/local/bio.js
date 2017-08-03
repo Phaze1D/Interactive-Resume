@@ -7,7 +7,7 @@ const bio = {
 
 	profiles: {
 		github: 'https://github.com/Phaze1D',
-		codefights: 'https://codefights.com/profile/playssss',
+		codefights: 'https://codefights.com/profile/phaze1d',
 		stackoverflow: 'http://stackoverflow.com/story/davidstory',
 		linkedin: 'https://www.linkedin.com/in/david-villarreal-720ab5134/',
 	},
@@ -15,7 +15,7 @@ const bio = {
 	about: `
 	I have always loved to do 2 things, create and solve. I got into computers the moment my dad bought his first one and I immediately wanted to know how they worked in the hopes of building one myself. While researching computers I came across the software side of things, which was a perfect fit for me, a way I could create and solve.
 
-	I would say that I have a very balanced work ethic. I never push myself to a point where I get burnt out. I keep my mind in the sweet spot always motivated to work and always interested in learning. 
+	I would say that I have a very balanced work ethic. I never push myself to a point where I get burnt out. I keep my mind in the sweet spot always motivated to work and always interested in learning.
 	`,
 
 	codeEthic: `

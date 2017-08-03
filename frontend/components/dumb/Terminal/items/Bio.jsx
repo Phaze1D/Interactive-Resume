@@ -89,7 +89,7 @@ export const Bio = ({data, path}) => {
 						</a>
 					</div>
 				</article>
-				{/*
+
 				<article className='flex-row'>
 					<div className='cell sm cell-logo '>
 						<CodeFightsSVG/>
@@ -104,7 +104,7 @@ export const Bio = ({data, path}) => {
 						</a>
 					</div>
 				</article>
-				*/}
+				
 				<article className='flex-row'>
 					<div className='cell sm cell-logo '>
 						<StackoverflowSVG/>
