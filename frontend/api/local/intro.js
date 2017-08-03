@@ -11,7 +11,7 @@ _     _  _______  ___      _______  _______  __   __  _______
 |__| |__||_______||_______||_______||_______||_|   |_||_______|
 	`,
 	welcomeMessage: `
-	Thanks for visiting my Personal Website. My name is David Villarreal and I'm a Software Engineer. If you'll like to get to know more about me enter these commands in the terminal
+	Thanks for visiting my Personal Website. My name is David Villarreal and I'm a Software Engineer. If you'll like to get to know more about me enter these commands in the terminal below. (Scroll Down)
 	`,
 	commands: commands(),
 	example: {
