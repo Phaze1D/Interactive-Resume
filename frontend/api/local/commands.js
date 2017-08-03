@@ -1,7 +1,7 @@
 const commands = [
 	{name: 'clear', info: 'Reset the terminal and display these instructions'},
-	{name: 'bio', info: 'Displays my bio information e.g contact info'},
 	{name: 'print', info: 'Print out a PDF version of my resume'},
+	{name: 'bio', info: 'Displays my bio information e.g contact info'},
 	{name: 'projects', info: 'Displays my favorite projects that I have created'},
 	{name: 'projects --search <query>', info: 'Search projects by technical skill used'},
 	{name: 'skills', info: 'Displays my technical skills with a mastery level'},
